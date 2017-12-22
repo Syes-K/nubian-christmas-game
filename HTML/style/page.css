@@ -309,6 +309,42 @@
         -webkit-transform: translateX(-1.225rem)
     }
 }
+.p2__prop-3 {
+    width: 1.65rem;
+    height: 1.55rem;
+    position: absolute;
+    bottom: .16rem;
+    left: 0;
+    overflow: hidden;
+}
+.p2__prop-3.shake img {
+    height: 200%;
+    animation: prop3 .4s steps(1) infinite;
+    -webkit-animation: prop3 .4s steps(1) infinite
+}
+@keyframes prop3 {
+    0% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-1.55rem)
+    }
+    100% {
+        transform: translateY(-1.55rem)
+    }
+}
+
+@-webkit-keyframes prop3 {
+    0% {
+        -webkit-transform: translateY(0)
+    }
+    50% {
+        -webkit-transform: translateY(-1.55rem)
+    }
+    100% {
+        -webkit-transform: translateY(-1.55rem)
+    }
+}
 
 
 /*----------------------------- p5 -------------------------------------*/
