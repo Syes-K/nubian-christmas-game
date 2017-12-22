@@ -1,0 +1,222 @@
+/*-----------------------------全局样式-------------------------------------*/
+
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+span,
+a,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+header,
+nav,
+footer,
+article,
+section,
+aside,
+time,
+figure {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-clip: padding-box
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: .12rem;
+    font-weight: normal
+}
+
+ul {
+    list-style: none
+}
+
+legend {
+    display: none
+}
+
+fieldset,
+img {
+    border: none;
+    vertical-align: middle
+}
+
+em,
+cite,
+i {
+    font-style: normal
+}
+
+input,
+button,
+textarea {
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    border: 0;
+    font-size: .12rem;
+    font-family: inherit;
+    -webkit-appearance: none
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    -webkit-appearance: none;
+    border-radius: 0
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: .12rem;
+    font-family: inherit
+}
+
+textarea {
+    resize: none
+}
+
+html {
+    height: 100%;
+    font-size: 100px;
+    overflow: hidden
+}
+
+
+/*.1rem=10px*/
+body {
+    font: .12rem/1 tahoma, arial, "Hiragino Sans GB", "Microsoft Yahei", \5b8b\4f53, sans-serif;
+    position: relative;
+    color: #000;
+    min-width: 320px;
+    height: 100%;
+    overflow: hidden
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer
+}
+
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+    outline: none
+}
+
+
+/*----------------------------- 框架 -------------------------------------*/
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    overflow: hidden
+}
+
+img {
+    display: block;
+    width: 100%
+}
+
+.bg {
+    width: 100%;
+    height: 100%
+}
+
+.bg_black {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(42,42,42, .81);
+}
+
+.bg_black2 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(83,83,83, .48);
+}
+
+.bg img {
+    height: 100%
+}
+
+.auto-x {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+
+.auto-y {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.animate {
+    opacity: 0
+}
+
+.hidden {
+    visibility: hidden
+}
+
+.none {
+    display: none
+}
+
+.shake {
+    overflow: hidden;
+    transform-origin: left top;
+    -webkit-transform-origin: left top
+}
+
+.shake img {
+    height: 200%;
+    animation-duration: .5s;
+    -webkit-animation-direction: .5s;
+}
+
+
+
+/*-----------------------------屏幕适配-------------------------------------*/
+/*for pc or pad */
+@media screen and (min-width:640px){
+    body{width:640px;margin:auto}
+}

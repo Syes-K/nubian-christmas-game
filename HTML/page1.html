@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>nubia 1-6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="MobileOptimized" content="320" />
+    <link rel="stylesheet" href="style/common.css" />
+    <link rel="stylesheet" href="style/page.css" />
+    <script type="text/javascript">
+        function setElement() {
+            var clientWidth = document.documentElement.clientWidth;
+            scale = clientWidth / 320;
+            if (scale < 1) { 
+                document.documentElement.setAttribute("style", "font-size:100px") 
+            } else { 
+                if (scale > 2) { 
+                    document.documentElement.setAttribute("style", "font-size:200px") 
+                } else { 
+                    document.documentElement.setAttribute("style", "font-size:" + Math.ceil(scale * 100) + "px") 
+                } 
+            }
+        }
+        window.onresize = function() { 
+            setElement() 
+        };
+        setElement();
+    </script>
+</head>
+<body>
+    <!-- 加载中 start -->
+    <div class="page none" id="loading">
+        <div class="bg">
+            <img src="images/loading/loading_bg.jpg">
+        </div>
+        <div class="loading auto-x">
+            <div class="loading__cat">
+                <img src="images/loading/loading_cat.png">
+            </div>
+            <div class="loading__bar">
+                <img src="images/loading/loading_bar.png">
+            </div>
+            <div class="loading__num">
+                100%
+            </div>
+        </div>
+    </div>
+    <!-- 加载中 end -->
+
+    <!-- 封面 start -->
+    <div class="page none" id="cover">
+        <div class="bg">
+            <img src="images/cover/cover_bg.jpg">
+        </div>
+
+        <!-- 捉拿凶手-按钮 -->
+        <div class="cover__btn">
+            <img src="images/cover/cover_btn.png">
+        </div>
+
+        <!-- 我的奖品-按钮 -->
+        <div class="cover__btn-prize"></div>
+
+        <!-- 我的奖品-弹框 -->
+        <div class="cover__prize-wrap auto-x bg_black none">
+            <div class="cover__prize auto-x">
+                <div class="cover__prize-bg">
+                    <img src="images/cover/cover_prize-bg.png">
+                </div>
+                <div class="cover__prize-btn">
+                    <img src="images/cover/cover_prize-btn.png">
+                </div>
+                <div class="cover__prize-img auto-x">
+                    <img src="images/prize/1.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 封面 end -->
+
+    <!-- P1 start -->
+    <div class="page" id="p1">
+        <div class="bg">
+            <img src="images/p1_bg.jpg">
+        </div>
+        <div class="p1__text auto-x">
+            <h4>去年圣诞节和男票分手!</h3>
+            <h4>今年心爱的喵子居然</h3>
+            <h3>也不见了！</h2>
+            <h4>这一定是我的.....</h3>
+            <h2>圣<span>诞</span>劫</h1>
+        </div>
+    </div>
+    <!-- P1 end -->
+
+    <!-- P2-p4 start -->
+    <div class="page" id="p2">
+        <div class="bg">
+            <img src="images/p2/p2_bg.jpg">
+        </div>
+        <div class="p2__girl-1">
+            <img src="images/girl/girl-1.png">
+        </div>
+        <div class="p2__girl-5">
+            <img src="images/girl/girl-5.png">
+        </div>
+
+        <!-- 抖动道具 -->
+        <div class="p2__prop-1 shake">
+            <img src="images/p2/p2_prop-1.png">
+        </div>
+        <div class="p2__prop-2 shake">
+            <img src="images/p2/p2_prop-2.png">
+        </div>
+
+        <!-- 提示气泡 -->
+        <div class="p2__tips bg_black2">
+            <div class="p2__tips-1 none">
+                <img src="images/p2/p2_tips-1.png">
+            </div>
+            <div class="p2__tips-2 none">
+                <img src="images/p2/p2_tips-2.png">
+            </div>
+            <div class="p2__tips-3 auto-x none">
+                <img src="images/p2/p2_tips-3.png">
+                <div class="close"><!-- close --></div>
+            </div>
+            <div class="p2__tips-4 auto-y none">
+                <img src="images/p2/p2_tips-4.png">
+                <div class="close"><!-- close --></div>
+            </div>
+            <div class="p2__tips-5 none">
+                <img src="images/p2/p2_tips-5.png">
+                <div class="close"><!-- close --></div>
+            </div>
+            <div class="p2__tips-6 none">
+                <img src="images/p2/p2_tips-6.png">
+                <div class="close">
+                    <img src="images/p2/p2-tips-6-btn.png">
+                </div>
+            </div>
+            <div class="p2__tips-7 auto-x none">
+                <img src="images/p2/p2_tips-7.png">
+
+                <div class="code">
+                    <img src="images/p2/2wm.jpg">
+                </div>
+            </div>
+            <div class="p2__tips-8 none">
+                <img src="images/p2/p2_tips-8.png">
+            </div>
+        </div>
+    </div>
+    <!-- P2-p4 end -->
+
+    <!-- p5 start -->
+    <div class="page" id="p5">
+        <div class="p5__left bg ">
+            <img src="images/p5/p5_left-bg.jpg">
+        </div>
+        <div class="p5__right bg none">
+            <img src="images/p5/p5_right-bg.jpg">
+        </div>
+    </div>
+    <!-- p5 end -->
+
+    <!-- 场景A-B start -->
+    <div class="page" id="sceneA">
+        <div class="scene__left none">
+            <div class="bg">
+                <img src="images/scene/scene_left_bg-1.jpg">
+            </div>
+
+            <div class="girl-3">
+                <img src="images/girl/girl-3.png">
+            </div>
+            <div class="girl-4">
+                <img src="images/girl/girl-4.png">
+            </div>
+
+            <div class="scene__left_tips-4">
+                <img src="images/scene/scene_left_tips-4.png">
+            </div>
+            <div class="scene__left_tips-5">
+                <img src="images/scene/scene_left_tips-5.png">
+            </div>
+        </div>
+        <div class="scene__right">
+            <div class="bg">
+                <img src="images/scene/scene_right_bg-1.jpg">
+            </div>
+
+            <div class="boy-2">
+                <img src="images/boy/boy-2.png">
+            </div>
+            <div class="boy-4">
+                <img src="images/boy/boy-4.png">
+            </div>
+
+            <div class="scene__right_tips-2">
+                <img src="images/scene/scene_right_tips-2.png">
+            </div>
+            <div class="scene__right_tips-4">
+                <img src="images/scene/scene_right_tips-4.png">
+            </div>
+        </div>
+    </div>
+    <!-- 场景A-B end -->
+
+    <!-- 场景C start -->
+    <div class="page" id="sceneC">
+        <div class="scene__left none">
+            <div class="bg">
+                <img src="images/scene/scene_left_bg-3.jpg">
+            </div>
+
+            <div class="boy-5 none">
+                <img src="images/boy/boy-5.png">
+            </div>
+            <div class="boy-6">
+                <img src="images/boy/boy-6.png">
+            </div>
+            <div class="boy-7">
+                <img src="images/boy/boy-7.png">
+            </div>
+
+            <div class="scene__left_tips-6">
+                <img src="images/scene/scene_left_tips-6.png">
+            </div>
+            <div class="scene__left_tips-7">
+                <img src="images/scene/scene_left_tips-7.png">
+            </div>
+            <div class="scene__left_tips-8">
+                <img src="images/scene/scene_left_tips-8.png">
+            </div>
+        </div>
+        <div class="scene__right">
+            <div class="bg">
+                <img src="images/scene/scene_right_bg-3.jpg">
+            </div>
+
+            <div class="girl-7 none">
+                <img src="images/girl/girl-7.png">
+            </div>
+            <div class="girl-8">
+                <img src="images/girl/girl-8.png">
+            </div>
+
+            <div class="scene__right_tips-5 none">
+                <img src="images/scene/scene_right_tips-5.png">
+            </div>
+            <div class="scene__right_tips-6 none">
+                <img src="images/scene/scene_right_tips-6.png">
+            </div>
+            <div class="scene__right_tips-7">
+                <img src="images/scene/scene_right_tips-7.png">
+            </div>
+        </div>
+    </div>
+    <!-- 场景C end -->
+
+    <!-- KO前过场页面 start -->
+    
+    <!-- KO前过场页面 end -->
+</body>
+</html>

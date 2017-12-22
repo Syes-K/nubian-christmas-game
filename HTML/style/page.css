@@ -1,0 +1,462 @@
+/*----------------------------- 加载中 -------------------------------------*/
+
+.loading {
+    top: 1.8rem;
+    text-align: center;
+}
+.loading__cat {
+    width: 0.94rem;
+    margin: 0 auto;
+}
+.loading__bar {
+    width: 1.55rem;
+    margin: .13rem auto .05rem;
+}
+.loading__num {
+    font-size: .25rem;
+    color: #fff;
+}
+
+
+/*----------------------------- 封面 -------------------------------------*/
+
+.cover__btn {
+    bottom: .325rem;
+    left: 2.125rem;
+    width: 1rem;
+    height: .575rem;
+    overflow: hidden;
+    position: absolute;
+    transform-origin: left top;
+    -webkit-transform-origin: left top
+}
+.cover__btn img {
+    height: 200%;
+    animation-duration: .5s;
+    -webkit-animation-direction: .5s;
+    animation: btn .4s steps(1) infinite;
+    -webkit-animation: btn .4s steps(1) infinite
+}
+
+@keyframes btn {
+    0% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-.575rem)
+    }
+    100% {
+        transform: translateY(-.575rem)
+    }
+}
+
+@-webkit-keyframes btn {
+    0% {
+        -webkit-transform: translateY(0)
+    }
+    50% {
+        -webkit-transform: translateY(-.575rem)
+    }
+    100% {
+        -webkit-transform: translateY(-.575rem)
+    }
+}
+.cover__prize-wrap {
+    top: 0;
+}
+.cover__prize {
+    top: .985rem;
+    width: 1.84rem;
+}
+.cover__prize-bg {
+    width: 1.84rem;
+    height: 2.64rem;
+}
+.cover__prize-btn {
+    width: .29rem;
+    height: .29rem;
+    margin: .19rem auto 0;
+}
+.cover__prize-img {
+    width: 1.72rem;
+    height: 1.42rem;
+    z-index: 10;
+    top: 1.14rem;
+}
+
+.cover__btn-prize {
+    width: .75rem;
+    height: .75rem;
+    position: absolute;
+    left: 1.785rem;
+    bottom: 1.78rem;
+    z-index: 10;
+    border: 1px solid red;
+}
+
+
+/*----------------------------- P1 -------------------------------------*/
+
+.p1__text {
+    top: 1.25rem;
+    text-align: center;
+    color: #fff;
+}
+
+.p1__text h4 {
+    font-size: .21rem;
+}
+.p1__text h4:first-child {
+    margin-bottom: .16rem;
+}
+.p1__text h3 {
+    font-size: .315rem;
+    margin: .13rem 0 .2rem;
+}
+.p1__text h2 {
+    font-size: .42rem;
+    margin-top: .3rem;
+}
+.p1__text h2 span {
+    margin: 0 .5rem;
+}
+
+
+
+/*----------------------------- p2 -------------------------------------*/
+.p2__girl-1 {
+    width: .75rem;
+    height: .9rem;
+    position: absolute;
+    top: .96rem;
+    left: 1.955rem;
+    z-index: 10;
+}
+.p2__girl-5 {
+    width: .5rem;
+    height: .5rem;
+    position: absolute;
+    top: 1.1rem;
+    left: .52rem;
+}
+.p2__tips {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.p2__tips-1 {
+    width: 1.45rem;
+    height: 125rem;
+    position: absolute;
+    top: .245rem;
+    left: 1.225rem;
+    z-index: 20;
+}
+.p2__tips-2 {
+    width: 1.45rem;
+    height: 125rem;
+    position: absolute;
+    top: .245rem;
+    left: 1.225rem;
+    z-index: 20;
+}
+.p2__tips-3 {
+    width: 2.5rem;
+    height: 0.95rem;
+    top: 2.14rem;
+}
+.p2__tips-3 .close {
+    width: .3rem;
+    height: .3rem;
+    position: absolute;
+    right: .07rem;
+    top: 0.33rem;
+}
+.p2__tips-4 {
+    width: 2.45rem;
+    height: 0.75rem;
+    left: .58rem;
+}
+.p2__tips-4 .close {
+    width: .3rem;
+    height: .3rem;
+    position: absolute;
+    right: 0;
+    top: .13rem;
+}
+.p2__tips-5 {
+    width: 2.55rem;
+    height: 0.85rem;
+    position: absolute;
+    top: 3.33rem;
+    left: .58rem;
+}
+.p2__tips-5 .close {
+    width: .3rem;
+    height: .3rem;
+    position: absolute;
+    right: 0;
+    top: .2rem;
+}
+.p2__tips-6 {
+    width: 2.8rem;
+    height: 2.15rem;
+    position: absolute;
+    top: 1.23rem;
+    left: .325rem;
+    z-index: 20;
+}
+.p2__tips-6 .close {
+    width: .165rem;
+    height: .165rem;
+    position: absolute;
+    right: .45rem;
+    top: .34rem;
+}
+.p2__tips-7 {
+    width: 3.25rem;
+    height: 2.7rem;
+    top: 1.21rem;
+    left: .05rem;
+    z-index: 20;
+}
+.p2__tips-7 .code {
+    width: .98rem;
+    height: 1.02rem;
+    position: absolute;
+    top: .67rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -.025rem;
+}
+.p2__tips-8 {
+    width: 2.65rem;
+    height: 2.15rem;
+    position: absolute;
+    top: 1.57rem;
+    left:.305rem;
+    z-index: 20;
+}
+.p2__prop-1 {
+    width: .625rem;
+    height: .85rem;
+    position: absolute;
+    top: 1.29rem;
+    left: 2.39rem;
+    overflow: hidden;
+}
+.p2__prop-1.shake img {
+    animation: prop1 .4s steps(1) infinite;
+    -webkit-animation: prop1 .4s steps(1) infinite
+}
+@keyframes prop1 {
+    0% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-.85rem)
+    }
+    100% {
+        transform: translateY(-.85rem)
+    }
+}
+
+@-webkit-keyframes prop1 {
+    0% {
+        -webkit-transform: translateY(0)
+    }
+    50% {
+        -webkit-transform: translateY(-.85rem)
+    }
+    100% {
+        -webkit-transform: translateY(-.85rem)
+    }
+}
+.p2__prop-2 {
+    width: 1.225rem;
+    height: 2.6rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+}
+.p2__prop-2.shake img {
+    height: 100%;
+    width: 200%;
+    animation: prop2 .4s steps(1) infinite;
+    -webkit-animation: prop2 .4s steps(1) infinite
+}
+@keyframes prop2 {
+    0% {
+        transform: translateX(0)
+    }
+    50% {
+        transform: translateX(-1.225rem)
+    }
+    100% {
+        transform: translateX(-1.225rem)
+    }
+}
+
+@-webkit-keyframes prop2 {
+    0% {
+        -webkit-transform: translateX(0)
+    }
+    50% {
+        -webkit-transform: translateX(-1.225rem)
+    }
+    100% {
+        -webkit-transform: translateX(-1.225rem)
+    }
+}
+
+
+/*----------------------------- p5 -------------------------------------*/
+
+
+/*----------------------------- sceneA-B -------------------------------------*/
+.scene__left {
+
+}
+.scene__left_tips-4 {
+    width: 1.85rem;
+    height: 1.75rem;
+    position: absolute;
+    top: 2.06rem;
+    left: .05rem;
+}
+.scene__left_tips-5 {
+    width: 1.85rem;
+    height: 1.55rem;
+    position: absolute;
+    top: .285rem;
+    left: .75rem;
+}
+.girl-3 {
+    width: .925rem;
+    height: 1.875rem;
+    top: 3.185rem;
+    left: 1.285rem;
+    position: absolute;
+}
+.girl-4 {
+    width: .675rem;
+    height: 1.575rem;
+    top: 1.37rem;
+    right: .05rem;
+    position: absolute;
+}
+
+.boy-2 {
+    width: .725rem;
+    height: 1.15rem;
+    top: 3.35rem;
+    left: 0rem;
+    position: absolute;
+}
+.boy-4 {
+    width: .55rem;
+    height: .8rem;
+    top: 2.2rem;
+    left: .59rem;
+    position: absolute;
+}
+.scene__right_tips-2 {
+    width: 1.9rem;
+    height: 2rem;
+    position: absolute;
+    top: .21rem;
+    left: 1.125rem;
+}
+.scene__right_tips-4 {
+    width: 2.1rem;
+    height: 1.55rem;
+    position: absolute;
+    top: 2.255rem;
+    left: .695rem;
+}
+
+
+/*----------------------------- sceneC -------------------------------------*/
+.boy-5 {
+    width: 1.1rem;
+    height: 3.35rem;
+    position: absolute;
+    top: 1.2rem;
+    left: 1.815rem;
+}
+.boy-6 {
+    width: 1.1rem;
+    height: 1.8rem;
+    position: absolute;
+    top: 2.99rem;
+    left: 1.81rem;
+}
+.boy-7 {
+    width: 1.8rem;
+    height: 2.45rem;
+    position: absolute;
+    top: 2.35rem;
+    left: 1.12rem;
+}
+
+.scene__left_tips-6 {
+    width: 1.65rem;
+    height: 1.5rem;
+    position: absolute;
+    top: .535rem;
+    left: .325rem;
+}
+.scene__left_tips-7 {
+    width: 1.85rem;
+    height: 1.65rem;
+    position: absolute;
+    top: 1.415rem;
+    left: .415rem;
+}
+.scene__left_tips-8 {
+    width: 1.6rem;
+    height: 1.8rem;
+    position: absolute;
+    top: .825rem;
+    left: 1.125rem;
+}
+
+.girl-7 {
+    width: 2.25rem;
+    height: 4.3rem;
+    position: absolute;
+    top: 1.65rem;
+    left: -.1rem;
+}
+.girl-8 {
+    width: 1.3rem;
+    height: 4.3rem;
+    position: absolute;
+    top: 1.6rem;
+    left: .36rem;
+}
+.scene__right_tips-5 {
+    width: 1.75rem;
+    height: 1.5rem;
+    position: absolute;
+    top: .625rem;
+    left: 1.275rem;
+}
+.scene__right_tips-6 {
+    width: 1.75rem;
+    height: 1.5rem;
+    position: absolute;
+    top: .77rem;
+    left: 1.28rem;
+}
+.scene__right_tips-7 {
+    width: 1.75rem;
+    height: 1.65rem;
+    position: absolute;
+    top: .24rem;
+    left: 1.285rem;
+}
+
+
+/*----------------------------- 封面 -------------------------------------*/
