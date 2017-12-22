@@ -459,4 +459,415 @@
 }
 
 
-/*----------------------------- 封面 -------------------------------------*/
+/*----------------------------- pk -------------------------------------*/
+.pk-btn {
+    width: 1.5rem;
+    height: 1.4rem;
+    position: absolute;
+}
+.pk-ko {
+    width: 4rem;
+    height: 2.1rem;
+    overflow: hidden;
+    position: absolute;
+}
+.pk-cat {
+    width: 2.75rem;
+    height: 1.95rem;
+    overflow: hidden;
+    position: absolute;
+}
+.pk-cat-tips {
+    width: .95rem;
+    height: 1rem;
+    overflow: hidden;
+    position: absolute;
+}
+.pk-blood {
+    width: 5.12rem;
+    height: .525rem;
+    overflow: hidden;
+    position: absolute;
+}
+.pk-blood.n_0 img {
+    transform: translateY(-.525rem);
+}
+.pk-blood.n_25 img {
+    transform: translateY(-.525rem);
+}
+.pk-blood.n_75 img {
+    transform: translateY(-1.05rem);
+}
+.pk-blood img {
+    height: 300%;
+}
+
+.girl-9 {
+    width: 2.5rem;
+    height: 3rem;
+    position: absolute;
+    left: .27rem;
+    top: .8rem;
+}
+.girl-10 {
+    width: 2.85rem;
+    height: 2.75rem;
+    position: absolute;
+    left: -.23rem;
+    top: 1.275rem;
+}
+.girl-13 {
+    width: 2.15rem;
+    height: 3rem;
+    position: absolute;
+    left: .65rem;
+    top: .705rem;
+}
+.pk__left-text {
+    width: 1.45rem;
+    height: .4rem;
+    position: absolute;
+    top: 1.15rem;
+    left: .41rem;
+}
+.pk__left-ko {
+    top: 1.505rem;
+    left: 1.225rem;
+}
+.pk__left-btn {
+    top: 3.685rem;
+    left: .425rem;
+}
+.pk__left-cat-1 {
+    top: 1.69rem;
+    left: 2.015rem;
+}
+.pk__left-cat-2 {
+    top: 2.04rem;
+    left: 1.83rem;
+}
+.pk__left-cat-3 {
+    top: 2.025rem;
+    left: 1.83rem;
+}
+.pk__left-cat-4 {
+    top: 1.92rem;
+    left: 1.83rem;
+}
+.pk__left-cat-tips {
+    top: .72rem;
+    left: 2.39rem;
+}
+.pk__left-blood {
+    top: .3rem;
+    left: .675rem;
+}
+.pk__left-blood.n_0 {
+    transform: scaleX(-1);
+} 
+
+.pk__right-text {
+    width: 1.45rem;
+    height: .4rem;
+    position: absolute;
+    top: 1.15rem;
+    left: 1.13rem;
+}
+.boy-8 {
+    width: 2.55rem;
+    height: 2.2rem;
+    position: absolute;
+    right: .15rem;
+    top: 1.6rem;
+}
+.boy-9 {
+    width: 2.5rem;
+    height: 3.05rem;
+    position: absolute;
+    right: .25rem;
+    top: .85rem;
+}
+.boy-12 {
+    width: 2.5rem;
+    height: 3rem;
+    position: absolute;
+    right: .15rem;
+    top: .58rem;
+}
+.pl__right-fish {
+    width: 2.5rem;
+    height: 1.9rem;
+    position: absolute;
+    top: 1.225rem;
+    left: .355rem;
+}
+.pk__right-ko {
+    top: 1.505rem;
+    right: 1.225rem;
+}
+.pk__right-btn {
+    top: 3.685rem;
+    right: .425rem;
+}
+.pk__right-cat-1 {
+    top: 1.69rem;
+    right: 1.635rem;
+}
+.pk__right-cat-2 {
+    top: 2.04rem;
+    right: 1.82rem;
+}
+.pk__right-cat-3 {
+    top: 2.025rem;
+    right: 1.82rem;
+}
+.pk__right-cat-4 {
+    top: 1.92rem;
+    right: 1.82rem;
+}
+.pk__right-cat-tips {
+    top: .72rem;
+    right: 3.06rem;
+}
+.pk__right-blood {
+    top: .3rem;
+    right: .6rem;
+    transform: scaleX(-1);
+}
+.pk__right-blood.n_0 {
+    transform: scaleX(1);
+} 
+
+/*----------------------------- p8 -------------------------------------*/
+.p8__text h3 {
+    font-size: .415rem;
+    color: #fff;
+    margin-bottom: .2rem;
+    letter-spacing: .07rem;
+}
+
+.p8__text h3 span {
+    margin: 0 .01rem;
+}
+
+.p8__left_text {
+    position: absolute;
+    top: 1.32rem;
+    right: 0;
+    padding-right: .1rem;
+    text-align: right;
+}
+
+.p8__right_text {
+    position: absolute;
+    top: 1.32rem;
+    left: 0;
+    padding-right: .1rem;
+}
+
+.p8__right_text h3 span.f-50 {
+    font-size: .25rem;
+}
+
+
+/*----------------------------- p9 -------------------------------------*/
+.p9-phone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.p9__left_phone-m {
+    width: 3.9rem;
+    height: 4rem;
+    position: absolute;
+    top: 1.04rem;
+    left: 1.05rem;
+}
+
+.girl-11,
+.girl-12 {
+    width: 3rem;
+    height: 4.8rem;
+    overflow: hidden;
+    position: absolute;
+    top: 1.195rem;
+    left: .245rem;
+}
+
+.p9__right_phone-m {
+    width: 3.9rem;
+    height: 4rem;
+    position: absolute;
+    top: 1.04rem;
+    right: 1.45rem;
+}
+.boy-10,
+.boy-11 {
+    width: 3rem;
+    height: 4.9rem;
+    overflow: hidden;
+    position: absolute;
+    top: 1.065rem;
+    right: .375rem;
+}
+
+
+/*----------------------------- p10 -------------------------------------*/
+.p10__left_phone-s {
+    width: 2.85rem;
+    height: 2.85rem;
+    position: absolute;
+    top: 1.065rem;
+    left: .195rem;
+}
+.p10__right_phone-m {
+    width: 2.85rem;
+    height: 2.85rem;
+    top: .6rem;
+}
+
+
+/*----------------------------- p11 -------------------------------------*/
+.p11-cat {
+    width: 2.95rem;
+    height: .95rem;
+    overflow: hidden;
+    position: absolute;
+    left: -.24rem;
+    bottom: 0;
+}
+.p11-cat.shake img {
+    width: 300%;
+    height: 100%;
+    animation: cat .6s steps(1) forwards;
+    -webkit-animation: cat .6s steps(1) forwards; 
+    animation-delay: .2s;
+}
+@keyframes cat {
+    0% {
+        transform: translateX(0)
+    }
+    50% {
+        transform: translateX(-2.95rem)
+    }
+    100% {
+        transform: translateX(-5.9rem)
+    }
+}
+@-webkit-keyframes cat {
+    0% {
+        -webkit-transform: translateX(0)
+    }
+    50% {
+        transform: translateX(-2.95rem)
+    }
+    100% {
+        transform: translateX(-5.9rem)
+    }
+}
+
+.p11__btn-1 {
+    width: 2.15rem;
+    height: 2.5rem;
+    top: .73rem;
+}
+
+.p11__tips-1 {
+    width: 2.15rem;
+    top: .73rem;
+}
+.p11__btn-2 {
+    margin-top: .25rem;
+}
+
+.p11__tips-2 {
+    top: 0;
+}
+.p11__btn-close {
+    width: .3rem;
+    height: .3rem;
+    position: absolute;
+    top: .07rem;
+    left: .085rem;
+}
+.p11__share {
+    width: 1.6rem;
+    height: .3rem;
+    position: absolute;
+    top: .04rem;
+    right: .05rem;
+}
+.p11__tips-success {
+    width: 2.45rem;
+    height: .75rem;
+}
+.p11__tips-success .tips-close {
+    width: .23rem;
+    height: .23rem;
+    position: absolute;
+    top: .15rem;
+    right: .01rem;
+}
+
+.p11__prize-1 {
+    width: 3.2rem;
+    height: 4.35rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.p11__prize-1 .tips {
+    top: .7rem;
+}
+.p11__prize-1 .button {
+    top: 3.785rem;
+}
+
+.p11__prize-2 {
+    width: 3.2rem;
+    height: 4.35rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.p11__prize-2 .prize {
+    width: 2.2rem;
+    height: 2.3rem;
+    margin-top: .77rem;
+}
+.p11__prize-2 .tips {
+    width: 2.8rem;
+    top: .4rem;
+}
+.p11__prize-2 .input {
+    top: 2.7rem;
+}
+.p11__prize-2 .input:last-of-type {
+    top: 3.23rem;
+}
+.p11__prize-2 .tips2 {
+    width: 1.6rem;
+    height: .3rem;
+    top: 3.785rem;
+}
+.p11__prize-2 .button {
+    top: 4.23rem;
+}
+
+
+.p11__prize-5 .tips {
+    width: 3rem;
+    top: .48rem;
+}
+.p11__prize-5 .button {
+    top: 3.35rem;
+}
+
+/*----------------------------- p11 -------------------------------------*/
+
+
+
+
+

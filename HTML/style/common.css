@@ -164,6 +164,12 @@ img {
     background-color: rgba(83,83,83, .48);
 }
 
+.bg_black3 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30,30,30, .63);
+}
+
 .bg img {
     height: 100%
 }
@@ -213,6 +219,29 @@ img {
     -webkit-animation-direction: .5s;
 }
 
+.button {
+    width: 2.05rem;
+    height: .7rem;
+    position: absolute;
+}
+
+.input {
+    width: 2.45rem;
+    height: .41rem;
+    position: absolute;
+}
+.input input {
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    font-size: .15rem;
+    color: rgba(66,61,55, .6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 
 /*-----------------------------屏幕适配-------------------------------------*/
