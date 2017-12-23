@@ -107,10 +107,13 @@ Scene.prototype.enter = function(scene) {
     });
     var pageEl = document.querySelector('#' + pageId);
 
-    // 将当前场景的所有步骤隐藏
+    // 只显示当前步骤
     pageEl.querySelectorAll('[data-step]').forEach(function(el) {
         var steps = el.getAttribute('data-step');
-        if (steps && stepName.indexOf(steps)>-1) {
+        if (!steps) {
+            return;
+        }
+        if (steps && steps.split(',').indexOf(stepName) > -1) {
             el.classList.remove('none');
         } else {
             el.classList.add('none');
@@ -134,4 +137,14 @@ Scene.prototype.finish = function() {
     var self = this;
     self._emit("scene." + self.currentScene.name + '.finish');
     self.character.finishScene(self.currentScene)
+}
+Scene.prototype.next = function() {
+    var self = this;
+    if (self.currentScene) {
+        self.finish();
+        var currentSceneIdx = self.scenes.indexOf(self.currentScene);
+        self.enter(self.scenes[currentSceneIdx + 1]);
+    } else {
+        self.enter(self.scenes[0])
+    }
 }

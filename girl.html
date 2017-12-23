@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="style/common.css" />
     <link rel="stylesheet" href="style/page.css" />
     <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+
+    <script src="./js/girl-page/loading.js"></script>
+    <script src="./js/girl-page/p0.js"></script>
+    <script src="./js/girl-page/p1.js"></script>
+
     <script src="./js/girlSceneList.js"></script>
     <script src="./js/scene.js"></script>
     <script src="./js/girl.js"></script>
@@ -62,8 +68,8 @@
             <div class="loading__bar">
                 <img src="images/loading/loading_bar.png">
             </div>
-            <div class="loading__num">
-                100%
+            <div id="loading-percent" class="loading__num">
+                0%
             </div>
         </div>
     </div>
@@ -124,11 +130,15 @@
             <img src="images/p1_bg.jpg">
         </div>
         <div class="p1__text auto-x" data-top="250">
-            <h4>去年圣诞节和男票分手!</h4>
-            <h4>今年心爱的喵子居然</h4>
-            <h3>也不见了！</h3>
-            <h4>这一定是我的.....</h4>
-            <h2>圣<span>诞</span>劫</h2>
+            <h4 id="p1-word1">去年圣诞节和男票分手!</h4>
+            <h4 id="p1-word2">今年心爱的喵子居然</h4>
+            <h3 id="p1-word3">也不见了！</h3>
+            <h4 id="p1-word4">这一定是我的.....</h4>
+            <h2>
+                <span id="p1-word5">圣</span>
+                <span id="p1-word6">诞</span>
+                <span id="p1-word7">劫</span>
+            </h2>
         </div>
     </div>
     <!-- P1 end -->
