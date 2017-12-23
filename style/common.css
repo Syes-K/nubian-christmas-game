@@ -107,11 +107,14 @@ html {
 }
 
 
+
 /*.1rem=10px*/
+
 body {
     font: .12rem/1 tahoma, arial, "Hiragino Sans GB", "Microsoft Yahei", \5b8b\4f53, sans-serif;
     position: relative;
     color: #000;
+    background-color: #000;
     min-width: 320px;
     height: 100%;
     overflow: hidden
@@ -131,7 +134,9 @@ a:focus {
 }
 
 
+
 /*----------------------------- 框架 -------------------------------------*/
+
 .page {
     width: 100%;
     height: 100%;
@@ -155,19 +160,19 @@ img {
 .bg_black {
     width: 100%;
     height: 100%;
-    background-color: rgba(42,42,42, .81);
+    background-color: rgba(42, 42, 42, .81);
 }
 
 .bg_black2 {
     width: 100%;
     height: 100%;
-    background-color: rgba(83,83,83, .48);
+    background-color: rgba(83, 83, 83, .48);
 }
 
 .bg_black3 {
     width: 100%;
     height: 100%;
-    background-color: rgba(30,30,30, .63);
+    background-color: rgba(30, 30, 30, .63);
 }
 
 .bg img {
@@ -230,12 +235,13 @@ img {
     height: .41rem;
     position: absolute;
 }
+
 .input input {
     border: none;
     background-color: transparent;
     text-align: center;
     font-size: .15rem;
-    color: rgba(66,61,55, .6);
+    color: rgba(66, 61, 55, .6);
     position: absolute;
     top: 0;
     left: 0;
@@ -247,9 +253,8 @@ img {
     display: none;
 }
 
-.prize-coupon {
+.prize-coupon {}
 
-}
 .prize-coupon_text {
     width: 1.23rem;
     height: .65rem;
@@ -257,24 +262,81 @@ img {
     text-align: center;
     color: #fff;
 }
+
 .prize-coupon_text h2 {
     text-align: left;
     padding: 0 0 .03rem .1rem;
     font-size: .23rem;
-    text-shadow: 3px 3px 3px rgba(7,1,2, .2);
+    text-shadow: 3px 3px 3px rgba(7, 1, 2, .2);
 }
+
 .prize-coupon_text span {
     font-size: .1rem;
 }
+
 .prize-coupon_text p {
     font-size: .085rem;
 }
+
 .prize-coupon_text p:first-of-type {
     margin: .04rem auto .003rem;
 }
 
+
+.anim-opacity {
+    animation: .5s opacity 0s forwards;
+    -webkit-animation: .5s opacity 0s forwards;
+    -moz-animation: .5s opacity 0s forwards;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes opacity {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes opacity {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.warp {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.wrap_left {
+    right: 0;
+}
+.wrap_right: {
+    left: 0;
+}
+
 /*-----------------------------屏幕适配-------------------------------------*/
+
+
 /*for pc or pad */
-@media screen and (min-width:640px){
-    body{width:640px;margin:auto}
+
+@media screen and (min-width:640px) {
+    body {
+        width: 640px;
+        margin: auto
+    }
 }

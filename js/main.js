@@ -19,8 +19,8 @@ document.addEventListener("touchmove", function(event) {
 /**
  * 宽度计算基准字体大小
  */
-function setElement() {
-    var clientWidth = document.documentElement.clientWidth;
+function setElement(width) {
+    var clientWidth = width || document.documentElement.clientWidth;
     scale = clientWidth / 320,
         fontSize = Math.ceil(scale * 100);
 
@@ -37,8 +37,8 @@ function setElement() {
 /**
  * 重置元素Top
  */
-function resetTop() {
-    var clientHeight = document.documentElement.clientHeight;
+function resetTop(height) {
+    var clientHeight = height || document.documentElement.clientHeight;
     scale = clientHeight / 1040,
         resetTopDoms = document.querySelectorAll('[data-top]'),
         max = resetTopDoms.length;
@@ -54,6 +54,17 @@ function resetTop() {
     }
 }
 
+/**
+ * 大屏适配小屏
+ */
+function resetSize(width, height){
+    setElement(width);
+    resetTop(height);
+
+    let wrap = document.querySelector('.warp');
+    wrap.style.width = width + 'px';
+    wrap.style.height = height + 'px';
+}
 
 /**
  * 音乐

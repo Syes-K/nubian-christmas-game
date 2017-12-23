@@ -635,10 +635,18 @@
     position: absolute;
 }
 .pk-blood {
-    width: 5.12rem;
+    width: 2.56rem;
     height: .525rem;
     overflow: hidden;
     position: absolute;
+    // background: url("../images/pk/pk_blood-1.png") no-repeat 0 0;
+    background-size: cover;
+}
+.pk-blood .num {
+    width: 100%;
+    height: 100%;
+    // background: url("../images/pk/pk_blood-2.png") no-repeat 0 0;
+    background-size: cover;
 }
 .pk-blood.n_0 img {
     transform: translateY(-.525rem);
@@ -744,14 +752,17 @@
         -webkit-transform: translateX(-2rem)
     }
 }
-
 .pk__left-blood {
     top: .3rem;
     left: .675rem;
-}
-.pk__left-blood.n_0 {
     transform: scaleX(-1);
-} 
+    background: url("../images/pk/pk_left_blood-1.png") no-repeat;
+    background-size: cover;
+}
+.pk__left-blood .num {
+    background: url("../images/pk/pk_left_blood-2.png") no-repeat;
+    background-size: cover;
+}
 
 .pk__right-text {
     width: 1.45rem;
@@ -818,12 +829,14 @@
 }
 .pk__right-blood {
     top: .3rem;
-    right: .6rem;
-    transform: scaleX(-1);
+    right: .63rem;
+    background: url("../images/pk/pk_right_blood-1.png") no-repeat;
+    background-size: cover;
 }
-.pk__right-blood.n_0 {
-    transform: scaleX(1);
-} 
+.pk__right-blood .num {
+    background: url("../images/pk/pk_right_blood-2.png") no-repeat;
+    background-size: cover;
+}
 
 /*----------------------------- p8 -------------------------------------*/
 .p8__text h3 {
