@@ -14,55 +14,56 @@ var sceneList = [{
     start: startP1
 }, {
     name: "p2.s10",
-    autoFinshTime: 1000 // 自动完成改场景
+    start: startP2,
+    autoFinshTime: 600, // 自动完成改场景
 }, {
     name: "p2.s20",
-    autoFinshTime: 1000, // 自动完成改场景
+    autoFinshTime: 2000, // 自动完成改场景
+    enterTrigger: {
+        type: 'last.finish'
+    }
+}, {
+    name: "p2.s21",
+    autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
     name: "p2.s30",
-    autoFinshTime: 1000, // 自动完成改场景
+    autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
     name: "p2.s40",
-    autoFinshTime: 1000, // 自动完成改场景
+    // autoFinshTime: 1000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
     name: "p2.s50",
-    autoFinshTime: 1000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
+    // autoFinshTime: 1000, // 自动完成改场景
+    // enterTrigger: {
+    //     type: 'last.finish'
+    // }
 }, {
     name: "p2.s60",
-    autoFinshTime: 1000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
+    // autoFinshTime: 1000, // 自动完成改场景
+    // enterTrigger: {
+    //     type: 'last.finish'
+    // }
 }, {
     name: "p2.s70",
-    autoFinshTime: 1000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
-}, {
-    name: "p2.s80",
-    autoFinshTime: 1000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
+    // autoFinshTime: 1000, // 自动完成改场景
+    // enterTrigger: {
+    //     type: 'last.finish'
+    // }
 }, {
     name: "p3",
     autoFinshTime: 1500, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
+    // enterTrigger: {
+    //     type: 'last.finish'
+    // }
 }, {
     name: "p4.s10",
     autoFinshTime: 1000, // 自动完成改场景
@@ -177,7 +178,7 @@ var sceneList = [{
     enterTrigger: {
         type: 'last.finish'
     }
-},{
+}, {
     name: "p11.s10",
     autoFinshTime: 1000, // 自动完成改场景
     enterTrigger: {

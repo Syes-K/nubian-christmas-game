@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>nubia 1-6</title>
@@ -10,11 +11,13 @@
     <link rel="stylesheet" href="style/page.css" />
     <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/qrcode.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
     <script src="./js/girl-page/loading.js"></script>
     <script src="./js/girl-page/p0.js"></script>
     <script src="./js/girl-page/p1.js"></script>
+    <script src="./js/girl-page/p2.js"></script>
 
     <script src="./js/girlSceneList.js"></script>
     <script src="./js/scene.js"></script>
@@ -26,22 +29,41 @@
             if (r != null) return unescape(r[2]);
             return null;
         }
-        var socket = io.connect('http://115.159.69.89:3002');
         var myid = getQueryString('myid');
-        var girl = new Girl('x1', socket)
-        var scene = new Scene(sceneList, girl);
+        window.onload = function() {
+            window.socket = io.connect('http://115.159.69.89:3002');
+            window.girl = new Girl('x1', socket)
+            window.scene = new Scene(sceneList, girl);
+            var restart = getQueryString("restart");
+            if (restart) {
+                window.scene.enter(sceneList.find(function(s) {
+                    return s.name === "p2.s70";
+                }));
+            } else {
+                window.scene.next();
+            }
+            window.girl.on("boy.disconnect",function(){
+                document.getElementById("socket").classList.remove('none');
+            });
+        }
     </script>
 </head>
+
 <body>
     <!-- 
         TODO list
         
+        2. 二维码-动态设置，文字对应
+        3. 手机亮屏切换
         5. 屏幕尺寸设置大小，并垂直居中， 宽度还得区分左、右手机，居左或者居右
         6. 开门文案右移
+        7. 页面转场淡出动画
+        8. 血条图片（往中间减少）
         9. 小鱼干动画2链接
         10. 去除4只猫，保留一只猫和表情
         11. 初始为：逗猫棒、鱼干攻击
         12. 添加猫咪声音（两边都有）
+        13. 优惠券金额未确认
         14. 分享内容
         15. 整体背景音乐和pk背景音乐。
         17. 链接离线提示
@@ -51,8 +73,9 @@
      -->
 
     <div class="warp bg wrap_left">
+        
         <!-- 加载中 start -->
-        <div class="page " id="loading">
+        <div class="page none" id="loading">
             <div class="bg">
                 <img src="images/loading/loading_bg.jpg">
             </div>
@@ -97,18 +120,19 @@
                     </div>
                     <div class="cover__prize-img auto-x">
                         <!-- 手机 -->
-                        <img src="images/prize/1.png" class="none">
+                        <img src="images/prize/1.png" class="p0-prize p0-prize-4 none">
                         <!-- 耳机 -->
-                        <img src="images/prize/2.png" class="none">
+                        <img src="images/prize/2.png" class="p0-prize p0-prize-3 none">
                         <!-- 抱枕 -->
-                        <img src="images/prize/3.png" class="none">
+                        <img src="images/prize/3.png" class="p0-prize p0-prize-2 none">
                         <!-- 优惠券 -->
-                        <div class="prize-coupon">
+                        <div class="prize-coupon p0-prize p0-prize-1">
                             <img src="images/prize/4.png">
 
                             <div class="prize-coupon_text auto-x">
                                 <h2>300</h2>
-                                <span>【 兑换码：888888888 】</span>
+                                <span>【 兑换码：
+                                    <span id="p0-prize-code"></span> 】</span>
                                 <p>仅限Z17 128G版本</p>
                                 <p>2017/12/20--2018/01/02有效</p>
                             </div>
@@ -153,40 +177,46 @@
             <div class="p2__phone" data-step="s50" data-top="270">
                 <img src="images/p2/p2-phone.png">
             </div>
-            <div class="p2__phone light" data-step="s51" data-top="270">
+            <div class="p2__phone light" data-step="s50" data-top="270">
                 <img src="images/p2/p2-phone.png">
             </div>
 
             <!-- 抖动道具 -->
-            <div class="p2__prop-1 shake" data-top="258">
+            <div class="p2__prop-1" tool="1" data-top="258">
                 <img src="images/p2/p2_prop-1.png">
             </div>
-            <div class="p2__prop-2 shake">
+            <div class="p2__prop-2 " tool="2">
                 <img src="images/p2/p2_prop-2.png">
             </div>
-            <div class="p2__prop-3 shake">
+            <div class="p2__prop-3 " tool="3">
                 <img src="images/p2/p2_prop-3.png">
             </div>
 
             <!-- 提示气泡 -->
-            <div class="p2__tips bg_black2 none">
-                <div class="p2__tips-1 none" data-top="49">
+            <div class="p2__tips bg_black2 none" data-step="s20,s21,s40,s60,s70,s80">
+                <div class="p2__tips-1 none" data-step="s21" data-top="49">
                     <img src="images/p2/p2_tips-1.png">
                 </div>
                 <div class="p2__tips-2 none" data-step="s20" data-top="49">
                     <img src="images/p2/p2_tips-2.png">
                 </div>
-                <div class="p2__tips-3 auto-x none" data-step="s40" data-top="428">
+                <div class="p2__tips-3 auto-x none p2-next-scene" data-step="s40" data-top="428">
                     <img src="images/p2/p2_tips-3.png">
-                    <div class="close"><!-- close --></div>
+                    <div class="close">
+                        <!-- close -->
+                    </div>
                 </div>
-                <div class="p2__tips-4 auto-y none" data-top="26">
+                <div class="p2__tips-4 auto-y none" tool-tip="2" data-top="26">
                     <img src="images/p2/p2_tips-4.png">
-                    <div class="close"><!-- close --></div>
+                    <div class="close">
+                        <!-- close -->
+                    </div>
                 </div>
-                <div class="p2__tips-5 none" data-top="666">
+                <div class="p2__tips-5 none" tool-tip="3" data-top="666">
                     <img src="images/p2/p2_tips-5.png">
-                    <div class="close"><!-- close --></div>
+                    <div class="close">
+                        <!-- close -->
+                    </div>
                 </div>
                 <div class="p2__tips-6 none" data-step="s60" data-top="246">
                     <img src="images/p2/p2_tips-6.png">
@@ -197,13 +227,15 @@
                 <div class="p2__tips-7 auto-x none" data-step="s70" data-top="242">
                     <img src="images/p2/p2_tips-7.png">
 
-                    <div class="code">
-                        <img src="images/p2/2wm.jpg">
+                    <div class="code" id="qr-code">
+                        <!-- <img src="images/p2/2wm.jpg"> -->
                     </div>
                 </div>
-                <div class="p2__tips-8 none" data-step="s80" data-top="314">
+                <div class="p2__tips-8 none" tool-tip="1" data-top="314">
                     <img src="images/p2/p2_tips-8.png">
-                    <div class="close"><!-- close --></div>
+                    <div class="close">
+                        <!-- close -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -307,23 +339,42 @@
                 <img src="images/p8/p8_left_bg.jpg">
             </div>
             <div class="p8__text p8__left_text" data-top="264">
-                <h3><span>可</span><span>算</span><span>找</span><span>到</span></h3>
-                <h3><span>该</span><span>死</span><span>的</span><span>边</span></h3>
-                <h3><span>害</span><span>我</span><span>闹</span><span>出</span><span>那</span></h3>
-                <h3><span>糗</span><span>死</span><span>了</span>~~</h3>
+                <h3>
+                    <span>可</span>
+                    <span>算</span>
+                    <span>找</span>
+                    <span>到</span>
+                </h3>
+                <h3>
+                    <span>该</span>
+                    <span>死</span>
+                    <span>的</span>
+                    <span>边</span>
+                </h3>
+                <h3>
+                    <span>害</span>
+                    <span>我</span>
+                    <span>闹</span>
+                    <span>出</span>
+                    <span>那</span>
+                </h3>
+                <h3>
+                    <span>糗</span>
+                    <span>死</span>
+                    <span>了</span>~~</h3>
             </div>
         </div>
         <!-- PK前转场页面 end -->
 
         <!-- pk start -->
-        <div class="page bg" id="pk">
+        <div class="page bg none " id="pk">
             <div class="bg">
                 <img src="images/pk/pk_left_bg.jpg">
             </div>
 
             <!-- 血条 css: n_0, n_25, n_75-->
-            <div class="pk-blood pk__left-blood" data-top="60">
-                <div class="num" style="width: 20%"></div>
+            <div class="pk-blood pk__left-blood n_0" data-top="60">
+                <img src="images/pk/pk_blood.png">
             </div>
 
             <div class="pk__left-text" data-top="230">
@@ -551,7 +602,7 @@
 
                         <!-- 兑换码 -->
                         <div class="prize-code auto-x">
-                            1234567890  
+                            1234567890
                         </div>
                     </div>
                     <div class="button auto-x" data-top="757">
@@ -580,7 +631,8 @@
         <div class="page bg bg_black none" id="socket">
             <div class="socket__tips auto-x">
                 <div class="socket__tips-text">
-                    对方已离线<br>请重新开始
+                    对方已离线
+                    <br>请重新开始
                 </div>
                 <div class="socket__tips-bg">
                     <img src="images/cover/cover_prize-bg.png">
@@ -604,6 +656,7 @@
 
     <style type="text/css">
         /* 样式放在结尾，防止 base64 图片造成拥塞 */
+
         @keyframes rotation {
             10% {
                 transform: rotate(90deg);
@@ -716,13 +769,15 @@
                 orientLayer.style.display = "block";
             }
         }
+
         function init() {
             orientNotice();
-            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
                 setTimeout(orientNotice, 200);
             })
         }
         init();
     </script>
 </body>
+
 </html>

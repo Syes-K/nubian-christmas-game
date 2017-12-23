@@ -133,7 +133,7 @@ Scene.prototype.enter = function(scene) {
             self.finish();
         }, self.currentScene.autoFinshTime)
     }
-    self._emit("scene.enter", scene);
+    self._emit("scene." + self.currentScene.name + '.enter');
 }
 
 Scene.prototype.finish = function() {
