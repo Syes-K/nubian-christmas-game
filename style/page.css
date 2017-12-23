@@ -427,6 +427,20 @@
 .scene__left {
 
 }
+.scene__left_cat {
+    width: 1.2rem;
+    height: .95rem;
+    overflow: hidden;
+    position: absolute;
+    top: 1.55rem;
+    left: -.1re,;
+}
+.scene__left_cat img {
+    height: 200%;
+}
+.scene__left_cat.next img {
+    transform: translateY(-50%);
+}
 .scene__left_tips-4 {
     width: 1.85rem;
     height: 1.75rem;
