@@ -126,7 +126,10 @@ Scene.prototype.enter = function(scene) {
         self.currentScene.start();
     }
     if (self.currentScene.autoFinshTime) {
+        var t = new Date().getTime();
         setTimeout(function() {
+            var c = new Date().getTime();
+            console.log(self.currentScene,"t:", c - t,',autoFinshTime:', self.currentScene.autoFinshTime)
             self.finish();
         }, self.currentScene.autoFinshTime)
     }
