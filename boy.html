@@ -26,7 +26,7 @@
         }
         var socket = io.connect('http://115.159.69.89:3002');
         var myid = getQueryString('myid');
-        var boy = new Boy('x1', socket)
+        var boy = new Boy('y1', 'x1', socket)
         var scene = new Scene(sceneList, boy);
     </script>
 
@@ -83,12 +83,12 @@
     <!-- p5 end -->
 
     <!-- 场景A-B start -->
-    <div class="page bg " id="p2">
+    <div class="page bg none" id="p2">
         <div class="bg">
             <img src="images/scene/scene_right_bg-1.jpg">
         </div>
 
-        <div class="boy-2" data-step="s30,s40,s50" data-top="670">
+        <div class="boy-2" data-step="s30,s40,s50,s60" data-top="670">
             <img src="images/boy/boy-2.png">
         </div>
         <div class="boy-4" data-step="s10,s20" data-top="440">
@@ -106,40 +106,64 @@
             <div class="p4__tips-6 none" data-step="s50" data-top="-10">
                 <img src="images/p4/tips-6.png">
             </div>
-            <div class="p4__tips-9 none" data-top="238">
+            <div class="p4__tips-9 none" data-step="s60" data-top="238">
                 <img src="images/p4/tips-9.png">
             </div>
         </div>
     </div>
     <!-- 场景A-B end -->
 
+    <!-- 叫门 start -->
+    <div class="page bg none" id="p5">
+        <div class="bg">
+            <img src="images/scene/scene_right_bg-2.jpg">
+        </div>
+
+        <div class="girl-5 none" data-step="s10,s20,s30" data-top="540">
+            <img src="images/girl/girl-5.png">
+        </div>
+        <div class="boy-1 none" data-step="s30" data-top="132">
+            <img src="images/boy/boy-1.png">
+        </div>
+
+        <div class="p4__tips none" data-step="s20">
+            <div class="p4__tips-8" data-top="330">
+                <img src="images/p4/tips-8.png">
+            </div>
+        </div>
+    </div>
+    <!-- 叫门 end -->
+
     <!-- 场景C start -->
-    <div class="page bg none" id="p3">
+    <div class="page bg none" id="p6">
         <div class="bg">
             <img src="images/scene/scene_right_bg-3.jpg">
         </div>
 
-        <div class="girl-7" data-top="330">
+        <div class="girl-14 none" data-step="s10,s20" data-top="122">
+            <img src="images/girl/girl-14.png">
+        </div>
+        <div class="girl-7 none" data-step="s30,s40" data-top="330">
             <img src="images/girl/girl-7.png">
         </div>
-        <div class="girl-8" data-top="320">
+        <div class="girl-8" data-step="s50,s60" data-top="320">
             <img src="images/girl/girl-8.png">
         </div>
 
-        <div class="scene__right_tips-5 " data-top="125">
+        <div class="scene__right_tips-5 none" data-step="s20" data-top="125">
             <img src="images/scene/scene_right_tips-5.png">
         </div>
-        <div class="scene__right_tips-6 " data-top="154">
+        <div class="scene__right_tips-6 none" data-step="s40" data-top="154">
             <img src="images/scene/scene_right_tips-6.png">
         </div>
-        <div class="scene__right_tips-7" data-top="48">
+        <div class="scene__right_tips-7" data-step="s60" data-top="48">
             <img src="images/scene/scene_right_tips-7.png">
         </div>
     </div>
     <!-- 场景C end -->
 
     <!-- PK前转场页面 start -->
-    <div class="page bg none" id="p8">
+    <div class="page bg none" id="p7">
         <div class="bg">
             <img src="images/p8/p8_right_bg.jpg">
         </div>
@@ -214,17 +238,17 @@
             <img src="images/scene/scene_right_bg-4.jpg">
         </div>
 
-        <div class="bg p9-phone">
+        <div class="bg p9-phone none" data-step="s10">
             <img src="images/scene/scene_right_phone.png">
         </div>
-        <div class="p9__right_phone-m" data-top="208">
+        <!-- <div class="p9__right_phone-m" data-top="208">
             <img src="images/scene/scene_phone-2.png">
-        </div>
+        </div> -->
 
-        <div class="boy-10" data-top="213">
+        <div class="boy-10 none" data-step="s20" data-top="213">
             <img src="images/boy/boy-10.png">
         </div>
-        <div class="boy-11" data-top="213">
+        <div class="boy-11 none" data-step="s10" data-top="213">
             <img src="images/boy/boy-11.png">
         </div>
     </div>
@@ -250,10 +274,10 @@
         <div class="p11-cat shake">
             <img src="images/scene/scene_last-cat.png">
         </div>
-        <div class="bg_black3 auto-x auto-y"></div>
+        <div class="bg_black3 auto-x auto-y" data-step="s10"></div>
 
         <!-- 抽奖按钮 -->
-        <div class="p11__btn-1 auto-x" data-top="146">
+        <div class="p11__btn-1 auto-x" data-top="146" data-step="s10">
             <img src="images/scene/scene_last-1.png">
         </div>
 

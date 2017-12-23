@@ -271,6 +271,9 @@
     left: 2.39rem;
     overflow: hidden;
 }
+.p2__prop-1 img {
+    height: 200%;
+}
 .p2__prop-1.shake img {
     animation: prop1 .4s steps(1) infinite;
     -webkit-animation: prop1 .4s steps(1) infinite
@@ -305,6 +308,9 @@
     bottom: 0;
     right: 0;
     overflow: hidden;
+}
+.p2__prop-2 img {
+    width: 200%;
 }
 .p2__prop-2.shake img {
     height: 100%;
@@ -342,6 +348,9 @@
     bottom: .16rem;
     left: 0;
     overflow: hidden;
+}
+.p2__prop-3 img {
+    height: 200%;
 }
 .p2__prop-3.shake img {
     height: 200%;
@@ -407,12 +416,23 @@
     top: 2.59rem;
     left: 1.05rem;
 }
+.p4__tips-8 {
+    top: 1.65rem;
+    right: 1.22rem;
+}
 .p4__tips-9 {
     top: 1.19rem;
     left: .77rem;
 }
 
 /*----------------------------- p5 -------------------------------------*/
+.girl-5 {
+    width: .75rem;
+    height: 2.2rem;
+    position: absolute;
+    top: 2.7rem;
+    left: 1.5rem;
+}
 .girl-6 {
     width: .95rem;
     height: 1.95rem;
@@ -420,6 +440,14 @@
     top: 3rem;
     left: 1rem;
 }
+.boy-1 {
+    width: .8rem;
+    height: 1.125rem;
+    position: absolute;
+    top: .66rem;
+    left: 1.2rem;
+}
+
 
 
 
@@ -469,7 +497,6 @@
     right: .05rem;
     position: absolute;
 }
-
 .boy-2 {
     width: .725rem;
     height: 1.15rem;
@@ -545,7 +572,8 @@
     left: 1.125rem;
 }
 
-.girl-7 {
+.girl-7,
+.girl-14 {
     width: 2.25rem;
     height: 4.3rem;
     position: absolute;
@@ -896,6 +924,9 @@
     position: absolute;
     left: -.24rem;
     bottom: 0;
+}
+.p11-cat img {
+    width: 300%;
 }
 .p11-cat.shake img {
     width: 300%;

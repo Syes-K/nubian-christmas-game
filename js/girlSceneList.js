@@ -10,11 +10,11 @@ var sceneList = [{
     //     type: 'last.finish'
     // }
 }, {
-    name: "p5",
+    name: "p1",
     start: startP1
 }, {
     name: "p2.s10",
-    autoFinshTime: 1000, // 自动完成改场景
+    autoFinshTime: 1000 // 自动完成改场景
 }, {
     name: "p2.s20",
     autoFinshTime: 1000, // 自动完成改场景
@@ -173,7 +173,7 @@ var sceneList = [{
     }
 }, {
     name: "p11",
-    autoFinshTime: 12000, // 自动完成改场景
+    autoFinshTime: 1000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
