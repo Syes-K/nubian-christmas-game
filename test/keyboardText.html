@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="txt1"></div>
+    <h3 id="txt2"></h3>
+    <span id="txt3"></span>
+    <script>
+        var str = "Hello world,This is amazing time!!!Let`s start a new life!!!"
+        var strElements = [{
+            id: 'txt1',
+            length: 12,
+        }, {
+            id: 'txt2',
+            length: 23,
+        }, {
+            id: 'txt3',
+            length: 25,
+        }]
+
+        function show(str, strElements) {
+            var length = str.length;
+            var i = 0;
+            var time = setInterval(function() {
+                if (i > length) {
+                    clearInterval(time)
+                } else {
+                    var currentIdx = getIndexFromStrElements(i, strElements);
+                    var currentEl = strElements[currentIdx];
+                    var lastCount = strElements.reduce(function(value, nextItem, idx) {
+                        if (idx < currentIdx) {
+                            return value + nextItem.length
+                        } else {
+                            return value;
+                        }
+                    }, 0)
+                    var currentCount = i - lastCount;
+                    document.getElementById(currentEl.id).innerHTML = str.substr(lastCount,currentCount)
+                    i++;
+                }
+            }, 200)
+        }
+
+        function getIndexFromStrElements(i, strElements) {
+            var index = -1;
+            strElements.reduce(function(value, nextItem, idx) {
+                var nextValue = value + nextItem.length;
+                if (index === -1 && nextValue >= i) {
+                    index = idx;
+                }
+                return nextValue;
+            }, 0)
+            if (index === -1) {
+                index = strElements.length;
+            }
+            return index;
+        }
+        show(str,strElements)
+    </script>
+</body>
+
+</html>

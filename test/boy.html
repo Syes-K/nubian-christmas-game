@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div id="message1" style="height:300px;width:600px;border:1px solid #ddd"></div>
+    <textarea id="text" style="width:600px;height:100px;"></textarea>
+    <br>
+    <button onclick="pushMessage()">push message</button>
+    <div id="my-id"></div>
+    <script src="./sence.js"></script>
+    <script src="./boy.js"></script>
+    <script>
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        var socket = io.connect('http://115.159.69.89:3002');
+        var myid = getQueryString('myid');
+
+        //通过B推送给后台 fxzid是A  fid是B  建立AB关系 
+        var girlId = 'x1';
+        if (girlId && girlId.length) {
+            var boy = new Boy('y1', 'x1', socket)
+            boy.connect();
+            boy.on("girl.down", function() {
+                console.log("girl.down")
+            });
+        } else {
+            // go girl page
+        }
+
+
+        function pushMessage(msg) {
+            boy.attack()
+        }
+
+        function isWeiXin() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            //console.log(ua); //mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

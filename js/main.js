@@ -48,7 +48,7 @@ function resetTop() {
             let top = dom.dataset.top;
             if (top) {
                 dom.style.top = parseFloat(top) * scale + 'px';
-                console.log(dom);
+                // console.log(dom);
             }
         })
     }
