@@ -12,7 +12,9 @@ function randomUuid() {
 function Boy(id, girlId, socket) {
     var self = this;
     self.id = id;
+    self.connectid = randomUuid();
     self.girlId = girlId;
+    self.girlConnectid;
     self.socket = socket;
     self.health = 100;
     self.girlHealth = 100;
@@ -24,7 +26,12 @@ function Boy(id, girlId, socket) {
     });
     // 监听Girl 发来的消息
     self.socket.on("startget2", function(data) {
+        // 不是和我第一次链接的请求 不处理
+        if (self.girlConnectid && self.girlConnectid !== data.connectid) {
+            return;
+        }
         if (data.type === 'connect' && !self.lastConnectedTime) {
+            self.girlConnectid = data.connectid;
             self.lastConnectedTime = (new Date()).getTime();
             self.girlSize = data.msg;
             self._onconnected();
@@ -55,6 +62,7 @@ Boy.prototype.connect = function() {
         'fxzid': self.girlId,
         'fid': self.id,
         'type': 'connect',
+        'connectid': self.connectid,
         'message': {
             width: document.documentElement.clientWidth,
             height: document.documentElement.clientHeight
@@ -70,6 +78,7 @@ Boy.prototype._onconnected = function() {
         self.socket.emit('saole', {
             'fxzid': self.girlId,
             'fid': self.id,
+            'connectid': self.connectid,
             'type': 'connectting',
             'msg': ''
         });
@@ -96,6 +105,7 @@ Boy.prototype.attack = function() {
     self.socket.emit('saole', {
         'fxzid': self.girlId,
         'fid': self.id,
+        'connectid': self.connectid,
         'type': 'pk.attack',
         'msg': ''
     });
@@ -128,6 +138,7 @@ Boy.prototype._lostHealth = function(v) {
     self.socket.emit('saole', {
         'fxzid': self.girlId,
         'fid': self.id,
+        'connectid': self.connectid,
         'type': 'pk.lostHealth',
         'msg': self.health
     });
@@ -144,6 +155,7 @@ Boy.prototype.finishScene = function(scene) {
     self.socket.emit('saole', {
         'fxzid': self.girlId,
         'fid': self.id,
+        'connectid': self.connectid,
         'type': 'scene.finish',
         'msg': scene.name
     });
