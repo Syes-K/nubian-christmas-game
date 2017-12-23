@@ -8,7 +8,23 @@
     <meta name="MobileOptimized" content="320" />
     <link rel="stylesheet" href="style/common.css" />
     <link rel="stylesheet" href="style/page.css" />
+    <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script src="./js/girlSceneList.js"></script>
+    <script src="./js/scene.js"></script>
+    <script src="./js/girl.js"></script>
+    <script>
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        var socket = io.connect('http://115.159.69.89:3002');
+        var myid = getQueryString('myid');
+        var girl = new Girl('x1', socket)
+        var scene = new Scene(sceneList, girl);
+    </script>
 </head>
 <body>
     <!-- 
@@ -39,7 +55,7 @@
         <div class="bg">
             <img src="images/loading/loading_bg.jpg">
         </div>
-        <div class="loading auto-x" data-top="360">
+        <div class="loading auto-x" data-step="s1" data-top="360">
             <div class="loading__cat">
                 <img src="images/loading/loading_cat.png">
             </div>
@@ -257,10 +273,7 @@
     <!-- PK前转场页面 end -->
 
     <!-- pk start -->
-    <div class="page bg " id="pk">
-        <!-- 重置背景音乐 -->
-        <!-- <button onclick="music('pk')"></button> -->
-
+    <div class="page bg none " id="pk">
         <div class="bg">
             <img src="images/pk/pk_left_bg.jpg">
         </div>
@@ -521,7 +534,7 @@
     <!--音乐 end-->
 
     <!-- socket链接失败 start -->
-    <div class="page bg bg_black" id="socket">
+    <div class="page bg bg_black none" id="socket">
         <div class="socket__tips auto-x">
             <div class="socket__tips-text">
                 对方已离线<br>请重新开始
