@@ -10,7 +10,7 @@ var sceneList = [{
     //     type: 'last.finish'
     // }
 }, {
-    name: "p1",
+    name: "p5",
     start: startP1
 }, {
     name: "p2.s10",
