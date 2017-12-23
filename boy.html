@@ -62,7 +62,7 @@
     <!-- p5 end -->
 
     <!-- 场景A-B start -->
-    <div class="page bg none" id="sceneA">
+    <div class="page bg " id="p4">
         <div class="bg">
             <img src="images/scene/scene_right_bg-1.jpg">
         </div>
@@ -74,11 +74,20 @@
             <img src="images/boy/boy-4.png">
         </div>
 
-        <div class="scene__right_tips-2" data-top="42">
-            <img src="images/scene/scene_right_tips-2.png">
-        </div>
-        <div class="scene__right_tips-4" data-top="451">
-            <img src="images/scene/scene_right_tips-4.png">
+        <!-- 气泡提示 -->
+        <div class="p4__tips">
+            <div class="p4__tips-2 none" data-top="16">
+                <img src="images/p4/tips-2.png">
+            </div>
+            <div class="p4__tips-4 none" data-top="370">
+                <img src="images/p4/tips-4.png">
+            </div>
+            <div class="p4__tips-6 none" data-top="-10">
+                <img src="images/p4/tips-6.png">
+            </div>
+            <div class="p4__tips-9" data-top="238">
+                <img src="images/p4/tips-9.png">
+            </div>
         </div>
     </div>
     <!-- 场景A-B end -->
@@ -233,12 +242,34 @@
                 <img src="images/scene/scene_last-2.png">
             </div>
             <div class="button auto-x p11__btn-2">
-                <img src="images/scene/scene_btn-5.png">
+                <img src="images/scene/scene_btn-2.png">
             </div>
         </div>
     </div>
     <!-- 抽奖页 end -->
 
+    <!--音乐 start-->
+    <div id="music">
+        <div class="music play"></div>
+    </div>
+    <!--音乐 end-->
+
+    <!-- socket链接失败 start -->
+    <div class="page bg bg_black none" id="socket">
+        <div class="socket__tips auto-x">
+            <div class="socket__tips-text">
+                对方已离线<br>请重新开始
+            </div>
+            <div class="socket__tips-bg">
+                <img src="images/cover/cover_prize-bg.png">
+            </div>
+            <div class="socket__tips-btn">
+                <img src="images/cover/cover_prize-btn.png">
+            </div>
+        </div>
+    </div>
+    <!-- socket链接失败 end -->
+    
     <!--下面是竖屏提示,性能原因丢最后-->
     <div id="orientLayer" class="mod-orient-layer">
         <div class="mod-orient-layer__content">
@@ -246,6 +277,7 @@
             <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
         </div>
     </div>
+
 
     <style type="text/css">
         /* 样式放在结尾，防止 base64 图片造成拥塞 */
@@ -341,6 +373,7 @@
             color: #fff
         }
     </style>
+
     <script>
         var orientLayer = document.getElementById("orientLayer");
         //判断横屏竖屏

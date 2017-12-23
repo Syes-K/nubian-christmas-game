@@ -137,6 +137,20 @@
     left: 1.955rem;
     z-index: 10;
 }
+.p2__phone {
+    width: .225rem;
+    height: .275rem;
+    overflow: hidden;
+    position: absolute;
+    top: 1.35rem;
+    left: 1.21rem;
+}
+.p2__phone.light img {
+    transform: translateY(-50%);
+}
+.p2__phone img {
+    height: 200%;
+}
 .p2__girl-5 {
     width: .5rem;
     height: .5rem;
@@ -359,7 +373,44 @@
 }
 
 
-/*----------------------------- p5 -------------------------------------*/
+/*----------------------------- p4 -------------------------------------*/
+.p4__tips > div {
+    width: 2.4rem;
+    height: 2.25rem;
+    position: absolute;
+}
+.p4__tips-1 {
+    top: 0;
+    left: .51rem;
+}
+.p4__tips-2 {
+    top: .08rem;
+    right: 1.27rem;
+}
+.p4__tips-3 {
+    top: 1.7rem;
+    left: .8rem;
+}
+.p4__tips-4 {
+    top: 1.85rem;
+    left: .575rem;
+}
+.p4__tips-5 {
+    top: -.025rem;
+    left: .55rem;
+}
+.p4__tips-6 {
+    top: -.005rem;
+    left: -.2rem;
+}
+.p4__tips-7 {
+    top: 2.59rem;
+    left: 1.05rem;
+}
+.p4__tips-9 {
+    top: 1.19rem;
+    left: .77rem;
+}
 
 
 /*----------------------------- sceneA-B -------------------------------------*/
