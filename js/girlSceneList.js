@@ -1,19 +1,17 @@
 var sceneList = [{
     name: 'loading.s1',
-    autoFinshTime: 1000, // 自动完成改场景
+    start: startLoding
 }, {
     name: "p0",
+    start: startP0
     // start: function() {}, //场景开始的回调
-    autoFinshTime: 1000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
+    // autoFinshTime: 1000, // 自动完成改场景
+    // enterTrigger: {
+    //     type: 'last.finish'
+    // }
 }, {
     name: "p1",
-    autoFinshTime: 1000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
+    start: startP1
 }, {
     name: "p2.s10",
     autoFinshTime: 1000, // 自动完成改场景
@@ -53,12 +51,6 @@ var sceneList = [{
 }, {
     name: "p2.s70",
     autoFinshTime: 1000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
-}, {
-    name: "loading.s1",
-    autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
