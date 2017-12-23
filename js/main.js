@@ -20,8 +20,10 @@ document.addEventListener("touchmove", function(event) {
  * 宽度计算基准字体大小
  */
 function setElement(width) {
-    var clientWidth = width || document.documentElement.clientWidth;
-    scale = clientWidth / 320,
+    var clientWidth = document.documentElement.clientWidth,
+        currWidth = width ? Math.min(width, clientWidth) : clientWidth;
+
+    scale = currWidth / 320,
         fontSize = Math.ceil(scale * 100);
 
     if (scale < 1) {
@@ -38,8 +40,10 @@ function setElement(width) {
  * 重置元素Top
  */
 function resetTop(height) {
-    var clientHeight = height || document.documentElement.clientHeight;
-    scale = clientHeight / 1040,
+     var clientHeight = document.documentElement.clientHeight,
+        currHeight = height ? Math.min(width, clientHeight) : clientHeight;
+
+    scale = currHeight / 1040,
         resetTopDoms = document.querySelectorAll('[data-top]'),
         max = resetTopDoms.length;
 
