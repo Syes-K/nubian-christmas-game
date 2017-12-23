@@ -25,6 +25,9 @@
             return null;
         }
         window.onload = function() {
+            resetTop();
+            music('bgm');
+            
             window.socket = io.connect('http://115.159.69.89:3002');
             window.myid = getQueryString('myid');
             window.boy = new Boy('y1', 'x1', socket)

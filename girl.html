@@ -32,6 +32,9 @@
         }
         var myid = getQueryString('myid');
         window.onload = function() {
+            resetTop();
+            music('bgm');
+
             window.socket = io.connect('http://115.159.69.89:3002');
             window.girl = new Girl('x1', socket)
             window.scene = new Scene(sceneList, girl);
@@ -154,7 +157,7 @@
             <div class="p2__girl-1 none" data-step="s30">
                 <img src="images/girl/girl-1.png">
             </div>
-            <div class="p2__girl-5 none" data-step="s10" data-top="220">
+            <div class="p2__girl-5 none" data-step="s10,s20,s21" data-top="220">
                 <img src="images/p2/girl-5.png">
             </div>
 
@@ -177,13 +180,14 @@
             </div>
 
             <!-- 提示气泡 -->
-            <div class="p2__tips bg_black2 none" data-step="s20,s21,s40,s60,s70,s80">
-                <div class="p2__tips-1 none" data-step="s21" data-top="49">
-                    <img src="images/p2/p2_tips-1.png">
-                </div>
-                <div class="p2__tips-2 none" data-step="s20" data-top="49">
-                    <img src="images/p2/p2_tips-2.png">
-                </div>
+            <div class="p2__tips-1 none" data-step="s21" data-top="49">
+                <img src="images/p2/p2_tips-1.png">
+            </div>
+            <div class="p2__tips-2 none" data-step="s20" data-top="49">
+                <img src="images/p2/p2_tips-2.png">
+            </div>
+
+            <div class="p2__tips bg_black2 none" data-step="s40,s60,s70,s80">
                 <div class="p2__tips-3 auto-x none p2-next-scene" data-step="s40" data-top="428">
                     <img src="images/p2/p2_tips-3.png">
                     <div class="close">

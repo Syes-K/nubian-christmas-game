@@ -1,10 +1,5 @@
 setElement();
 
-window.onload = function() {
-    resetTop();
-    music('bgm');
-};
-
 window.onresize = function() {
     resetTop();
     setElement();
