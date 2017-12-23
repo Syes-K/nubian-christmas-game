@@ -52,28 +52,11 @@
 <body>
     <!-- 
         TODO list
-        
-        2. 二维码-动态设置，文字对应
-        3. 手机亮屏切换
-        5. 屏幕尺寸设置大小，并垂直居中， 宽度还得区分左、右手机，居左或者居右
-        6. 开门文案右移
-        7. 页面转场淡出动画
-        8. 血条图片（往中间减少）
-        9. 小鱼干动画2链接
-        10. 去除4只猫，保留一只猫和表情
-        11. 初始为：逗猫棒、鱼干攻击
-        12. 添加猫咪声音（两边都有）
-        13. 优惠券金额未确认
         14. 分享内容
-        15. 整体背景音乐和pk背景音乐。
-        17. 链接离线提示
-
-        girl.html
-        boy.html
      -->
 
     <div class="warp bg wrap_left">
-        
+
         <!-- 加载中 start -->
         <div class="page none" id="loading">
             <div class="bg">
@@ -751,6 +734,7 @@
     </style>
 
     <script>
+        //------------------ 横竖屏判断 --------------
         var orientLayer = document.getElementById("orientLayer");
         //判断横屏竖屏
         function checkDirect() {
@@ -777,6 +761,45 @@
             })
         }
         init();
+    </script>
+
+    <script>
+        //------------------ 分享 --------------
+        var wxshareImg = 'http://3glogo.gtimg.com/tmt/_events/20150125-bmw/dist/img/share-icon.png';
+        var wxshareTitle = "手机互动";
+        var wxshareDesc = "分享获得奖品";
+        var wxshareUrl = "http://www.baidu.com"
+
+        function getWxShareData() {
+            return {
+                'img_url': wxshareImg,
+                'title': wxshareTitle,
+                'link': wxshareUrl,
+                'desc': wxshareDesc
+            };
+        }
+
+        function getWxShareMomentData() {
+            return {
+                'img_url': wxshareImg,
+                'title': wxshareDesc,
+                'link': wxshareUrl,
+                'desc': wxshareDesc
+            };
+        }
+
+        var bindit = function () {
+            // 发送给好友;
+            WeixinJSBridge.on('menu:share:appmessage', function () {
+                WeixinJSBridge.invoke('sendAppMessage', getWxShareData(), function (r) { });
+            });
+            // 分享到朋友圈;
+            WeixinJSBridge.on('menu:share:timeline', function () {
+                WeixinJSBridge.invoke('shareTimeline', getWxShareMomentData(), function (r) { });
+            });
+        };
+
+        document.addEventListener('WeixinJSBridgeReady', bindit, false);
     </script>
 </body>
 
