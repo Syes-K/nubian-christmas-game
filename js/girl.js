@@ -1,10 +1,20 @@
 var disConnectTime = 5000;
 var attackedLostHealth = 5;
 
+function randomUuid() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+        const r = Math.random() * 16 | 0;
+        const v = c === "x" ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
 function Girl(id, socket) {
     var self = this;
     self.id = id;
+    self.connectid = randomUuid();
     self.boyId;
+    self.boyConnectid;
     self.socket = socket;
     self.health = 100;
     self.boyHealth = 100;
@@ -19,17 +29,20 @@ function Girl(id, socket) {
         if (data.fxzid !== self.id) {
             return;
         }
+
         // 不是和我第一次链接的请求 不处理
-        if (self.boyId && self.boyId !== data.fid) {
+        if (self.boyConnectid && self.boyConnectid !== data.connectid) {
             return;
         }
         // 有boy加入,且没有连接过
         if (data.type === 'connect' && !self.lastConnectedTime) {
             self.boyId = data.fid;
+            self.boyConnectid = data.connectid;
             self.boySize = data.msg;
             self.lastConnectedTime = (new Date()).getTime();
             self.socket.emit('pour', {
                 'fid': self.boyId,
+                'connectid': self.connectid,
                 'type': 'connect',
                 'message': {
                     width: document.documentElement.clientWidth,
@@ -71,6 +84,7 @@ Girl.prototype._onconnected = function() {
         }
         self.socket.emit('pour', {
             'fid': self.boyId,
+            'connectid': self.connectid,
             'type': 'connectting',
             'msg': ''
         });
@@ -86,7 +100,7 @@ Girl.prototype._onconnected = function() {
             self._ondisconnected();
         }
     }, 1000);
-    console.log('connect:'+ new Date().getTime())
+    console.log('connect:' + new Date().getTime())
 }
 
 // Boy 断开连接
@@ -103,6 +117,7 @@ Girl.prototype.attack = function() {
     var self = this;
     self.socket.emit('pour', {
         'fid': this.boyId,
+        'connectid': self.connectid,
         'type': 'pk.attack',
         'msg': ''
     });
@@ -134,6 +149,7 @@ Girl.prototype._lostHealth = function(v) {
     self._emit("lostHealth", self.health);
     self.socket.emit('pour', {
         'fid': this.boyId,
+        'connectid': self.connectid,
         'type': 'pk.lostHealth',
         'msg': self.health
     });
@@ -149,6 +165,7 @@ Girl.prototype._checkKO = function() {
 Girl.prototype.finishScene = function(scene) {
     self.socket.emit('pour', {
         'fid': this.boyId,
+        'connectid': self.connectid,
         'type': 'scene.finish',
         'msg': scene.name
     });
