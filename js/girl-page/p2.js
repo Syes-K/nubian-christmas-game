@@ -50,14 +50,16 @@ function startP2() {
             scene.next();
         }
     }
+}
 
-    scene.on("scene.p2.s70.enter", function() {
-        var qrcode = new QRCode(document.getElementById("qr-code"), {
-            width: 100,
-            height: 100
-        });
-        var currentHref = window.location.href;
-        var boyHref = window.location.href.replace("girl", "boy") + "?fxzid=" + girl.id;
-        qrcode.makeCode(boyHref);
+function startP2S70() {
+    var qrcode = new QRCode(document.getElementById("qr-code"), {
+        width: 100,
+        height: 100
     });
+    var currentHref = window.location.href;
+    var boyHref = window.location.href.replace("girl", "boy");
+    boyHref = boyHref.replace(/\?[\s\S]*/, "");
+    boyHref += "?fxzid=" + girl.id;
+    qrcode.makeCode(boyHref);
 }
