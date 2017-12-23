@@ -46,8 +46,8 @@ function Boy(id, girlId, socket) {
             self._updateGirlHealth(data.msg);
         }
         if (data.type === 'scene.finish') {
-            var scene = data.msg;
-            self._emit('girl.' + scene.name + '.finish');
+            var sceneName = data.msg;
+            self._emit('girl.' + sceneName + '.finish');
         }
         console.log(data)
     });
@@ -63,7 +63,7 @@ Boy.prototype.connect = function() {
         'fid': self.id,
         'type': 'connect',
         'connectid': self.connectid,
-        'message': {
+        'msg': {
             width: document.documentElement.clientWidth,
             height: document.documentElement.clientHeight
         }
@@ -152,6 +152,7 @@ Boy.prototype._checkKO = function() {
     }
 }
 Boy.prototype.finishScene = function(scene) {
+    var self = this;
     self.socket.emit('saole', {
         'fxzid': self.girlId,
         'fid': self.id,

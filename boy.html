@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>nubia 1-6</title>
@@ -11,9 +12,8 @@
     <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-
     <script src="./js/boy-page/loading.js"></script>
-
+    <script src="./js/boy-page/p1.js"></script>
     <script src="./js/boySceneList.js"></script>
     <script src="./js/scene.js"></script>
     <script src="./js/boy.js"></script>
@@ -24,13 +24,17 @@
             if (r != null) return unescape(r[2]);
             return null;
         }
-        var socket = io.connect('http://115.159.69.89:3002');
-        var myid = getQueryString('myid');
-        var boy = new Boy('y1', 'x1', socket)
-        var scene = new Scene(sceneList, boy);
+        window.onload = function() {
+            window.socket = io.connect('http://115.159.69.89:3002');
+            window.myid = getQueryString('myid');
+            window.boy = new Boy('y1', 'x1', socket)
+            window.scene = new Scene(sceneList, boy);
+            window.boy.connect();
+        }
     </script>
 
 </head>
+
 <body>
     <!-- 
         TODO list
@@ -67,8 +71,8 @@
                 <div class="loading__bar">
                     <img src="images/loading/loading_bar.png">
                 </div>
-                <div class="loading__num">
-                    100%
+                <div class="loading__num" id="loading-percent">
+                    0%
                 </div>
             </div>
         </div>
@@ -175,7 +179,7 @@
         <!-- PK前转场页面 end -->
 
         <!-- pk start -->
-        <div class="page bg" id="pk">
+        <div class="page bg none" id="pk">
             <div class="bg">
                 <img src="images/pk/pk_right_bg.jpg">
             </div>
@@ -325,6 +329,7 @@
 
     <style type="text/css">
         /* 样式放在结尾，防止 base64 图片造成拥塞 */
+
         @keyframes rotation {
             10% {
                 transform: rotate(90deg);
@@ -437,13 +442,15 @@
                 orientLayer.style.display = "block";
             }
         }
+
         function init() {
             orientNotice();
-            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
                 setTimeout(orientNotice, 200);
             })
         }
         init();
     </script>
 </body>
+
 </html>

@@ -44,7 +44,7 @@ function Girl(id, socket) {
                 'fid': self.boyId,
                 'connectid': self.connectid,
                 'type': 'connect',
-                'message': {
+                'msg': {
                     width: document.documentElement.clientWidth,
                     height: document.documentElement.clientHeight
                 }
@@ -63,8 +63,8 @@ function Girl(id, socket) {
             self._updateGirlHealth(data.msg);
         }
         if (data.type === 'scene.finish') {
-            var scene = data.msg;
-            self._emit('boy.' + scene.name + '.finish');
+            var sceneName = data.msg;
+            self._emit('boy.' + sceneName + '.finish');
         }
         console.log(data);
     });
@@ -110,7 +110,7 @@ Girl.prototype._ondisconnected = function() {
     clearInterval(self.connecttingTimer);
     clearInterval(self.ckeckBoyConnectedTimer);
     clearInterval(self.autoLostHealthTimer);
-    console.log("disconnect");
+    self._emit("boy.disconnect");
 }
 
 Girl.prototype.attack = function() {
@@ -163,6 +163,7 @@ Girl.prototype._checkKO = function() {
     }
 }
 Girl.prototype.finishScene = function(scene) {
+    var self = this;
     self.socket.emit('pour', {
         'fid': this.boyId,
         'connectid': self.connectid,
