@@ -57,12 +57,6 @@ var sceneList = [{
         type: 'last.finish'
     }
 }, {
-    name: "loading.s1",
-    autoFinshTime: 2000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
-}, {
     name: "p3",
     autoFinshTime: 1500, // 自动完成改场景
     enterTrigger: {
@@ -82,16 +76,16 @@ var sceneList = [{
     }
 }, {
     name: "p4.s30",
-    // autoFinshTime: 1000, // 自动完成改场景
+    autoFinshTime: 1000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
     name: "p4.s40",
-    // autoFinshTime: 1000, // 自动完成改场景
-    // enterTrigger: {
-    //     type: 'last.finish'
-    // }
+    autoFinshTime: 1000, // 自动完成改场景
+    enterTrigger: {
+        type: 'last.finish'
+    }
 }, {
     name: "p4.s50",
     autoFinshTime: 1000, // 自动完成改场景
@@ -100,6 +94,12 @@ var sceneList = [{
     }
 }, {
     name: "p4.s60",
+    autoFinshTime: 1000, // 自动完成改场景
+    enterTrigger: {
+        type: 'last.finish'
+    }
+}, {
+    name: "p5",
     autoFinshTime: 1000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
