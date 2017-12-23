@@ -258,6 +258,9 @@
 
     <!-- pk start -->
     <div class="page bg " id="pk">
+        <!-- 重置背景音乐 -->
+        <!-- <button onclick="music('pk')"></button> -->
+
         <div class="bg">
             <img src="images/pk/pk_left_bg.jpg">
         </div>
@@ -307,7 +310,7 @@
         </div>
 
         <div class="pk-cat-tips pk__left-cat-tips shake" data-top="144">
-            <img src="images/pk/pk_cat_face.png">
+            <img src="images/pk/pk_cat_face2.png">
             <!-- <img class="none" src="images/pk/pk_cat_face-1.png">
             <img class="none" src="images/pk/pk_cat_face-2.png">
             <img src="images/pk/pk_cat_face-3.png"> -->
@@ -374,7 +377,7 @@
                 <img src="images/scene/scene_last-2.png">
             </div>
             <div class="button auto-x p11__btn-2">
-                <img src="images/scene/scene_btn-5.png">
+                <img src="images/scene/scene_btn-2.png">
             </div>
         </div>
 
@@ -516,6 +519,22 @@
         <div class="music play"></div>
     </div>
     <!--音乐 end-->
+
+    <!-- socket链接失败 start -->
+    <div class="page bg bg_black" id="socket">
+        <div class="socket__tips auto-x">
+            <div class="socket__tips-text">
+                对方已离线<br>请重新开始
+            </div>
+            <div class="socket__tips-bg">
+                <img src="images/cover/cover_prize-bg.png">
+            </div>
+            <div class="socket__tips-btn">
+                <img src="images/cover/cover_prize-btn.png">
+            </div>
+        </div>
+    </div>
+    <!-- socket链接失败 end -->
     
     <!--下面是竖屏提示,性能原因丢最后-->
     <div id="orientLayer" class="mod-orient-layer">
@@ -524,6 +543,7 @@
             <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
         </div>
     </div>
+
 
     <style type="text/css">
         /* 样式放在结尾，防止 base64 图片造成拥塞 */

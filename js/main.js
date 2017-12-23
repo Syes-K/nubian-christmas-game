@@ -2,7 +2,7 @@ setElement();
 
 window.onload = function() {
     resetTop();
-    music();
+    music('bgm');
 };
 
 window.onresize = function() {
@@ -58,7 +58,7 @@ function resetTop() {
 /**
  * 音乐
  */
-function music() {
+function music(musicName) {
     var bgm;
     var mList = {};
     var play = false;
@@ -82,15 +82,15 @@ function music() {
     if (is_weixn()) {
         if (typeof(wx) == "object") {
             wx.ready(function() {
-                getMusic('bgm');
+                getMusic(musicName);
             })
         } else {
             document.addEventListener("WeixinJSBridgeReady", function() {
-                getMusic('bgm');
+                getMusic(musicName);
             }, false);
         }
     } else {
-        getMusic('bgm');
+        getMusic(musicName);
     }
 
     function getMusic(type) {
@@ -127,6 +127,7 @@ function music() {
         }
     }
 }
+
 
 //识别系统及客户端
 function is_weixn() {

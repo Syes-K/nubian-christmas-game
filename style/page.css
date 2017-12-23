@@ -612,31 +612,33 @@
     overflow: hidden;
 }
 .pk__left-cat-tips img {
-    height: 300%;
+    width: 300%;
+    // height: 300%;
+    height: 100%;
     animation: cat-tips .4s steps(1) infinite;
     -webkit-animation: cat-tips .4s steps(1) infinite
 }
 @keyframes cat-tips {
     0% {
-        transform: translateY(0)
+        transform: translateX(0)
     }
     50% {
-        transform: translateY(-1rem)
+        transform: translateX(-1rem)
     }
     100% {
-        transform: translateY(-2rem)
+        transform: translateX(-2rem)
     }
 }
 
 @-webkit-keyframes cat-tips {
     0% {
-        -webkit-transform: translateY(0)
+        -webkit-transform: translateX(0)
     }
     50% {
-        -webkit-transform: translateY(-1rem)
+        -webkit-transform: translateX(-1rem)
     }
     100% {
-        -webkit-transform: translateY(-2rem)
+        -webkit-transform: translateX(-2rem)
     }
 }
 
@@ -977,6 +979,36 @@
     z-index: 10;
 }
 
+
+/*----------------------------- socket -------------------------------------*/
+.socket__tips {
+    top: .985rem;
+    width: 1.84rem;
+    overflow: hidden;
+}
+.socket__tips-text {
+    position: absolute;
+    top: .77rem;
+    width: 1.72rem;
+    height: 1.42rem;
+    left: .05rem;
+    color: #f;
+    font-size: .24rem;
+    line-height: 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.socket__tips-bg {
+    width: 1.84rem;
+    height: 2.64rem;
+    margin-top: -.3rem;
+}
+.socket__tips-btn {
+    width: .29rem;
+    height: .29rem;
+    margin: .19rem auto 0;
+}
 
 /*-----------------------------音乐-------------------------------------*/
 
