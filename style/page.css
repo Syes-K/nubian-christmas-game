@@ -122,7 +122,7 @@
     font-size: .42rem;
     margin-top: .3rem;
 }
-.p1__text h2 span {
+.p1__text h2 span:nth-child(2) {
     margin: 0 .5rem;
 }
 
