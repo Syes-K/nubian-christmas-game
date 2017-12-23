@@ -8,6 +8,7 @@ function Girl(id, socket) {
     self.socket = socket;
     self.health = 100;
     self.boyHealth = 100;
+    self.boySize;
     self.lastConnectedTime;
     self.socket.emit('myid', {
         'myid': self.id
@@ -23,9 +24,18 @@ function Girl(id, socket) {
             return;
         }
         // 有boy加入,且没有连接过
-        if (data.type === 'login' && !self.lastConnectedTime) {
+        if (data.type === 'connect' && !self.lastConnectedTime) {
             self.boyId = data.fid;
+            self.boySize = data.msg;
             self.lastConnectedTime = (new Date()).getTime();
+            self.socket.emit('pour', {
+                'fid': self.boyId,
+                'type': 'connect',
+                'message': {
+                    width: document.documentElement.clientWidth,
+                    height: document.documentElement.clientHeight
+                }
+            });
             self._onconnected();
         }
         // 刷新上一次boy链接的时间
@@ -52,7 +62,7 @@ Girl.prototype = Object.assign({}, EventPrototype);
 
 Girl.prototype._onconnected = function() {
     var self = this;
-    self._ondisconnected();
+    // self._ondisconnected();
     // 不停的发送消息给Boy，告诉他我在呢
     self.connecttingTimer = setInterval(function() {
         // 没有Boy链接不处理
@@ -76,6 +86,7 @@ Girl.prototype._onconnected = function() {
             self._ondisconnected();
         }
     }, 1000);
+    console.log('connect:'+ new Date().getTime())
 }
 
 // Boy 断开连接

@@ -1,6 +1,14 @@
 var disConnectTime = 5000;
 var attackedLostHealth = 5;
 
+function randomUuid() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+        const r = Math.random() * 16 | 0;
+        const v = c === "x" ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
 function Boy(id, girlId, socket) {
     var self = this;
     self.id = id;
@@ -8,6 +16,7 @@ function Boy(id, girlId, socket) {
     self.socket = socket;
     self.health = 100;
     self.girlHealth = 100;
+    self.girlSize;
     self.lastConnectedTime;
     // 注册 id
     self.socket.emit('myid', {
@@ -15,10 +24,12 @@ function Boy(id, girlId, socket) {
     });
     // 监听Girl 发来的消息
     self.socket.on("startget2", function(data) {
+        if (data.type === 'connect' && !self.lastConnectedTime) {
+            self.lastConnectedTime = (new Date()).getTime();
+            self.girlSize = data.msg;
+            self._onconnected();
+        }
         if (data.type === 'connectting') {
-            if (!self.lastConnectedTime) { //没有连接的情况，开启连接
-                self._onconnected();
-            }
             self.lastConnectedTime = (new Date()).getTime();
         }
         if (data.type === 'pk.attack') {
@@ -43,14 +54,17 @@ Boy.prototype.connect = function() {
     self.socket.emit('saole', {
         'fxzid': self.girlId,
         'fid': self.id,
-        'type': 'login',
-        'message': ''
+        'type': 'connect',
+        'message': {
+            width: document.documentElement.clientWidth,
+            height: document.documentElement.clientHeight
+        }
     });
 }
 
 Boy.prototype._onconnected = function() {
     var self = this;
-    self._ondisconnected()
+    // self._ondisconnected()
     // 不停的发送消息给Girl，告诉她我在呢
     self.connecttingTimer = setInterval(function() {
         self.socket.emit('saole', {
@@ -67,6 +81,7 @@ Boy.prototype._onconnected = function() {
             self._ondisconnected();
         }
     }, 1000);
+    console.log('connect:' + new Date().getTime())
 }
 Boy.prototype._ondisconnected = function() {
     var self = this;
