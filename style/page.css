@@ -83,15 +83,20 @@
     z-index: 10;
     top: 1.14rem;
 }
+.cover__prize-img .prize-coupon_text {
+    top: .305rem;
+}
 
 .cover__btn-prize {
-    width: .7rem;
-    height: .7rem;
+    width: .71rem;
+    height: .71rem;
     position: absolute;
     left: 1.79rem;
-    top: 2.75rem;
+    top: 2.7rem;
     z-index: 10;
-    border: 1px solid red;
+}
+.cover__prize-wrap {
+    z-index: 20;
 }
 
 
@@ -236,6 +241,13 @@
     top: 1.57rem;
     left:.305rem;
     z-index: 20;
+}
+.p2__tips-8 .close {
+    width: .23rem;
+    height: .23rem;
+    position: absolute;
+    left: 2.1rem;
+    top: .33rem;
 }
 .p2__prop-1 {
     width: .625rem;
@@ -574,6 +586,10 @@
     top: 3.685rem;
     left: .425rem;
 }
+.pk__left-cat {
+    top: 1.65rem;
+    left: 2.225rem;
+}
 .pk__left-cat-1 {
     top: 1.69rem;
     left: 2.015rem;
@@ -860,6 +876,24 @@
 .p11__prize-1 .button {
     top: 3.785rem;
 }
+.p11__prize-1 .prize-coupon_text {
+    width: 1.64rem;
+    height: .85rem;
+    top: 1.665rem;
+}
+.p11__prize-1 .prize-coupon_text h2 {
+    font-size: .305rem;
+    padding: 0 0 .06rem .125rem;
+}
+.p11__prize-1 .prize-coupon_text span {
+    font-size: .135rem;
+}
+.p11__prize-1 .prize-coupon_text p {
+    font-size: .115rem;
+}
+.p11__prize-1 .prize-coupon_text p:first-of-type {
+    margin-bottom: .03rem;
+}
 
 .p11__prize-2 {
     width: 3.2rem;
@@ -900,10 +934,58 @@
 .p11__prize-5 .button {
     top: 3.35rem;
 }
+.p11__prize-5 .prize-code {
+    top: 2.25rem;
+    font-size: .18rem;
+    letter-spacing: .02rem;
+    text-align: center;
+}
+.p11__prize-5 .tips3 {
+    width: 2.05rem;
+    height: .2rem;
+    top: 2.79rem;
+    z-index: 10;
+}
 
-/*----------------------------- p11 -------------------------------------*/
 
+/*-----------------------------音乐-------------------------------------*/
 
+#music {
+    position: absolute;
+    width: .24rem;
+    height: .24rem;
+    left: .14rem;
+    bottom: .12rem;
+    z-index: 50000;
+    visibility: hidden
+}
+
+.music {
+    width: 100%;
+    height: 100%;
+    background: url(../images/music.png) no-repeat center bottom / 100%
+}
+
+.play {
+    background-position: center top
+}
+
+#music>span {
+    color: #fff;
+    position: absolute;
+    left: -.52rem;
+    top: 0;
+    line-height: .24rem;
+    font-size: .14rem;
+    opacity: 0;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear
+}
+
+#music>span.zshow {
+    left: -.3rem;
+    opacity: 1
+}
 
 
 

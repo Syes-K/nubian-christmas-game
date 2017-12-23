@@ -22,19 +22,64 @@
                 } 
             }
         }
+
+        function resetTop(){
+            var clientHeight = document.documentElement.clientHeight;
+                scale = clientHeight / 1040,
+                resetTopDoms = document.querySelectorAll('[data-top]'),
+                max = resetTopDoms.length;
+
+            resetTopDoms.forEach(dom => {
+                let top = dom.dataset.top;
+                if(top){
+                    dom.style.top = parseFloat(top) * scale + 'px';
+                    console.log(dom);
+                }
+            })
+        }
+        window.onload = function() {
+            resetTop();
+        }
         window.onresize = function() { 
-            setElement() 
+            setElement();
+            resetTop();
         };
         setElement();
     </script>
 </head>
 <body>
+    <!-- 
+        TODO list
+        
+        1. 我的奖品-文案提取出来
+        2. 二维码-动态设置，文字对应
+        3. 手机亮屏切换
+        4. 喵喵的图片添加叉子
+        5. 屏幕尺寸设置大小，并垂直居中， 宽度还得区分左、右手机，居左或者居右
+        6. 开门文案右移
+        7. 页面转场淡出动画
+        8. 血条图片（往中间减少）
+        9. 小鱼干动画2链接
+        10. 去除4只猫，保留一只猫和表情
+        11. 初始为：逗猫棒、鱼干攻击
+        12. 添加猫咪声音（两边都有）
+        13. 优惠券金额未确认
+        14. 分享内容
+        15. 整体背景音乐和pk背景音乐。
+        16. 横竖屏判断
+        17. 链接离线提示
+
+        girl.html
+        boy.html
+     -->
+
+
     <!-- 加载中 start -->
     <div class="page none" id="loading">
         <div class="bg">
             <img src="images/loading/loading_bg.jpg">
         </div>
-        <div class="loading auto-x">
+        <div class="loading auto-x" data-top="360">
             <div class="loading__cat">
                 <img src="images/loading/loading_cat.png">
             </div>
@@ -49,7 +94,7 @@
     <!-- 加载中 end -->
 
     <!-- 封面 start -->
-    <div class="page none" id="cover">
+    <div class="page" id="cover">
         <div class="bg">
             <img src="images/cover/cover_bg.jpg">
         </div>
@@ -60,18 +105,20 @@
         </div>
 
         <!-- 我的奖品-按钮 -->
-        <div class="cover__btn-prize"></div>
+        <div class="cover__btn-prize" data-top="550">
+            <img src="images/cover/cover_btn-mine.png">
+        </div>
 
         <!-- 我的奖品-弹框 -->
         <div class="cover__prize-wrap auto-x bg_black none">
-            <div class="cover__prize auto-x">
+            <div class="cover__prize auto-x" data-top="197">
                 <div class="cover__prize-bg">
                     <img src="images/cover/cover_prize-bg.png">
                 </div>
                 <div class="cover__prize-btn">
                     <img src="images/cover/cover_prize-btn.png">
                 </div>
-                <div class="cover__prize-img auto-x">
+                <div class="cover__prize-img auto-x" data-top="228">
                     <img src="images/prize/1.png">
                 </div>
             </div>
@@ -84,7 +131,7 @@
         <div class="bg">
             <img src="images/p1_bg.jpg">
         </div>
-        <div class="p1__text auto-x">
+        <div class="p1__text auto-x" data-top="250">
             <h4>去年圣诞节和男票分手!</h4>
             <h4>今年心爱的喵子居然</h4>
             <h3>也不见了！</h3>
@@ -95,19 +142,19 @@
     <!-- P1 end -->
 
     <!-- P2-p4 start -->
-    <div class="page" id="p2">
+    <div class="page none" id="p2">
         <div class="bg">
             <img src="images/p2/p2_bg.jpg">
         </div>
-        <div class="p2__girl-1">
+        <div class="p2__girl-1 none">
             <img src="images/girl/girl-1.png">
         </div>
-        <div class="p2__girl-5">
-            <img src="images/girl/girl-5.png">
+        <div class="p2__girl-5" data-top="220">
+            <img src="images/p2/girl-5.png">
         </div>
 
         <!-- 抖动道具 -->
-        <div class="p2__prop-1 shake">
+        <div class="p2__prop-1 shake" data-top="258">
             <img src="images/p2/p2_prop-1.png">
         </div>
         <div class="p2__prop-2 shake">
@@ -118,39 +165,39 @@
         </div>
 
         <!-- 提示气泡 -->
-        <div class="p2__tips bg_black2">
-            <div class="p2__tips-1 none">
+        <div class="p2__tips bg_black2 none">
+            <div class="p2__tips-1" data-top="49">
                 <img src="images/p2/p2_tips-1.png">
             </div>
-            <div class="p2__tips-2 none">
+            <div class="p2__tips-2" data-top="49">
                 <img src="images/p2/p2_tips-2.png">
             </div>
-            <div class="p2__tips-3 auto-x none">
+            <div class="p2__tips-3 auto-x" data-top="428">
                 <img src="images/p2/p2_tips-3.png">
                 <div class="close"><!-- close --></div>
             </div>
-            <div class="p2__tips-4 auto-y none">
+            <div class="p2__tips-4 auto-y" data-top="26">
                 <img src="images/p2/p2_tips-4.png">
                 <div class="close"><!-- close --></div>
             </div>
-            <div class="p2__tips-5 none">
+            <div class="p2__tips-5" data-top="666">
                 <img src="images/p2/p2_tips-5.png">
                 <div class="close"><!-- close --></div>
             </div>
-            <div class="p2__tips-6 none">
+            <div class="p2__tips-6" data-top="246">
                 <img src="images/p2/p2_tips-6.png">
                 <div class="close">
                     <img src="images/p2/p2-tips-6-btn.png">
                 </div>
             </div>
-            <div class="p2__tips-7 auto-x none">
+            <div class="p2__tips-7 auto-x" data-top="242">
                 <img src="images/p2/p2_tips-7.png">
 
                 <div class="code">
                     <img src="images/p2/2wm.jpg">
                 </div>
             </div>
-            <div class="p2__tips-8 none">
+            <div class="p2__tips-8" data-top="314">
                 <img src="images/p2/p2_tips-8.png">
             </div>
         </div>
@@ -170,41 +217,41 @@
 
     <!-- 场景A-B start -->
     <div class="page none" id="sceneA">
-        <div class="scene__left none">
+        <div class="scene__left bg ">
             <div class="bg">
                 <img src="images/scene/scene_left_bg-1.jpg">
             </div>
 
-            <div class="girl-3">
+            <div class="girl-3" data-top="637">
                 <img src="images/girl/girl-3.png">
             </div>
-            <div class="girl-4">
+            <div class="girl-4" data-top="274">
                 <img src="images/girl/girl-4.png">
             </div>
 
-            <div class="scene__left_tips-4">
+            <div class="scene__left_tips-4" data-top="412">
                 <img src="images/scene/scene_left_tips-4.png">
             </div>
-            <div class="scene__left_tips-5">
+            <div class="scene__left_tips-5" data-top="57">
                 <img src="images/scene/scene_left_tips-5.png">
             </div>
         </div>
-        <div class="scene__right">
+        <div class="scene__right bg none">
             <div class="bg">
                 <img src="images/scene/scene_right_bg-1.jpg">
             </div>
 
-            <div class="boy-2">
+            <div class="boy-2" data-top="670">
                 <img src="images/boy/boy-2.png">
             </div>
-            <div class="boy-4">
+            <div class="boy-4" data-top="440">
                 <img src="images/boy/boy-4.png">
             </div>
 
-            <div class="scene__right_tips-2">
+            <div class="scene__right_tips-2" data-top="42">
                 <img src="images/scene/scene_right_tips-2.png">
             </div>
-            <div class="scene__right_tips-4">
+            <div class="scene__right_tips-4" data-top="451">
                 <img src="images/scene/scene_right_tips-4.png">
             </div>
         </div>
@@ -213,183 +260,74 @@
 
     <!-- 场景C start -->
     <div class="page none" id="sceneC">
-        <div class="scene__left none">
+        <div class="scene__left bg">
             <div class="bg">
                 <img src="images/scene/scene_left_bg-3.jpg">
             </div>
 
-            <div class="boy-5 none">
+            <div class="boy-5" data-top="240">
                 <img src="images/boy/boy-5.png">
             </div>
-            <div class="boy-6">
+            <div class="boy-6" data-top="598">
                 <img src="images/boy/boy-6.png">
             </div>
-            <div class="boy-7">
+            <div class="boy-7" data-top="470">
                 <img src="images/boy/boy-7.png">
             </div>
 
-            <div class="scene__left_tips-6">
+            <div class="scene__left_tips-6" data-top="109">
                 <img src="images/scene/scene_left_tips-6.png">
             </div>
-            <div class="scene__left_tips-7">
+            <div class="scene__left_tips-7" data-top="283">
                 <img src="images/scene/scene_left_tips-7.png">
             </div>
-            <div class="scene__left_tips-8">
+            <div class="scene__left_tips-8" data-top="165">
                 <img src="images/scene/scene_left_tips-8.png">
             </div>
         </div>
-        <div class="scene__right">
+        <div class="scene__right bg none">
             <div class="bg">
                 <img src="images/scene/scene_right_bg-3.jpg">
             </div>
 
-            <div class="girl-7 none">
+            <div class="girl-7" data-top="330">
                 <img src="images/girl/girl-7.png">
             </div>
-            <div class="girl-8">
+            <div class="girl-8" data-top="320">
                 <img src="images/girl/girl-8.png">
             </div>
 
-            <div class="scene__right_tips-5 none">
+            <div class="scene__right_tips-5 " data-top="125">
                 <img src="images/scene/scene_right_tips-5.png">
             </div>
-            <div class="scene__right_tips-6 none">
+            <div class="scene__right_tips-6 " data-top="154">
                 <img src="images/scene/scene_right_tips-6.png">
             </div>
-            <div class="scene__right_tips-7">
+            <div class="scene__right_tips-7" data-top="48">
                 <img src="images/scene/scene_right_tips-7.png">
             </div>
         </div>
     </div>
     <!-- 场景C end -->
 
-    <!-- pk start -->
-    <div class="page none" id="pk">
-        <div class="pk__left none">
-            <div class="bg">
-                <img src="images/pk/pk_left_bg.jpg">
-            </div>
-
-            <!-- 血条 css: n_0, n_25, n_75-->
-            <div class="pk-blood pk__left-blood n_0">
-                <img src="images/pk/pk_blood.png">
-            </div>
-
-            <div class="pk__left-text none">
-                <img src="images/pk/pk_left_text-1.png">
-            </div>
-
-            <div class="girl-9 none">
-                <img src="images/girl/girl-9.png">
-            </div>
-            <div class="girl-10 none">
-                <img src="images/girl/girl-10.png">
-            </div>
-            <div class="girl-13 ">
-                <img src="images/girl/girl-13.png">
-            </div>
-
-            <div class="pk-btn pk__left-btn">
-                <img src="images/pk/pk_btn.png">
-            </div>
-
-            <div class="pk-ko pk__left-ko none">
-                <img src="images/pk/pk_ko.png">
-            </div>
-
-            <div class="pk-cat pk__left-cat-1 none">
-                <img src="images/pk/pk_cat-1.png">
-            </div>
-            <div class="pk-cat pk__left-cat-2 none">
-                <img src="images/pk/pk_cat-2.png">
-            </div>
-            <div class="pk-cat pk__left-cat-3 none">
-                <img src="images/pk/pk_cat-3.png">
-            </div>
-            <div class="pk-cat pk__left-cat-4 ">
-                <img src="images/pk/pk_cat-4.png">
-            </div>
-
-            <div class="pk-cat-tips pk__left-cat-tips none">
-                <img class="none" src="images/pk/pk_cat_face-1.png">
-                <img class="none" src="images/pk/pk_cat_face-2.png">
-                <img src="images/pk/pk_cat_face-3.png">
-            </div>
-        </div>
-        <div class="pk_right ">
-            <div class="bg">
-                <img src="images/pk/pk_right_bg.jpg">
-            </div>
-
-            <!-- 血条 css: n_0, n_25, n_75-->
-            <div class="pk-blood pk__right-blood n_0">
-                <img src="images/pk/pk_blood.png">
-            </div>
-
-            <div class="pk__right-text none">
-                <img src="images/pk/pk_right_text-1.png">
-            </div>
-
-            <div class="boy-8 none">
-                <img src="images/boy/boy-8.png">
-            </div>
-            <div class="boy-9 none">
-                <img src="images/boy/boy-9.png">
-            </div>
-            <div class="boy-12 ">
-                <img src="images/boy/boy-12.png">
-            </div>
-
-            <div class="pl__right-fish none">
-                <img src="images/pk/pk_fish.png">
-            </div>
-
-            <div class="pk-btn pk__right-btn">
-                <img src="images/pk/pk_btn.png">
-            </div>
-
-            <div class="pk-ko pk__right-ko none">
-                <img src="images/pk/pk_ko.png">
-            </div>
-
-            <div class="pk-cat pk__right-cat-1 none">
-                <img src="images/pk/pk_cat-1.png">
-            </div>
-            <div class="pk-cat pk__right-cat-2 none">
-                <img src="images/pk/pk_cat-2.png">
-            </div>
-            <div class="pk-cat pk__right-cat-3 none">
-                <img src="images/pk/pk_cat-3.png">
-            </div>
-            <div class="pk-cat pk__right-cat-4 ">
-                <img src="images/pk/pk_cat-4.png">
-            </div>
-
-            <div class="pk-cat-tips pk__right-cat-tips">
-                <img src="images/pk/pk_cat_face-1.png">
-            </div>
-        </div>
-    </div>
-    <!-- pk end -->
-
-    <!-- PK后页面 start -->
+    <!-- PK前转场页面 start -->
     <div class="page none" id="p8">
-        <div class="p8__left none">
+        <div class="p8__left bg none">
             <div class="bg">
                 <img src="images/p8/p8_left_bg.jpg">
             </div>
-            <div class="p8__text p8__left_text">
+            <div class="p8__text p8__left_text" data-top="264">
                 <h3><span>可</span><span>算</span><span>找</span><span>到</span></h3>
                 <h3><span>该</span><span>死</span><span>的</span><span>边</span></h3>
                 <h3><span>害</span><span>我</span><span>闹</span><span>出</span><span>那</span></h3>
                 <h3><span>糗</span><span>死</span><span>了</span>~~</h3>
             </div>
         </div>
-        <div class="p8__right">
+        <div class="p8__right bg">
             <div class="bg">
                 <img src="images/p8/p8_right_bg.jpg">
             </div>
-            <div class="p8__text p8__right_text">
+            <div class="p8__text p8__right_text" data-top="264">
                 <h3><span>我</span><span>的</span><span>阿</span><span>吉</span></h3>
                 <h3><span class="f-50">(qiang)</span><span>框</span><span class="f-50">(bi)</span></h3>
                 <h3><span>么</span><span>大</span><span>的</span><span>误</span><span>会</span></h3>
@@ -397,11 +335,120 @@
             </div>
         </div>
     </div>
-    <!-- PK后页面 end -->
+    <!-- PK前转场页面 end -->
+
+    <!-- pk start -->
+    <div class="page none" id="pk">
+        <div class="pk__left bg none">
+            <div class="bg">
+                <img src="images/pk/pk_left_bg.jpg">
+            </div>
+
+            <!-- 血条 css: n_0, n_25, n_75-->
+            <div class="pk-blood pk__left-blood n_0" data-top="60">
+                <img src="images/pk/pk_blood.png">
+            </div>
+
+            <div class="pk__left-text" data-top="230">
+                <img src="images/pk/pk_left_text-1.png">
+            </div>
+
+            <div class="girl-9" data-top="160">
+                <img src="images/girl/girl-9.png">
+            </div>
+            <div class="girl-10" data-top="255">
+                <img src="images/girl/girl-10.png">
+            </div>
+            <div class="girl-13" data-top="141">
+                <img src="images/girl/girl-13.png">
+            </div>
+
+            <div class="pk-btn pk__left-btn" data-top="737">
+                <img src="images/pk/pk_btn.png">
+            </div>
+
+            <div class="pk-ko pk__left-ko" data-top="301">
+                <img src="images/pk/pk_ko.png">
+            </div>
+
+            <div class="pk-cat pk__left-cat-1 none" data-top="338">
+                <img src="images/pk/pk_cat-1.png">
+            </div>
+            <div class="pk-cat pk__left-cat-2 none" data-top="408">
+                <img src="images/pk/pk_cat-2.png">
+            </div>
+            <div class="pk-cat pk__left-cat-3 none" data-top="405">
+                <img src="images/pk/pk_cat-3.png">
+            </div>
+            <div class="pk-cat pk__left-cat-4 " data-top="384">
+                <img src="images/pk/pk_cat-4.png">
+            </div>
+
+            <div class="pk-cat-tips pk__left-cat-tips none" data-top="14">
+                <img class="none" src="images/pk/pk_cat_face-1.png">
+                <img class="none" src="images/pk/pk_cat_face-2.png">
+                <img src="images/pk/pk_cat_face-3.png">
+            </div>
+        </div>
+        <div class="pk_right bg">
+            <div class="bg">
+                <img src="images/pk/pk_right_bg.jpg">
+            </div>
+
+            <!-- 血条 css: n_0, n_25, n_75-->
+            <div class="pk-blood pk__right-blood n_0" data-top="60">
+                <img src="images/pk/pk_blood.png">
+            </div>
+
+            <div class="pk__right-text" data-top="230">
+                <img src="images/pk/pk_right_text-1.png">
+            </div>
+
+            <div class="boy-8" data-top="320">
+                <img src="images/boy/boy-8.png">
+            </div>
+            <div class="boy-9" data-top="170">
+                <img src="images/boy/boy-9.png">
+            </div>
+            <div class="boy-12" data-top="170">
+                <img src="images/boy/boy-12.png">
+            </div>
+
+            <div class="pk__right-fish" data-top="245">
+                <img src="images/pk/pk_fish.png">
+            </div>
+
+            <div class="pk-btn pk__right-btn" data-top="737">
+                <img src="images/pk/pk_btn.png">
+            </div>
+
+            <div class="pk-ko pk__right-ko" data-top="301">
+                <img src="images/pk/pk_ko.png">
+            </div>
+
+            <div class="pk-cat pk__right-cat-1 none" data-top="338">
+                <img src="images/pk/pk_cat-1.png">
+            </div>
+            <div class="pk-cat pk__right-cat-2 none" data-top="408">
+                <img src="images/pk/pk_cat-2.png">
+            </div>
+            <div class="pk-cat pk__right-cat-3 none" data-top="405">
+                <img src="images/pk/pk_cat-3.png">
+            </div>
+            <div class="pk-cat pk__right-cat-4 " data-top="384">
+                <img src="images/pk/pk_cat-4.png">
+            </div>
+
+            <div class="pk-cat-tips pk__right-cat-tips" data-top="144">
+                <img src="images/pk/pk_cat_face-1.png">
+            </div>
+        </div>
+    </div>
+    <!-- pk end -->
 
     <!-- 牵手页面 start -->
     <div class="page none" id="p9">
-        <div class="p9__left none">
+        <div class="p9__left bg none">
             <div class="bg">
                 <img src="images/scene/scene_left_bg-4.jpg">
             </div>
@@ -410,21 +457,21 @@
                 <img src="images/scene/scene_left_phone.png">
             </div>
 
-            <div class="p9__left_phone-m">
+            <div class="p9__left_phone-m" data-top="208">
                 <img src="images/scene/scene_phone-2.png">
             </div>
             <div class="p9__left_phone-s">
                 <img src="images/scene/scene_phone-3.png">
             </div>
 
-            <div class="girl-11">
+            <div class="girl-11" data-top="239">
                 <img src="images/girl/girl-11.png">
             </div>
-            <div class="girl-12">
+            <div class="girl-12" data-top="239">
                 <img src="images/girl/girl-12.png">
             </div>
         </div>
-        <div class="p9__right">
+        <div class="p9__right bg">
             <div class="bg">
                 <img src="images/scene/scene_right_bg-4.jpg">
             </div>
@@ -432,14 +479,14 @@
             <div class="bg p9-phone">
                 <img src="images/scene/scene_right_phone.png">
             </div>
-            <div class="p9__right_phone-m">
+            <div class="p9__right_phone-m" data-top="208">
                 <img src="images/scene/scene_phone-2.png">
             </div>
 
-            <div class="boy-10">
+            <div class="boy-10" data-top="213">
                 <img src="images/boy/boy-10.png">
             </div>
-            <div class="boy-11">
+            <div class="boy-11" data-top="213">
                 <img src="images/boy/boy-11.png">
             </div>
         </div>
@@ -448,21 +495,21 @@
 
     <!-- 牵手之后过场页面 start -->
     <div class="page none" id="p10">
-        <div class="p10__left none">
+        <div class="p10__left bg none">
             <div class="bg">
                 <img src="images/scene/scene_bg-5.jpg">
             </div>
 
-            <div class="p10__left_phone-s">
+            <div class="p10__left_phone-s" data-top="213">
                 <img src="images/scene/scene_phone-3.png">
             </div>
         </div>
-        <div class="p10__right ">
+        <div class="p10__right bg">
             <div class="bg">
                 <img src="images/scene/scene_bg-5.jpg">
             </div>
 
-            <div class="p10__right_phone-m auto-x">
+            <div class="p10__right_phone-m auto-x" data-top="120">
                 <img src="images/scene/scene_phone-4.png">
             </div>
         </div>
@@ -470,7 +517,7 @@
     <!-- 牵手之后过场页面 end -->
 
     <!-- 抽奖页 start -->
-    <div class="pa none" id="p11">
+    <div class="page" id="p11">
         <div class="bg">
             <img src="images/scene/scene_bg-5.jpg">
         </div>
@@ -480,12 +527,12 @@
         <div class="bg_black3 auto-x auto-y"></div>
 
         <!-- 抽奖按钮 -->
-        <div class="p11__btn-1 auto-x none">
+        <div class="p11__btn-1 auto-x none" data-top="146">
             <img src="images/scene/scene_last-1.png">
         </div>
 
         <!-- 无奖提示 -->
-        <div class="p11__tips-1 auto-x none">
+        <div class="p11__tips-1 auto-x none" data-top="146">
             <div class="p11__btn-1">
                 <img src="images/scene/scene_last-2.png">
             </div>
@@ -496,43 +543,43 @@
 
         <!-- 奖品 -->
         <div class="p11__tips-2 auto-x">
-            <div class="p11__btn-close">
+            <div class="p11__btn-close" data-top="14">
                 <img src="images/scene/scene_close-btn.png">
             </div>
-            <div class="p11__share">
+            <div class="p11__share" data-top="8">
                 <img src="images/scene/scene_share.png">
             </div>
 
             <!-- 奖品-优惠券 -->
             <div class="p11__prize-1 none">
-                <div class="tips auto-x">
+                <div class="tips auto-x" data-top="140">
                     <img src="images/scene/scene_text-3.png">
                 </div>
                 <img src="images/prize/9.png">
-                <div class="button auto-x">
+                <div class="button auto-x" data-top="757">
                     <img src="images/scene/scene_btn-1.png">
                 </div>
             </div>
 
             <!-- 奖品-手机 -->
             <div class="p11__prize-2 none">
-                <div class="tips auto-x">
+                <div class="tips auto-x" data-top="80">
                     <img src="images/scene/scene_text-2.png">
                 </div>
-                <div class="tips2 auto-x">
+                <div class="tips2 auto-x" data-top="757">
                     <img src="images/scene/scene_text-1.png">
                 </div>
                 <div class="prize auto-x">
                     <img src="images/prize/5.png">
                 </div>
-                <div class="button auto-x">
+                <div class="button auto-x" data-top="846">
                     <img src="images/scene/scene_btn-3.png">
                 </div>
-                <div class="input auto-x">
+                <div class="input auto-x" data-top="540">
                     <input type="text" name="name" placeholder="姓名">
                     <img src="images/scene/scene_input.png">
                 </div>
-                <div class="input auto-x">
+                <div class="input auto-x" data-top="646">
                     <input type="number" name="name" placeholder="手机号">
                     <img src="images/scene/scene_input.png">
                 </div>
@@ -540,23 +587,23 @@
 
             <!-- 奖品-抱枕 -->
             <div class="p11__prize-2 p11__prize-3 none">
-                <div class="tips auto-x">
+                <div class="tips auto-x" data-top="80">
                     <img src="images/scene/scene_text-4.png">
                 </div>
-                <div class="tips2 auto-x">
+                <div class="tips2 auto-x" data-top="757">
                     <img src="images/scene/scene_text-1.png">
                 </div>
                 <div class="prize auto-x">
                     <img src="images/prize/6.png">
                 </div>
-                <div class="button auto-x">
+                <div class="button auto-x" data-top="846">
                     <img src="images/scene/scene_btn-3.png">
                 </div>
-                <div class="input auto-x">
+                <div class="input auto-x" data-top="540">
                     <input type="text" name="name" placeholder="姓名">
                     <img src="images/scene/scene_input.png">
                 </div>
-                <div class="input auto-x">
+                <div class="input auto-x" data-top="646">
                     <input type="number" name="name" placeholder="手机号">
                     <img src="images/scene/scene_input.png">
                 </div>
@@ -564,23 +611,23 @@
 
             <!-- 奖品-耳机 -->
             <div class="p11__prize-2 p11__prize-4 none">
-                <div class="tips auto-x">
+                <div class="tips auto-x" data-top="96">
                     <img src="images/scene/scene_text-5.png">
                 </div>
-                <div class="tips2 auto-x">
+                <div class="tips2 auto-x" data-top="757">
                     <img src="images/scene/scene_text-1.png">
                 </div>
                 <div class="prize auto-x">
                     <img src="images/prize/7.png">
                 </div>
-                <div class="button auto-x">
+                <div class="button auto-x" data-top="670">
                     <img src="images/scene/scene_btn-3.png">
                 </div>
-                <div class="input auto-x">
+                <div class="input auto-x" data-top="540">
                     <input type="text" name="name" placeholder="姓名">
                     <img src="images/scene/scene_input.png">
                 </div>
-                <div class="input auto-x">
+                <div class="input auto-x" data-top="646">
                     <input type="number" name="name" placeholder="手机号">
                     <img src="images/scene/scene_input.png">
                 </div>
@@ -588,13 +635,13 @@
 
             <!-- 奖品-兑换码 -->
             <div class="p11__prize-1 p11__prize-5">
-                <div class="tips auto-x">
+                <div class="tips auto-x" data-top="80">
                     <img src="images/scene/scene_text-6.png">
                 </div>
                 <div class="prize auto-x">
                     <img src="images/prize/8.png">
                 </div>
-                <div class="button auto-x">
+                <div class="button auto-x" data-top="757">
                     <img src="images/scene/scene_btn-1.png">
                 </div>
             </div>
@@ -602,12 +649,21 @@
 
         <!-- 信息提交成功 -->
         <div class="p11__tips-success auto-x auto-y none">
-            <div class="tips-close">
+            <div class="tips-close" data-top="30">
                 <img src="images/scene/scene_btn-4.png">
             </div>
             <img src="images/scene/scene_last-3.png">
         </div>
     </div>
     <!-- 抽奖页 end -->
+
+    <!--下面是竖屏提示,性能原因丢最后-->
+    <div id="orientLayer" class="mod-orient-layer">
+        <div class="mod-orient-layer__content">
+            <i class="icon mod-orient-layer__icon-orient"></i>
+
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        </div>
+    </div>
 </body>
 </html>
