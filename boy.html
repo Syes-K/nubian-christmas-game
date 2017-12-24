@@ -36,7 +36,7 @@
         }
         window.onload = function() {
             resetTop();
-            // music('bgm');
+            music('bgm');
             window.socket = io.connect('http://115.159.69.89:3002');
             window.girlid = getQueryString('fxzid');
             window.boy = new Boy(openid, girlid, socket)

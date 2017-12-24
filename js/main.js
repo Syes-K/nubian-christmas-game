@@ -85,84 +85,83 @@ function resetSize(width, height){
  * 音乐
  */
 let bgm;
-function music(){}
-// function music(musicName) {
-//     if(bgm) {
-//         bgm.src = "bgm/" + musicName + ".mp3";
-//         bgm.play();
+function music(musicName) {
+    if(bgm) {
+        bgm.src = "bgm/" + musicName + ".mp3";
+        bgm.play();
 
-//         return;
-//     }
+        return;
+    }
 
-//     // var bgm;
-//     var mList = {};
-//     var play = false;
-//     var musicDom = document.getElementById('music').querySelector('.music');
+    // var bgm;
+    var mList = {};
+    var play = false;
+    var musicDom = document.getElementById('music').querySelector('.music');
 
-//     musicDom.onclick = function(){
-//         if (typeof(musicB) != "undefined") {
-//             clearInterval(musicB);
-//         }
-//         if (play) {
-//             musicDom.classList.remove("play");
-//             bgm.pause();
-//             play = false;
-//         } else {
-//             musicDom.classList.add("play");
-//             bgm.play();
-//             play = true;
-//         }
-//     }
+    musicDom.onclick = function(){
+        if (typeof(musicB) != "undefined") {
+            clearInterval(musicB);
+        }
+        if (play) {
+            musicDom.classList.remove("play");
+            bgm.pause();
+            play = false;
+        } else {
+            musicDom.classList.add("play");
+            bgm.play();
+            play = true;
+        }
+    }
 
-//     if (is_weixn()) {
-//         if (typeof(wx) == "object") {
-//             wx.ready(function() {
-//                 getMusic(musicName);
-//             })
-//         } else {
-//             document.addEventListener("WeixinJSBridgeReady", function() {
-//                 getMusic(musicName);
-//             }, false);
-//         }
-//     } else {
-//         getMusic(musicName);
-//     }
+    if (is_weixn()) {
+        if (typeof(wx) == "object") {
+            wx.ready(function() {
+                getMusic(musicName);
+            })
+        } else {
+            document.addEventListener("WeixinJSBridgeReady", function() {
+                getMusic(musicName);
+            }, false);
+        }
+    } else {
+        getMusic(musicName);
+    }
 
-//     function getMusic(type) {
-//         bgm = new Audio();
-//         bgm.id="dgm";
-//         bgm.src = "bgm/" + type + ".mp3";
-//         bgm.loop = "loop";
-//         bgm.play();
-//         musicA = setInterval(function() {
-//             if (bgm.currentTime != 0) {
-//                 clearInterval(musicA);
-//                 musicDom.style.visibility = 'visible';
-//                 musicDom.style.opacity = 1;
-//                 play = true;
-//             }
-//         }, 100)
-//     }
+    function getMusic(type) {
+        bgm = new Audio();
+        bgm.id="dgm";
+        bgm.src = "bgm/" + type + ".mp3";
+        bgm.loop = "loop";
+        bgm.play();
+        musicA = setInterval(function() {
+            if (bgm.currentTime != 0) {
+                clearInterval(musicA);
+                musicDom.style.visibility = 'visible';
+                musicDom.style.opacity = 1;
+                play = true;
+            }
+        }, 100)
+    }
 
-//     function playMusic(obj) {
-//         if (typeof(musicB) != "undefined") {
-//             clearInterval(musicB);
-//         }
-//         for (var key in mList) {
-//             eval("mList." + key + ".currentTime = 0");
-//             eval("mList." + key + ".pause()");
-//         }
-//         eval("mList." + obj + ".play()");
-//         if (play) {
-//             musicB = setInterval(function() {
-//                 if (eval("mList." + obj + ".paused")) {
-//                     clearInterval(musicB);
-//                     bgm.play();
-//                 }
-//             }, 100)
-//         }
-//     }
-// }
+    function playMusic(obj) {
+        if (typeof(musicB) != "undefined") {
+            clearInterval(musicB);
+        }
+        for (var key in mList) {
+            eval("mList." + key + ".currentTime = 0");
+            eval("mList." + key + ".pause()");
+        }
+        eval("mList." + obj + ".play()");
+        if (play) {
+            musicB = setInterval(function() {
+                if (eval("mList." + obj + ".paused")) {
+                    clearInterval(musicB);
+                    bgm.play();
+                }
+            }, 100)
+        }
+    }
+}
 
 
 /**
