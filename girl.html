@@ -22,6 +22,7 @@
     <script src="./js/girl-page/p6.js"></script>
     <script src="./js/girl-page/pk.js"></script>
     <script src="./js/girl-page/p9.js"></script>
+    <script src="./js/girl-page/p11.js"></script>
 
     <script src="./js/girlSceneList.js"></script>
     <script src="./js/scene.js"></script>
@@ -462,7 +463,7 @@
             <div class="p11-cat shake">
                 <img src="images/scene/scene_last-cat.png">
             </div>
-            <div class="bg_black3 auto-x auto-y" data-step="s10"></div>
+            <div class="bg_black3 auto-x auto-y" data-step="s10,s20"></div>
 
             <!-- 抽奖按钮 -->
             <div class="p11__btn-1 auto-x none" data-step="s10" data-top="146">
@@ -480,7 +481,7 @@
             </div>
 
             <!-- 奖品 -->
-            <div class="p11__tips-2 auto-x none">
+            <div class="p11__tips-2 auto-x none" data-step="s20">
                 <div class="p11__btn-close" data-top="14">
                     <img src="images/scene/scene_close-btn.png">
                 </div>
@@ -581,7 +582,7 @@
                 </div>
 
                 <!-- 奖品-兑换码 -->
-                <div class="p11__prize-1 p11__prize-5 ">
+                <div class="p11__prize-1 p11__prize-5 none">
                     <div class="tips auto-x" data-top="80">
                         <img src="images/scene/scene_text-6.png">
                     </div>
@@ -644,171 +645,8 @@
         </div>
     </div>
 
-
-    <style type="text/css">
-        /* 样式放在结尾，防止 base64 图片造成拥塞 */
-
-        @keyframes rotation {
-            10% {
-                transform: rotate(90deg);
-                -webkit-transform: rotate(90deg)
-            }
-            50% {
-                transform: rotate(0);
-                -webkit-transform: rotate(0)
-            }
-            60% {
-                transform: rotate(0);
-                -webkit-transform: rotate(0)
-            }
-            90% {
-                transform: rotate(90deg);
-                -webkit-transform: rotate(90deg)
-            }
-            100% {
-                transform: rotate(90deg);
-                -webkit-transform: rotate(90deg)
-            }
-        }
-
-        @-webkit-keyframes rotation {
-            10% {
-                transform: rotate(90deg);
-                -webkit-transform: rotate(90deg)
-            }
-            50% {
-                transform: rotate(0);
-                -webkit-transform: rotate(0)
-            }
-            60% {
-                transform: rotate(0);
-                -webkit-transform: rotate(0)
-            }
-            90% {
-                transform: rotate(90deg);
-                -webkit-transform: rotate(90deg)
-            }
-            100% {
-                transform: rotate(90deg);
-                -webkit-transform: rotate(90deg)
-            }
-        }
-
-        .mod-orient-layer {
-            display: none;
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            background: #000;
-            z-index: 9997
-        }
-
-        .mod-orient-layer__content {
-            position: absolute;
-            width: 100%;
-            top: 45%;
-            margin-top: -75px;
-            text-align: center
-        }
-
-        .mod-orient-layer__icon-orient {
-            display: inline-block;
-            width: 67px;
-            height: 109px;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAXVBMVEUAAAD29vb////x8fH////////x8fH5+fn29vby8vL////5+fn39/f6+vr////x8fH////////+/v7////09PT////x8fH39/f////////////////////x8fH///+WLTLGAAAAHXRSTlMAIpML+gb4ZhHWn1c2gvHBvq1uKJcC6k8b187lQ9yhhboAAAQYSURBVHja7d3blpowFIDhTUIAOchZDkre/zE7ycySrbUUpsRN2/1fzO18KzEqxEVgTiZNfgmmtxRc8iaR8HNe8x4BtjQePKayYCIoyBSgvNNE1AkNSHqZyLqk97EgUCCHBzZ5mkg7ScvIJuIyOyXBRFxgpqWZyGsAZLB1KjsJi8nutHU4JCRbFRH8tmirI9k8Jx2sqNs8K/m0LQkrktO2crgcgXGB4AiTEsB0hJfo9MGgX7CGcYiYwQxmMOOvZwRhBG8tCoMXjBDeXvWCEcHbi14wgCBmMIMZzGAGM5jxETNwzMAxA8cMHDNwzMAxA8cMHDNwzMAxA8cMHDNwzMAxY6E2rUQxnH2tz9cirlJFwFBJedaPnUv0M7++egPDE8iAJcIDmxwH5wwv9vUviw2kLbVO3TJU5uul/EyB0FoLp4x60PdGUd3qPurrWyjGGTc05u+1dcgI7/+tCCPARWGhH7o5Y7RCf+bH9ctXLp6v2BVDxfqz0oPXeSVaNtINo/1SXDv4dck8IIkbhtC2ol+iouEonTBCbYvVMnXOjxww6s/RFrBUpXHh/gw1rHj5d/qhYn9Gpk2FWh6xRBRX5Oj3Znh2Sq49/L6+y8pB26q9GbE2dbA2mVbx6I+7MfBglLCttm73ZQi7AD3iL4HqjFYJHSPRppqaUaJ3ATpGa+ckpGak2hRRMyqjGMkvl+xyFeSMwjAqcsZgGDdyhl0oNTnDN4yenJGZFGxNChP5/Y3efh6SM2rDOJMzboYxkDMqwyjIGcIw6F+io2FU1IxIm1JqRmgXSkvNKNCXeTpGrU0JNSO2c6LIGPgCS8AuDHz9ta0SXWDtxoDRH+MqlbC2Dt2G2JFRadtQZt2qq/orGowdGb2euxYiqWEpVWhTBnszoNAPdStuQwxqf0aocdWKW4Z+DfszIh8pxJqbuCE4YAC+4bm0evtipjpgJHeFnyyt1Ku2xa0bhjxr27p75rECNwyI9ZwvXkHq+7aTaMEV44YYy/spfgjgjNHaWW+GeUhGEX7tLlVinIFDDSgnOwhi1V6bU0b6tVS9eAERe863g4dRrtiHdc6o+nn5vtyVVgR79Cqt4uL6gfHPQyGqtP2vf7HADGbcYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JjhtOM+J/AgT008yDMkN/dPP9hzS8zAMQN3OEYeekp5YU7KOKXwVXqiY+QS7smcinGKABWdiBgpPJTSMHJ4KidhhPBUSMLw4CmPhKHgKUXCkHsygum71ftNSgCX6bsl8FQyfbcL5EdYsDk0R3j7aiA5wpt5AjKg/2gLJEBD/0Hf2OOf/vRrj6z/7GtP4B3nMKyjHA12kIPSjnJs3FEO0TvKkYJHOWCR+rjJH0Vn6fI5PjNbAAAAAElFTkSuQmCC');
-            transform: rotate(90deg);
-            -webkit-transform: rotate(90deg);
-            -webkit-animation: rotation infinite 1.5s ease-in-out;
-            animation: rotation infinite 1.5s ease-in-out;
-            -webkit-background-size: 67px;
-            background-size: 67px
-        }
-
-        .mod-orient-layer__desc {
-            margin-top: 20px;
-            font-size: 15px;
-            color: #fff
-        }
-
-        .mod-orient-layer__desc {
-            margin-top: 20px;
-            font-size: 15px;
-            color: #fff
-        }
-    </style>
-
-    <script>
-        //------------------ 横竖屏判断 --------------
-        var orientLayer = document.getElementById("orientLayer");
-        //判断横屏竖屏
-        function checkDirect() {
-            if (document.documentElement.clientHeight >= document.documentElement.clientWidth) {
-                return "portrait";
-            } else {
-                return "landscape";
-            }
-        }
-        //显示屏幕方向提示浮层
-        function orientNotice() {
-            var orient = checkDirect();
-            if (orient == "portrait") {
-                orientLayer.style.display = "none";
-            } else {
-                orientLayer.style.display = "block";
-            }
-        }
-
-        function init() {
-            orientNotice();
-            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
-                setTimeout(orientNotice, 200);
-            })
-        }
-        init();
-    </script>
-
-    <script>
-        //------------------ 分享 --------------
-        var wxshareImg = 'http://122.114.149.227/nubiya/images/share-icon.png';
-        var wxshareTitle = "妙龄少女深夜独闯宅男卧室欲行凶，原因竟是……";
-        var wxshareDesc = "一个因为边框引发的圣诞劫！";
-        var wxshareUrl = "http://122.114.149.227/nubiya"
-
-        function getWxShareData() {
-            return {
-                'img_url': wxshareImg,
-                'title': wxshareTitle,
-                'link': wxshareUrl,
-                'desc': wxshareDesc
-            };
-        }
-
-        function getWxShareMomentData() {
-            return {
-                'img_url': wxshareImg,
-                'title': wxshareDesc,
-                'link': wxshareUrl,
-                'desc': wxshareDesc
-            };
-        }
-
-        var bindit = function () {
-            // 发送给好友;
-            WeixinJSBridge.on('menu:share:appmessage', function () {
-                WeixinJSBridge.invoke('sendAppMessage', getWxShareData(), function (r) { });
-            });
-            // 分享到朋友圈;
-            WeixinJSBridge.on('menu:share:timeline', function () {
-                WeixinJSBridge.invoke('shareTimeline', getWxShareMomentData(), function (r) { });
-            });
-        };
-
-        document.addEventListener('WeixinJSBridgeReady', bindit, false);
-    </script>
+    <link rel="stylesheet" type="text/css" href="style/print.css">
+    <script type="text/javascript" src="js/other.js"></script>
 </body>
 
 </html>

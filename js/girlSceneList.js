@@ -219,4 +219,10 @@ var sceneList = [{
     // enterTrigger: {
     //     type: 'last.finish'
     // }
+}, {
+    name: "p11.s20",
+    // autoFinshTime: 1000, // 自动完成改场景
+    // enterTrigger: {
+    //     type: 'last.finish'
+    // }
 }]

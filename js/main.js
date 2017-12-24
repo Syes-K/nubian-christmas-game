@@ -1,5 +1,18 @@
 setElement();
 
+const config = {
+    gameGirlUrl: "https://www.nubia.com/active/happynewyear1.html",
+    malUrl: "https://www.nubia.com/active/happynewyear1.html",
+    wxshareImg: 'http://122.114.149.227/nubiya/images/share-icon.png',
+    wxshareTitle: "妙龄少女深夜独闯宅男卧室欲行凶，原因竟是……",
+    wxshareDesc: "一个因为边框引发的圣诞劫！",
+    wxshareUrl: "http://122.114.149.227/nubiya",
+
+    //接口地址
+    drawUrl: "", // 抽奖地址
+}
+
+
 window.onresize = function() {
     resetTop();
     setElement();
