@@ -16,7 +16,7 @@ function startLoding() {
     }, 100);
     $.get('http://case.html5case.cn/Nubia/getMyPrize', {
         openid: openid,
-        sign: signid
+        sign: sign
     }).then(function(data) {
         if (percent >= 90) {
             clearInterval(timer);

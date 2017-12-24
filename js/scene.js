@@ -134,26 +134,30 @@ Scene.prototype.enter = function(scene) {
     self._emit("scene." + scene.name + '.enter');
 }
 
-Scene.prototype.finish = function(scene) {
+Scene.prototype.finish = function(scene, callback) {
     var self = this;
     if (scene.leaveClass) {
         var pageId = scene.name.split('.')[0];
         document.getElementById(pageId).classList.add(scene.leaveClass);
         setTimeout(function() {
             self._emit("scene." + scene.name + '.finish');
-            self.character.finishScene(scene)
+            self.character.finishScene(scene);
+            callback && callback();
         }, 500);
     } else {
         self._emit("scene." + scene.name + '.finish');
-        self.character.finishScene(scene)
+        self.character.finishScene(scene);
+        callback && callback();
     }
 }
 Scene.prototype.next = function() {
     var self = this;
     if (self.currentScene) {
-        self.finish(self.currentScene);
-        var currentSceneIdx = self.scenes.indexOf(self.currentScene);
-        self.enter(self.scenes[currentSceneIdx + 1]);
+        self.finish(self.currentScene, function() {
+            var currentSceneIdx = self.scenes.indexOf(self.currentScene);
+            self.enter(self.scenes[currentSceneIdx + 1]);
+        });
+
     } else {
         self.enter(self.scenes[0])
     }

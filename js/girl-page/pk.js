@@ -1,7 +1,7 @@
 var attackStatusElement = [
     ".girl-9",
     ".girl-10",
-    ".girl-11"
+    ".girl-13"
 ];
 
 function startPk() {
@@ -19,7 +19,7 @@ function startPk() {
             pkAnimateTimer = setInterval(function() {
                 attackStatus(attackStatusElement[i % 3]);
                 i++;
-            }, 1000);
+            }, 2000);
             lastClickTime = (new Date()).getTime();
         } else {
             if (currentTime - lastClickTime < 300) {
