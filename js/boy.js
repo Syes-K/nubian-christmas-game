@@ -1,4 +1,4 @@
-var disConnectTime = 5000;
+var disConnectTime = 10000;
 var attackedLostHealth = 5;
 
 function randomUuid() {
@@ -46,10 +46,10 @@ function Boy(id, girlId, socket) {
             self._updateGirlHealth(data.msg);
         }
         if (data.type === 'scene.finish') {
+            console.log(data);
             var sceneName = data.msg;
             self._emit('girl.' + sceneName + '.finish');
         }
-        console.log(data)
     });
 }
 
@@ -82,7 +82,7 @@ Boy.prototype._onconnected = function() {
             'type': 'connectting',
             'msg': ''
         });
-    }, 4000);
+    }, 1000);
     // 验证Girl的链接是否超时
     self.ckeckGirlConnectedTimer = setInterval(function() {
         var currentTime = (new Date()).getTime();
@@ -90,7 +90,6 @@ Boy.prototype._onconnected = function() {
             self._ondisconnected();
         }
     }, 1000);
-    console.log('connect:' + new Date().getTime())
 }
 Boy.prototype._ondisconnected = function() {
     var self = this;
@@ -98,7 +97,6 @@ Boy.prototype._ondisconnected = function() {
     clearInterval(self.connecttingTimer);
     clearInterval(self.ckeckGirlConnectedTimer);
     clearInterval(self.autoLostHealthTimer);
-    console.log("disconnect");
 }
 Boy.prototype.attack = function() {
     var self = this;
@@ -147,7 +145,6 @@ Boy.prototype._lostHealth = function(v) {
 Boy.prototype._checkKO = function() {
     var self = this;
     if (self.health <= 0 && self.girlHealth <= 0) {
-        console.log("KO")
         self._emit("KO", self.health);
     }
 }

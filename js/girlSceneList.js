@@ -61,7 +61,7 @@ var sceneList = [{
     // }
 }, {
     name: "p3",
-    // autoFinshTime: 1500, // 自动完成改场景
+    autoFinshTime: 2000, // 自动完成改场景
     start:startP3,
     enterTrigger: {
         type: 'event',
@@ -69,16 +69,16 @@ var sceneList = [{
     }
 }, {
     name: "p4.s10",
-    // autoFinshTime: 1000, // 自动完成改场景
-    // enterTrigger: {
-    //     type: 'last.finish'
-    // }
+    autoFinshTime: 2000, // 自动完成改场景
+    enterTrigger: {
+        type: 'last.finish'
+    }
 }, {
     name: "p4.s20",
-    // autoFinshTime: 1000, // 自动完成改场景
-    // enterTrigger: {
-    //     type: 'last.finish'
-    // }
+    // autoFinshTime: 2000, // 自动完成改场景
+    enterTrigger: {
+        type: 'last.finish'
+    }
 }, {
     name: "p4.s30",
     // autoFinshTime: 1000, // 自动完成改场景
@@ -187,14 +187,4 @@ var sceneList = [{
     // enterTrigger: {
     //     type: 'last.finish'
     // }
-}, {
-    name: "p1",
-    // autoFinshTime: 1000, // 自动完成改场景
-    // enterTrigger: {
-    //     type: 'event',
-    //     eventName: 'boy.p2.s0.finish'
-    // }
-}, {
-    name: "p3.s3",
-    //没有定义 enterTrigger 时 只有在调用 scene.enter(...)进入。不自动处理
 }]
