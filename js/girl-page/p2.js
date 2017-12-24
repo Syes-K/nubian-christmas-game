@@ -22,6 +22,7 @@ function startP2() {
 
         document.querySelectorAll("#p2 [tool]").forEach(function(el) {
             el.addEventListener("click", function() {
+                el.classList.remove("shake");
                 var tool = el.getAttribute("tool");
                 if (clikToolList.indexOf(tool) < 0) {
                     clikToolList.push(tool);
@@ -32,7 +33,7 @@ function startP2() {
     });
 
     document.querySelector("#p2 .p2__phone.light").addEventListener("click", function() {
-        scene.next();
+        gotoP2S60();
     });
 
 
@@ -68,4 +69,16 @@ function startP2S70() {
     boyHref = boyHref.replace(/\?[\s\S]*/, "");
     boyHref += "?fxzid=" + girl.id;
     qrcode.makeCode(boyHref);
+}
+
+function startP2S50() {
+    setTimeout(function() {
+        gotoP2S60();
+    },5000)
+
+}
+function gotoP2S60() {
+    if (scene.currentScene.name === 'p2.s50') {
+        scene.next();
+    }
 }

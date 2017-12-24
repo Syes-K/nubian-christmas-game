@@ -170,10 +170,7 @@ var sceneList = [{
 }, {
     name: "p9.s10",
     start: startP9S1O,
-    autoFinshTime: 2000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
+    autoFinshTime: 2000 // 自动完成改场景
 }, {
     name: "p9.s20",
     start: startP9S2O,
