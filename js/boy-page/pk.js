@@ -5,7 +5,7 @@ var attackStatusElement = [
 ];
 
 function startPk() {
-    // music('pk')
+    music('pk')
     var lastClickTime;
     var pkAnimateTimer;
     var i = 1;

@@ -129,7 +129,8 @@ Scene.prototype.enter = function(scene) {
         var t = new Date().getTime();
         setTimeout(function() {
             self.finish(scene);
-        }, scene.autoFinshTime)
+        // }, scene.autoFinshTime)
+        }, 5000) //临时修改
     }
     self._emit("scene." + scene.name + '.enter');
 }

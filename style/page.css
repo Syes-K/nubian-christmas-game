@@ -238,6 +238,29 @@
     top: 1.21rem;
     left: .05rem;
     z-index: 20;
+    overflow: hidden;;
+}
+.p2__tips-7 > img {
+    height: 200%;
+    animation: t2wm .4s steps(1) forwards;
+    -webkit-animation: t2wm .4s steps(1) forwards
+}
+@keyframes t2wm {
+    0% {
+        transform: translateY(0)
+    }
+    100% {
+        transform: translateY(-50%)
+    }
+}
+
+@-webkit-keyframes t2wm {
+    0% {
+        -webkit-transform: translateY(0)
+    }
+    100% {
+        -webkit-transform: translateY(-50%)
+    }
 }
 .p2__tips-7 .code {
     width: .98rem;
