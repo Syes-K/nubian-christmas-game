@@ -29,11 +29,17 @@
     <script src="./js/scene.js"></script>
     <script src="./js/girl.js"></script>
     <script>
+        // obFweuFi0ELj1ekmNWardVd7g53Q    7bf1635d79e8531f1cc80dc551a4b728
+        // obFweuGPPX9M3k3k0u5IEIh5BFg4    57876ed2c4e17dff78cada89ca988cce
+        // obFweuK3MwN0qhmha7CYHoK8dEm0    77510483453e6bcf544da3bb690bdfe6
+        // obFweuN7oDsPGzbUUTl3AseGcXLs    95d70fd46ec24c4e1ecbc3b42af84dfd
+        // obFweuP2ATJ-944bGFbkC5rVL2_k    2ac87b161447f0410be2545700f28e36
+        // obFweuEsWbzTcY36QFie2G86Rh-A    25d40e267a33b4b56f866ec49c8b90b2
+        // obFweuJSET3XDQKc01VI6rB1KSIc    a04cffe09489c6f434d4789824577756
+        
         var keyTime = 200; // 打字的速度
-        var openid = 'x1231';
-        var signid = 'xxxx';
-        var name = 'girl';
-        var tel = '13131313'
+        var openid = 'obFweuFi0ELj1ekmNWardVd7g53Q';
+        var sign = '7bf1635d79e8531f1cc80dc551a4b728';
 
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -64,17 +70,6 @@
                     currentHref += "?restart=true";
                     window.location = currentHref;
                 });
-            });
-
-
-            //设置用户信息
-            $.get(config.setInfo, {
-                openid: openid,
-                sign: signid,
-                name: name,
-                tel: tel
-            }).then(function(data) {
-                console.log(data);
             });
         }
     </script>
@@ -283,7 +278,7 @@
                 <div class="p4__tips-1 none" data-step="s20">
                     <img src="images/p4/tips-1.png">
                 </div>
-                <div class="p4__tips-3 none" data-step="s40" data-top="140">
+                <div class="p4__tips-3 none" data-step="s40" data-top="370">
                     <img src="images/p4/tips-3.png">
                 </div>
                 <div class="p4__tips-5 none" data-step="s70" data-top="-5">
@@ -455,7 +450,7 @@
         <!-- 牵手之后过场页面 end -->
 
         <!-- 抽奖页 start -->
-        <div class="page bg none" id="p11">
+        <div class="page bg " id="p11">
             <div class="bg">
                 <img src="images/scene/scene_bg-5.jpg">
             </div>
@@ -465,7 +460,7 @@
             <div class="bg_black3 auto-x auto-y" data-step="s10,s20"></div>
 
             <!-- 抽奖按钮 -->
-            <div class="p11__btn-1 auto-x none" data-step="s10" data-top="146">
+            <div class="p11__btn-1 auto-x " data-step="s10" data-top="146">
                 <img src="images/scene/scene_last-1.png">
             </div>
 
@@ -481,9 +476,9 @@
 
             <!-- 奖品 -->
             <div class="p11__tips-2 auto-x none" data-step="s20">
-                <div class="p11__btn-close" data-top="14">
+                <!-- <div class="p11__btn-close" data-top="14">
                     <img src="images/scene/scene_close-btn.png">
-                </div>
+                </div> -->
                 <div class="p11__share" data-top="8">
                     <img src="images/scene/scene_share.png">
                 </div>
@@ -527,7 +522,7 @@
                         <img src="images/scene/scene_input.png">
                     </div>
                     <div class="input auto-x" data-top="646">
-                        <input type="number" name="name" placeholder="手机号">
+                        <input type="number" name="tel" placeholder="手机号">
                         <img src="images/scene/scene_input.png">
                     </div>
                 </div>
@@ -551,7 +546,7 @@
                         <img src="images/scene/scene_input.png">
                     </div>
                     <div class="input auto-x" data-top="646">
-                        <input type="number" name="name" placeholder="手机号">
+                        <input type="number" name="tel" placeholder="手机号">
                         <img src="images/scene/scene_input.png">
                     </div>
                 </div>
@@ -575,7 +570,7 @@
                         <img src="images/scene/scene_input.png">
                     </div>
                     <div class="input auto-x" data-top="646">
-                        <input type="number" name="name" placeholder="手机号">
+                        <input type="number" name="tel" placeholder="手机号">
                         <img src="images/scene/scene_input.png">
                     </div>
                 </div>
