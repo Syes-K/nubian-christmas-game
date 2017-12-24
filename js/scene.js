@@ -114,10 +114,11 @@ Scene.prototype.enter = function(scene) {
         });
     }
     var nextPageid = self._findNextPageId(scene);
-    if (loadingScenes.indexOf(nextPageid) < 0) {
+    if (nextPageid && loadingScenes.indexOf(nextPageid) < 0) {
         jQuery.get("./template/" + templateDir + "/" + nextPageid + '.html').then(function(html) {
             if (loadingScenes.indexOf(nextPageid) < 0) {
                 $(".warp").append(html);
+                resetTop();
                 loadingScenes.push(nextPageid);
             }
         });
