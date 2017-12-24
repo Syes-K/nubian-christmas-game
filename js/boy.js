@@ -1,4 +1,4 @@
-var disConnectTime = 10000;
+var disConnectTime = 100000;
 var attackedLostHealth = 5;
 
 function randomUuid() {
