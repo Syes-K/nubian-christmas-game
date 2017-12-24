@@ -725,6 +725,7 @@
 }
 .pk__left-cat-tips img {
     width: 300%;
+    // height: 300%;
     height: 100%;
     animation: cat-tips .4s steps(1) infinite;
     -webkit-animation: cat-tips .4s steps(1) infinite

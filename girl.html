@@ -29,11 +29,16 @@
     <script src="./js/scene.js"></script>
     <script src="./js/girl.js"></script>
     <script>
+        // obFweuPDqstfe6jkbc2jFs_5h2jg    65b7f7b1d2880d49a25956460254abf6
+        // obFweuNWu9eZ_D5jFGTE1_7t-f6c    fe147cc1378874f8dd94cbf6813a3014
+        // obFweuNDDeaNHuPoQH2f1K8mdI8Q    833cc8212f08b038fc733009726ce293
+        // obFweuISByeuvWAvn1el3ZSoSzNk    4efb2c48a14189608f4cb32a18f6e33c
+        // obFweuISVqcHYnOM00OIgY5X3r-A    fb94abf8cda1ff966065ad10167d9771
+        // obFweuN7Wyf8mIpbMUKf4jMOBfZ4    8af6d7a9a928bdde5f80c3391211f577
+
         var keyTime = 200; // 打字的速度
-        var openid = 'x1231';
-        var sign = 'xxxx';
-        var name = 'girl';
-        var tel = '13131313'
+        var openid = 'obFweuNDDeaNHuPoQH2f1K8mdI8Q';
+        var sign = '833cc8212f08b038fc733009726ce293';
 
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -64,17 +69,6 @@
                     currentHref += "?restart=true";
                     window.location = currentHref;
                 });
-            });
-
-
-            //设置用户信息
-            $.get(config.setInfo, {
-                openid: openid,
-                sign: sign,
-                name: name,
-                tel: tel
-            }).then(function(data) {
-                console.log(data);
             });
         }
     </script>
@@ -283,7 +277,7 @@
                 <div class="p4__tips-1 none" data-step="s20">
                     <img src="images/p4/tips-1.png">
                 </div>
-                <div class="p4__tips-3 none" data-step="s40" data-top="140">
+                <div class="p4__tips-3 none" data-step="s40" data-top="370">
                     <img src="images/p4/tips-3.png">
                 </div>
                 <div class="p4__tips-5 none" data-step="s70" data-top="-5">
@@ -527,7 +521,7 @@
                         <img src="images/scene/scene_input.png">
                     </div>
                     <div class="input auto-x" data-top="646">
-                        <input type="number" name="name" placeholder="手机号">
+                        <input type="number" name="tel" placeholder="手机号">
                         <img src="images/scene/scene_input.png">
                     </div>
                 </div>
@@ -551,7 +545,7 @@
                         <img src="images/scene/scene_input.png">
                     </div>
                     <div class="input auto-x" data-top="646">
-                        <input type="number" name="name" placeholder="手机号">
+                        <input type="number" name="tel" placeholder="手机号">
                         <img src="images/scene/scene_input.png">
                     </div>
                 </div>
@@ -575,7 +569,7 @@
                         <img src="images/scene/scene_input.png">
                     </div>
                     <div class="input auto-x" data-top="646">
-                        <input type="number" name="name" placeholder="手机号">
+                        <input type="number" name="tel" placeholder="手机号">
                         <img src="images/scene/scene_input.png">
                     </div>
                 </div>
