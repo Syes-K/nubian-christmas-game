@@ -3,20 +3,20 @@ var sceneList = [{
     start: startLoding
 }, {
     name: "p1",
-    start:startP1
-    // autoFinshTime: 1000, // 自动完成改场景
+    start:startP1,
+    autoFinshTime: 2000, // 自动完成改场景
 }, {
     name: "p2.s10",
     // autoFinshTime: 1000, // 自动完成改场景
-    // enterTrigger: {
-    //     type: 'last.finish'
-    // }
+    enterTrigger: {
+        type: 'last.finish'
+    }
 }, {
     name: "p2.s20",
-    // autoFinshTime: 1000, // 自动完成改场景
-    // enterTrigger: {
-    //     type: 'last.finish'
-    // }
+    enterTrigger: {
+        type: 'event',
+        eventName: 'girl.p4.s20.finish'
+    }
 }, {
     name: "p2.s30",
     // autoFinshTime: 1000, // 自动完成改场景

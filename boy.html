@@ -30,9 +30,10 @@
             
             window.socket = io.connect('http://115.159.69.89:3002');
             window.myid = getQueryString('myid');
-            window.boy = new Boy('y1', 'x1', socket)
+            window.boy = new Boy('y444', 'x444', socket)
             window.scene = new Scene(sceneList, boy);
             window.boy.connect();
+            window.scene.next();
         }
     </script>
 

@@ -4,16 +4,21 @@ function startLoding() {
     var timer = setInterval(function() {
         percent += 10;
         if (percent >= 100) {
-            percent = 100;
-            clearInterval(timer);
-            finishLoading();
+            if (boy.girlSize) {
+                percent = 100;
+                clearInterval(timer);
+                finishLoading();
+            } else {
+                percent = 99;
+            }
+
         }
         $("#loading-percent").html(percent + '%');
     }, 100);
 }
 
 function finishLoading() {
-    setTimeout(() => {
+    setTimeout(function() {
         scene.next();
-    }, 1000);
+    }, 200);
 }

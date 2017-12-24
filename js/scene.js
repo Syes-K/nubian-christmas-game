@@ -98,8 +98,8 @@ Scene.prototype.enter = function(scene) {
     var self = this;
     self.currentScene = scene;
 
-    var pageId = self.currentScene.name.split('.')[0];
-    var stepName = self.currentScene.name.split('.')[1];
+    var pageId = scene.name.split('.')[0];
+    var stepName = scene.name.split('.')[1];
 
     //将所有场景隐藏
     document.querySelectorAll(".page").forEach(function(el) {
@@ -122,29 +122,27 @@ Scene.prototype.enter = function(scene) {
     // 只显示当前场景
     pageEl.classList.remove('none')
 
-    if (self.currentScene.start) {
-        self.currentScene.start();
+    if (scene.start) {
+        scene.start();
     }
-    if (self.currentScene.autoFinshTime) {
+    if (scene.autoFinshTime) {
         var t = new Date().getTime();
         setTimeout(function() {
-            var c = new Date().getTime();
-            console.log(self.currentScene,"t:", c - t,',autoFinshTime:', self.currentScene.autoFinshTime)
-            self.finish();
-        }, self.currentScene.autoFinshTime)
+            self.finish(scene);
+        }, scene.autoFinshTime)
     }
-    self._emit("scene." + self.currentScene.name + '.enter');
+    self._emit("scene." + scene.name + '.enter');
 }
 
-Scene.prototype.finish = function() {
+Scene.prototype.finish = function(scene) {
     var self = this;
-    self._emit("scene." + self.currentScene.name + '.finish');
-    self.character.finishScene(self.currentScene)
+    self._emit("scene." + scene.name + '.finish');
+    self.character.finishScene(scene)
 }
 Scene.prototype.next = function() {
     var self = this;
     if (self.currentScene) {
-        self.finish();
+        self.finish(self.currentScene);
         var currentSceneIdx = self.scenes.indexOf(self.currentScene);
         self.enter(self.scenes[currentSceneIdx + 1]);
     } else {
