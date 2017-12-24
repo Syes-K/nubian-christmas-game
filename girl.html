@@ -36,9 +36,17 @@
         // obFweuP2ATJ-944bGFbkC5rVL2_k    2ac87b161447f0410be2545700f28e36
         // obFweuEsWbzTcY36QFie2G86Rh-A    25d40e267a33b4b56f866ec49c8b90b2
         // obFweuJSET3XDQKc01VI6rB1KSIc    a04cffe09489c6f434d4789824577756
-        
+        function randomUuid() {
+            return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+                const r = Math.random() * 16 | 0;
+                const v = c === "x" ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
         var keyTime = 200; // 打字的速度
-        var openid = 'obFweuGPPX9M3k3k0u5IEIh5BFg4';
+        // var openid = 'obFweuGPPX9M3k3k0u5IEIh5BFg4';
+        var openid =randomUuid();
         var sign = '57876ed2c4e17dff78cada89ca988cce';
 
         function getQueryString(name) {
