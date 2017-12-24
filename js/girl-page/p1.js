@@ -1,5 +1,4 @@
 function startP1() {
-    var keyTime = 20;
     var str = "去年圣诞节和男票分手!今年心爱的喵子居然也不见了！这一定是我的.....圣诞节"
     var strElements = [{
         id: 'p1-word1',

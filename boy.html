@@ -15,6 +15,7 @@
     <script src="./js/boy-page/loading.js"></script>
     <script src="./js/boy-page/p1.js"></script>
     <script src="./js/boy-page/p6.js"></script>
+    <script src="./js/boy-page/p7.js"></script>
     <script src="./js/boy-page/p9.js"></script>
     <script src="./js/boy-page/p11.js"></script>
     <script src="./js/boy-page/pk.js"></script>
@@ -24,6 +25,8 @@
     <script src="./js/scene.js"></script>
     <script src="./js/boy.js"></script>
     <script>
+        var keyTime = 200;
+
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
@@ -33,10 +36,10 @@
         window.onload = function() {
             resetTop();
             // music('bgm');
-            
+
             window.socket = io.connect('http://115.159.69.89:3002');
             window.myid = getQueryString('myid');
-            window.boy = new Boy('y444', 'x444', socket)
+            window.boy = new Boy('y4441', 'x4441', socket)
             window.scene = new Scene(sceneList, boy);
             window.boy.connect();
             window.scene.next();
@@ -68,7 +71,7 @@
      -->
 
     <div class="warp bg wrap_right">
-        
+
         <!-- 加载中 start -->
         <div class="page bg none" id="loading">
             <div class="bg">
@@ -180,10 +183,18 @@
                 <img src="images/p8/p8_right_bg.jpg">
             </div>
             <div class="p8__text p8__right_text" data-top="264">
-                <h3><span>我</span><span>的</span><span>阿</span><span>吉</span></h3>
-                <h3><span class="f-50">(qiang)</span><span>框</span><span class="f-50">(bi)</span></h3>
-                <h3><span>么</span><span>大</span><span>的</span><span>误</span><span>会</span></h3>
-                <h3>o(TヘTo)</h3>
+                <h3 id=p7_s20>
+                    <!-- <span>我</span><span>的</span><span>阿</span><span>吉</span> -->
+                </h3>
+                <h3 id=p7_s40>
+                    <!-- <span class="f-50">(qiang)</span><span>框</span><span class="f-50">(bi)</span> -->
+                </h3>
+                <h3 id=p7_s60>
+                    <!-- <span>么</span><span>大</span><span>的</span><span>误</span><span>会</span> -->
+                </h3>
+                <h3 id=p7_s80>
+                    <!-- o(TヘTo) -->
+                </h3>
             </div>
         </div>
         <!-- PK前转场页面 end -->
@@ -196,50 +207,31 @@
 
             <!-- 血条 css: n_0, n_25, n_75-->
             <div class="pk-blood pk__right-blood" data-top="60">
-                <div class="num" style="width: 90%"></div>
+                <div class="num" style="width: 100%" id="pk_health_bar"></div>
             </div>
-
-            <div class="pk__right-text" data-top="230">
-                <img src="images/pk/pk_right_text-1.png">
-            </div>
-
+            
             <div class="boy-8" data-top="320">
                 <img src="images/boy/boy-8.png">
             </div>
-            <div class="boy-9" data-top="170">
+            <div class="boy-9 none" data-top="170">
                 <img src="images/boy/boy-9.png">
+                <div class="pk__right-fish" data-top="245">
+                    <img src="images/pk/pk_fish.png">
+                </div>
             </div>
-            <div class="boy-12" data-top="170">
+            <div class="boy-12 none" data-top="170">
                 <img src="images/boy/boy-12.png">
             </div>
-
-            <div class="pk__right-fish" data-top="245">
-                <img src="images/pk/pk_fish.png">
-            </div>
-
             <div class="pk-btn pk__right-btn" data-top="737">
                 <img src="images/pk/pk_btn.png">
             </div>
 
-            <div class="pk-ko pk__right-ko" data-top="301">
+            <div class="pk-ko pk__right-ko none" data-top="301">
                 <img src="images/pk/pk_ko.png">
             </div>
 
-            <div class="pk-cat pk__right-cat-1 none" data-top="338">
-                <img src="images/pk/pk_cat-1.png">
-            </div>
-            <div class="pk-cat pk__right-cat-2 none" data-top="408">
-                <img src="images/pk/pk_cat-2.png">
-            </div>
-            <div class="pk-cat pk__right-cat-3 none" data-top="405">
-                <img src="images/pk/pk_cat-3.png">
-            </div>
-            <div class="pk-cat pk__right-cat-4 " data-top="384">
-                <img src="images/pk/pk_cat-4.png">
-            </div>
-
-            <div class="pk-cat-tips pk__right-cat-tips" data-top="144">
-                <img src="images/pk/pk_cat_face-1.png">
+            <div class="pk-cat pk__right-cat" data-top="330">
+                <img src="images/pk/pk_cat.png">
             </div>
         </div>
         <!-- pk end -->
@@ -315,7 +307,8 @@
         <div class="page bg bg_black none" id="socket">
             <div class="socket__tips auto-x">
                 <div class="socket__tips-text">
-                    对方已离线<br>请重新开始
+                    对方已离线
+                    <br>请重新开始
                 </div>
                 <div class="socket__tips-bg">
                     <img src="images/cover/cover_prize-bg.png">

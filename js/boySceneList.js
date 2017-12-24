@@ -4,7 +4,7 @@ var sceneList = [{
 }, {
     name: "p1",
     start: startP1,
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 4000, // 自动完成改场景
 }, {
     name: "p2.s10",
     enterTrigger: {
@@ -53,7 +53,7 @@ var sceneList = [{
     enterTrigger: {
         type: 'last.finish'
     }
-},{
+}, {
     name: "p2.s100",
     // autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
@@ -79,13 +79,13 @@ var sceneList = [{
     enterTrigger: {
         type: 'last.finish'
     }
-},{
+}, {
     name: "p5.s40",
     autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
-},  {
+}, {
     name: "p6.s10",
     autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
@@ -125,16 +125,44 @@ var sceneList = [{
         eventName: 'girl.p6.s70.finish'
     }
 }, {
-    name: "p7",
-    autoFinshTime: 2000, // 自动完成改场景
+    name: "p7.s10",
+    // autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'event',
         eventName: 'girl.p6.s70.finish'
     }
 }, {
+    name: "p7.s20",
+    start: startP7S20,
+    enterTrigger: {
+        type: 'event',
+        eventName: 'girl.p7.s10.finish'
+    }
+}, {
+    name: "p7.s40",
+    start: startP7S40,
+    enterTrigger: {
+        type: 'event',
+        eventName: 'girl.p7.s30.finish'
+    }
+}, {
+    name: "p7.s60",
+    start: startP7S60,
+    enterTrigger: {
+        type: 'event',
+        eventName: 'girl.p7.s50.finish'
+    }
+}, {
+    name: "p7.s80",
+    start: startP7S80,
+    enterTrigger: {
+        type: 'event',
+        eventName: 'girl.p7.s70.finish'
+    }
+}, {
     name: "pk",
     start: startPk,
-    autoFinshTime: 2000, // 自动完成改场景
+    // autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
@@ -166,14 +194,14 @@ var sceneList = [{
     // }
 }, {
     name: "p11.s10",
-    start:startP11S10
+    start: startP11S10
     // autoFinshTime: 1000, // 自动完成改场景
     // enterTrigger: {
     //     type: 'last.finish'
     // }
-},{
+}, {
     name: "p11.s20",
-    start:startP11S20
+    start: startP11S20
     // autoFinshTime: 1000, // 自动完成改场景
     // enterTrigger: {
     //     type: 'last.finish'

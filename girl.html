@@ -20,6 +20,7 @@
     <script src="./js/girl-page/p2.js"></script>
     <script src="./js/girl-page/p3.js"></script>
     <script src="./js/girl-page/p6.js"></script>
+    <script src="./js/girl-page/p7.js"></script>
     <script src="./js/girl-page/pk.js"></script>
     <script src="./js/girl-page/p9.js"></script>
     <script src="./js/girl-page/p11.js"></script>
@@ -28,6 +29,7 @@
     <script src="./js/scene.js"></script>
     <script src="./js/girl.js"></script>
     <script>
+        var keyTime = 200;// 打字的速度
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
@@ -40,7 +42,7 @@
             // music('bgm');
 
             window.socket = io.connect('http://115.159.69.89:3002');
-            window.girl = new Girl('x444', socket)
+            window.girl = new Girl('x4441', socket)
             window.scene = new Scene(sceneList, girl);
             var restart = getQueryString("restart");
             if (restart) {
@@ -331,29 +333,30 @@
                 <img src="images/p8/p8_left_bg.jpg">
             </div>
             <div class="p8__text p8__left_text" data-top="264">
-                <h3>
-                    <span>可</span>
+                <h3 data-step="s10,s20,s30,s40,s50,s60,s70,s80" id=p7_s10>
+                    <!-- <span>可</span>
                     <span>算</span>
                     <span>找</span>
-                    <span>到</span>
+                    <span>到</span> -->
                 </h3>
-                <h3>
-                    <span>该</span>
+                <h3 id=p7_s30>
+                    <!-- <span>该</span>
                     <span>死</span>
                     <span>的</span>
-                    <span>边</span>
+                    <span>边</span> -->
                 </h3>
-                <h3>
-                    <span>害</span>
+                <h3 id=p7_s50>
+                    <!-- <span>害</span>
                     <span>我</span>
                     <span>闹</span>
                     <span>出</span>
-                    <span>那</span>
+                    <span>那</span> -->
                 </h3>
-                <h3>
-                    <span>糗</span>
+                <h3 id=p7_s70>
+                    <!-- <span>糗</span>
                     <span>死</span>
-                    <span>了</span>~~</h3>
+                    <span>了</span>~~ -->
+                </h3>
             </div>
         </div>
         <!-- PK前转场页面 end -->
@@ -366,20 +369,15 @@
 
             <!-- 血条 -->
             <div class="pk-blood pk__left-blood" data-top="60">
-                <div class="num" style="width: 90%"></div>
+                <div class="num" style="width: 100%" id="pk_health_bar"></div>
             </div>
-
-            <div class="pk__left-text" data-top="230">
-                <img src="images/pk/pk_left_text-1.png">
-            </div>
-
             <div class="girl-9" data-top="160">
                 <img src="images/girl/girl-9.png">
             </div>
-            <div class="girl-10" data-top="255">
+            <div class="girl-10 none" data-top="255">
                 <img src="images/girl/girl-10.png">
             </div>
-            <div class="girl-13" data-top="141">
+            <div class="girl-13 none" data-top="141">
                 <img src="images/girl/girl-13.png">
             </div>
 
@@ -387,7 +385,7 @@
                 <img src="images/pk/pk_btn.png">
             </div>
 
-            <div class="pk-ko pk__left-ko" data-top="301">
+            <div class="pk-ko pk__left-ko none" data-top="301">
                 <img src="images/pk/pk_ko.png">
             </div>
 
@@ -395,20 +393,7 @@
                 <img src="images/pk/pk_cat.png">
             </div>
 
-            <div class="pk-cat pk__left-cat-1 none" data-top="338">
-                <img src="images/pk/pk_cat-1.png">
-            </div>
-            <div class="pk-cat pk__left-cat-2 none" data-top="408">
-                <img src="images/pk/pk_cat-2.png">
-            </div>
-            <div class="pk-cat pk__left-cat-3 none" data-top="405">
-                <img src="images/pk/pk_cat-3.png">
-            </div>
-            <div class="pk-cat pk__left-cat-4 none" data-top="384">
-                <img src="images/pk/pk_cat-4.png">
-            </div>
-
-            <div class="pk-cat-tips pk__left-cat-tips shake" data-top="144">
+            <div class="pk-cat-tips pk__left-cat-tips shake none" data-top="144">
                 <img src="images/pk/pk_cat_face2.png">
                 <!-- <img class="none" src="images/pk/pk_cat_face-1.png">
                 <img class="none" src="images/pk/pk_cat_face-2.png">

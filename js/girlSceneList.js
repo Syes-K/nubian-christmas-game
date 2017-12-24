@@ -61,7 +61,7 @@ var sceneList = [{
     // }
 }, {
     name: "p3",
-    autoFinshTime: 2000, // 自动完成改场景
+    // autoFinshTime: 4000, // 自动完成改场景
     start: startP3,
     enterTrigger: {
         type: 'event',
@@ -71,7 +71,8 @@ var sceneList = [{
     name: "p4.s10",
     autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
-        type: 'last.finish'
+        type: 'event',
+        eventName: 'boy.p1.finish'
     }
 }, {
     name: "p4.s20",
@@ -181,17 +182,43 @@ var sceneList = [{
         type: 'last.finish'
     }
 }, {
-    name: "p7",
-    autoFinshTime: 2000, // 自动完成改场景
+    name: "p7.s10",
+    start: startP7S10,
+    // autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
+    name: "p7.s30",
+    start: startP7S30,
+    enterTrigger: {
+        type: 'event',
+        eventName: 'boy.p7.s20.finish'
+    }
+
+}, {
+    name: "p7.s50",
+    start: startP7S50,
+    enterTrigger: {
+        type: 'event',
+        eventName: 'boy.p7.s40.finish'
+    }
+
+}, {
+    name: "p7.s70",
+    start: startP7S70,
+    enterTrigger: {
+        type: 'event',
+        eventName: 'boy.p7.s60.finish'
+    }
+
+}, {
     name: "pk",
     start: startPk,
-    autoFinshTime: 2000, // 自动完成改场景
+    // autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
-        type: 'last.finish'
+        type: 'event',
+        eventName: 'boy.p7.s80.finish'
     }
 }, {
     name: "p9.s10",
