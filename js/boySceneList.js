@@ -106,14 +106,14 @@ var sceneList = [{
     // }
 }, {
     name: "p6.s50",
-    start:startP6,
-    // autoFinshTime: 1000, // 自动完成改场景
-    // enterTrigger: {
-    //     type: 'last.finish'
-    // }
+    // start:startP6,
+    autoFinshTime: 1000, // 自动完成改场景
+    enterTrigger: {
+        type: 'last.finish'
+    }
 }, {
     name: "p6.s60",
-    // autoFinshTime: 1000, // 自动完成改场景
+    autoFinshTime: 1000, // 自动完成改场景
     // enterTrigger: {
     //     type: 'last.finish'
     // }

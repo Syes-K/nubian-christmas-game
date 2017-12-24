@@ -843,10 +843,10 @@
     font-size: .415rem;
     color: #fff;
     margin-bottom: .2rem;
-    letter-spacing: .07rem;
+    // letter-spacing: .07rem;
 }
 
-.p8__text h3 span {
+.p8__text h3:last-of-type span {
     margin: 0 .01rem;
 }
 
