@@ -156,3 +156,10 @@ Boy.prototype.finishScene = function(scene) {
         'msg': scene.name
     });
 }
+Boy.prototype.finishGame = function() {
+    var self = this;
+    clearInterval(self.connecttingTimer);
+    clearInterval(self.ckeckGirlConnectedTimer);
+    clearInterval(self.autoLostHealthTimer);
+    socket.close();
+}
