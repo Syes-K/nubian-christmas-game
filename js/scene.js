@@ -107,6 +107,7 @@ Scene.prototype.enter = function(scene) {
         jQuery.get("./template/" + templateDir + "/" + pageId + '.html').then(function(html) {
             if (loadingScenes.indexOf(pageId) < 0) {
                 $(".warp").append(html);
+                resetTop();
                 loadingScenes.push(pageId);
             }
             self._processEnter(scene);
