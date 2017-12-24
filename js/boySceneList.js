@@ -85,6 +85,7 @@ var sceneList = [{
     // }
 }, {
     name: "p6.s50",
+    start:startP6,
     // autoFinshTime: 1000, // 自动完成改场景
     // enterTrigger: {
     //     type: 'last.finish'
@@ -103,18 +104,21 @@ var sceneList = [{
     // }
 }, {
     name: "pk",
+    start:startPk,
     // autoFinshTime: 1000, // 自动完成改场景
     // enterTrigger: {
     //     type: 'last.finish'
     // }
 }, {
     name: "p9.s10",
+    start:startP9S1O,
     // autoFinshTime: 1000, // 自动完成改场景
     // enterTrigger: {
     //     type: 'last.finish'
     // }
 }, {
     name: "p9.s20",
+    start:startP9S2O,
     // autoFinshTime: 1000, // 自动完成改场景
     // enterTrigger: {
     //     type: 'last.finish'

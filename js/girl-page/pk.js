@@ -1,0 +1,3 @@
+function startPk() {
+    music('pk')
+}   

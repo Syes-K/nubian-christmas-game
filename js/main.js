@@ -68,8 +68,16 @@ function resetSize(width, height){
 /**
  * 音乐
  */
+let bgm;
 function music(musicName) {
-    var bgm;
+    if(bgm) {
+        bgm.src = "bgm/" + musicName + ".mp3";
+        bgm.play();
+
+        return;
+    }
+
+    // var bgm;
     var mList = {};
     var play = false;
     var musicDom = document.getElementById('music').querySelector('.music');
@@ -105,6 +113,7 @@ function music(musicName) {
 
     function getMusic(type) {
         bgm = new Audio();
+        bgm.id="dgm";
         bgm.src = "bgm/" + type + ".mp3";
         bgm.loop = "loop";
         bgm.play();
@@ -145,7 +154,7 @@ function music(musicName) {
 function addMusic(muscic) {
     var sound = new Audio();  
     //选择文件  
-    sound.src = "bgm/" + type + ".mp3";
+    sound.src = "bgm/" + muscic + ".mp3";
     //播放  
     sound.play();
 }
