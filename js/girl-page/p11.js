@@ -3,7 +3,7 @@ function startP11S10(){
         let openid = girl.openId,
             sign = girl.sign;
 
-        jQUery.get(config.drawUrl + '?openid=' + openid + '&sign=' + sign, function(result){
+        jQuery.get(config.drawUrl + '?openid=' + openid + '&sign=' + sign, function(result){
             console.log(result);
             // result: {"code":1,"msg":"openid 无效"}
             
