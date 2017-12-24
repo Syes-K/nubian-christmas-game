@@ -72,11 +72,18 @@ var sceneList = [{
         eventName: 'boy.loading.s1.finish'
     }
 }, {
-    name: "p4.s10",
+    name: "p4.s1",
+    start: startP4,
     autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'event',
         eventName: 'boy.p1.finish'
+    }
+}, {
+    name: "p4.s10",
+    autoFinshTime: 2000, // 自动完成改场景
+    enterTrigger: {
+        type: 'last.finish'
     }
 }, {
     // 文字气泡
