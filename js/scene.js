@@ -137,6 +137,8 @@ Scene.prototype.enter = function(scene) {
 Scene.prototype.finish = function(scene) {
     var self = this;
     if (scene.leaveClass) {
+        var pageId = scene.name.split('.')[0];
+        document.getElementById(pageId).classList.add(scene.leaveClass);
         setTimeout(function() {
             self._emit("scene." + scene.name + '.finish');
             self.character.finishScene(scene)
