@@ -9,32 +9,32 @@ function startP11S10(){
             // {"code":1,"msg":"","data":{"code":"N1Q2Y3","flag":"1"}}
             document.querySelector('.p11__btn-1').classList.add('none');
 
-            // let s = [{
-            //     code: 1,
-            //     data: {
-            //         flag: 1,
-            //         code: '11'
-            //     }
-            // },{
-            //     code: 2,
-            //     data: {
-            //         flag: 2,
-            //         code: '12'
-            //     }
-            // },{
-            //     code: 1,
-            //     data: {
-            //         flag: 3,
-            //         code: '13'
-            //     }
-            // },{
-            //     code: 1,
-            //     data: {
-            //         flag: 4,
-            //         code: '14'
-            //     }
-            // }]
-            // rs = s[1];
+            let s = [{
+                code: 1,
+                data: {
+                    flag: 1,
+                    code: '11'
+                }
+            },{
+                code: 2,
+                data: {
+                    flag: 2,
+                    code: '12'
+                }
+            },{
+                code: 1,
+                data: {
+                    flag: 3,
+                    code: '13'
+                }
+            },{
+                code: 1,
+                data: {
+                    flag: 4,
+                    code: '14'
+                }
+            }]
+            rs = s[3];
             
             if(rs.code == 0){
                 // 未中奖
@@ -76,12 +76,13 @@ function startP11S10(){
                             tel: tel
                         }).then(function(data) {
                             dom.classList.add('none');
+                            document.querySelector('.p11__share').classList.add('none');
                             document.querySelector('.p11__tips-success').classList.remove('none');
                         });
                     }
                 })
 
-            } else {rs.code == 2}{
+            } else if(rs.code == 2) {
                 if(!rs.data || !rs.data.flag) return;
                 
                 let dom = $('[data-flag="1"]'); 

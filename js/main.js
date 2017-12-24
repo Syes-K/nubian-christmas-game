@@ -1,8 +1,8 @@
 setElement();
 
 window.config = {
-    gameGirlUrl: "http://192.168.0.105:8080/girl.html",
-    gameBoyUrl: "http://192.168.0.105:8080/boy.html",
+    gameGirlUrl: "http://122.114.149.227/nubiya/girl.html",
+    gameBoyUrl: "http://122.114.149.227/nubiya/boy.html",
     mallUrl: "https://www.nubia.com/active/happynewyear1.html",
     wxshareImg: 'http://122.114.149.227/nubiya/images/share-icon.png',
     wxshareTitle: "妙龄少女深夜独闯宅男卧室欲行凶，原因竟是……",
@@ -85,31 +85,33 @@ function resetSize(width, height){
  * 音乐
  */
 let bgm;
+let bgmSwitch = false;
 function music(musicName) {
     if(bgm) {
         bgm.src = "bgm/" + musicName + ".mp3";
-        bgm.play();
 
+        if(bgmSwitch){
+            bgm.play();
+        }
         return;
     }
 
     // var bgm;
     var mList = {};
-    var play = false;
     var musicDom = document.getElementById('music').querySelector('.music');
 
     musicDom.onclick = function(){
         if (typeof(musicB) != "undefined") {
             clearInterval(musicB);
         }
-        if (play) {
+        if (bgmSwitch) {
             musicDom.classList.remove("play");
             bgm.pause();
-            play = false;
+            bgmSwitch = false;
         } else {
             musicDom.classList.add("play");
             bgm.play();
-            play = true;
+            bgmSwitch = true;
         }
     }
 
@@ -138,7 +140,7 @@ function music(musicName) {
                 clearInterval(musicA);
                 musicDom.style.visibility = 'visible';
                 musicDom.style.opacity = 1;
-                play = true;
+                bgmSwitch = true;
             }
         }, 100)
     }
@@ -152,7 +154,7 @@ function music(musicName) {
             eval("mList." + key + ".pause()");
         }
         eval("mList." + obj + ".play()");
-        if (play) {
+        if (bgmSwitch) {
             musicB = setInterval(function() {
                 if (eval("mList." + obj + ".paused")) {
                     clearInterval(musicB);
@@ -172,7 +174,10 @@ function addMusic(muscic) {
     //选择文件  
     sound.src = "bgm/" + muscic + ".mp3";
     //播放  
-    sound.play();
+
+    if(bgmSwitch){
+        sound.play();
+    }
 }
 
 
