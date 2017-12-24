@@ -621,6 +621,7 @@
     height: 2.1rem;
     overflow: hidden;
     position: absolute;
+    z-index: 50;
 }
 .pk-cat {
     width: 2.75rem;
@@ -724,7 +725,6 @@
 }
 .pk__left-cat-tips img {
     width: 300%;
-    // height: 300%;
     height: 100%;
     animation: cat-tips .4s steps(1) infinite;
     -webkit-animation: cat-tips .4s steps(1) infinite
@@ -734,10 +734,10 @@
         transform: translateX(0)
     }
     50% {
-        transform: translateX(-1rem)
+        transform: translateX(-.95rem)
     }
     100% {
-        transform: translateX(-2rem)
+        transform: translateX(-1.9rem)
     }
 }
 
@@ -746,10 +746,10 @@
         -webkit-transform: translateX(0)
     }
     50% {
-        -webkit-transform: translateX(-1rem)
+        -webkit-transform: translateX(-.95rem)
     }
     100% {
-        -webkit-transform: translateX(-2rem)
+        -webkit-transform: translateX(-1.9rem)
     }
 }
 .pk__left-blood {

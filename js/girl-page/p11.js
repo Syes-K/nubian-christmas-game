@@ -1,13 +1,23 @@
 function startP11S10(){
     document.querySelector(".p11__btn-1").addEventListener("click", function() {
-        let openid = girl.openId,
-            sign = girl.sign;
+        $.get(config.drawUrl, {
+            openid: openid,
+            sign: sign
+        }).then(function(rs) {
+            console.log(data);
+            // {"code":1,"msg":"","data":{"code":"N1Q2Y3","flag":"1"}}
 
-        jQuery.get(config.drawUrl + '?openid=' + openid + '&sign=' + sign, function(result){
-            console.log(result);
-            // result: {"code":1,"msg":"openid 无效"}
-            
-        })
+            if(rs.code === 1){
+                // 中奖
+                //flag: 1：400元券 2：牛仔抱枕 3：耳机 4：Z17S
+                let dom = document.querySelector('[data-'+ flag +']');
+
+                if(rs.data.flag == 1){
+                    dom.querySelector('.prize-coupon_text span').text('【 兑换码：' + rs.data.code + ' 】');
+                }
+                dom.classList.remove('none');
+            }
+        });
     })
 }
 function startP11S20(){

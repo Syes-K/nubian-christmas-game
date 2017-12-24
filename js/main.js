@@ -1,6 +1,6 @@
 setElement();
 
-const config = {
+window.config = {
     gameGirlUrl: "https://www.nubia.com/active/happynewyear1.html",
     malUrl: "https://www.nubia.com/active/happynewyear1.html",
     wxshareImg: 'http://122.114.149.227/nubiya/images/share-icon.png',
@@ -9,7 +9,8 @@ const config = {
     wxshareUrl: "http://122.114.149.227/nubiya",
 
     //接口地址
-    drawUrl: " http://case.html5case.cn/Nubia/prize", // 抽奖地址
+    drawUrl: "http://case.html5case.cn/Nubia/prize", // 抽奖地址
+    setInfo: "http://case.html5case.cn/Nubia/submit"
 }
 
 
@@ -40,7 +41,10 @@ function setElement(width) {
         fontSize = 200;
     }
 
-    document.documentElement.setAttribute("style", "font-size: " + fontSize + "px")
+    document.documentElement.setAttribute("style", "font-size: " + fontSize + "px");
+
+    let wrap = document.querySelector('.warp');
+    if(wrap) wrap.style.width = currWidth + 'px';
 }
 
 
@@ -50,6 +54,7 @@ function setElement(width) {
 function resetTop(height) {
      var clientHeight = document.documentElement.clientHeight,
         currHeight = height ? Math.min(height, clientHeight) : clientHeight;
+
 
     scale = currHeight / 1040,
         resetTopDoms = document.querySelectorAll('[data-top]'),
@@ -64,6 +69,7 @@ function resetTop(height) {
             }
         })
     }
+    document.querySelector('.warp').style.height = currHeight + 'px';
 }
 
 /**
@@ -72,10 +78,6 @@ function resetTop(height) {
 function resetSize(width, height){
     setElement(width);
     resetTop(height);
-
-    let wrap = document.querySelector('.warp');
-    wrap.style.width = width + 'px';
-    wrap.style.height = height + 'px';
 }
 
 /**

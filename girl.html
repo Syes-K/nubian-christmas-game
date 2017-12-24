@@ -31,6 +31,9 @@
     <script>
         var keyTime = 200; // 打字的速度
         var openid = 'x123';
+        var sign = 'gs1';
+        var name = 'girl';
+        var tel = '13131313'
 
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -61,6 +64,17 @@
                     currentHref += "?restart=true";
                     window.location = currentHref;
                 });
+            });
+
+
+            //设置用户信息
+            $.get(config.setInfo, {
+                openid: 'obFweuIBW3mhRCqOTgY_7Aqh7VXo',
+                sign: 'e99fecae1c7a6f866e4cb61e68319fac',
+                name: name,
+                tel: tel
+            }).then(function(data) {
+                console.log(data);
             });
         }
     </script>
@@ -475,7 +489,7 @@
                 </div>
 
                 <!-- 奖品-优惠券 -->
-                <div class="p11__prize-1 none">
+                <div data-flag="1" class="p11__prize-1 none">
                     <div class="tips auto-x" data-top="140">
                         <img src="images/scene/scene_text-3.png">
                     </div>
@@ -483,7 +497,7 @@
                         <img src="images/prize/9.png">
 
                         <div class="prize-coupon_text auto-x">
-                            <h2>300</h2>
+                            <h2>400</h2>
                             <span>【 兑换码：888888888 】</span>
                             <p>仅限Z17 128G版本</p>
                             <p>2017/12/20--2018/01/02有效</p>
@@ -495,7 +509,7 @@
                 </div>
 
                 <!-- 奖品-手机 -->
-                <div class="p11__prize-2 none">
+                <div data-flag="4" class="p11__prize-2 none">
                     <div class="tips auto-x" data-top="80">
                         <img src="images/scene/scene_text-2.png">
                     </div>
@@ -519,7 +533,7 @@
                 </div>
 
                 <!-- 奖品-抱枕 -->
-                <div class="p11__prize-2 p11__prize-3 none">
+                <div data-flag="2" class="p11__prize-2 p11__prize-3 none">
                     <div class="tips auto-x" data-top="80">
                         <img src="images/scene/scene_text-4.png">
                     </div>
@@ -543,7 +557,7 @@
                 </div>
 
                 <!-- 奖品-耳机 -->
-                <div class="p11__prize-2 p11__prize-4 none">
+                <div data-flag="3" class="p11__prize-2 p11__prize-4 none">
                     <div class="tips auto-x" data-top="96">
                         <img src="images/scene/scene_text-5.png">
                     </div>
