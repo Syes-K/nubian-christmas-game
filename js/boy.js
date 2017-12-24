@@ -44,7 +44,6 @@ function Boy(id, girlId, socket) {
             self._updateGirlHealth(data.msg);
         }
         if (data.type === 'scene.finish') {
-            console.log(data);
             var sceneName = data.msg;
             self._emit('girl.' + sceneName + '.finish');
         }

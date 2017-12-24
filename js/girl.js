@@ -162,7 +162,6 @@ Girl.prototype._checkKO = function() {
     }
 }
 Girl.prototype.finishScene = function(scene) {
-    console.log('fff:', scene)
     var self = this;
     self.socket.emit('pour', {
         'fid': this.boyId,

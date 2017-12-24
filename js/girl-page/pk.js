@@ -19,7 +19,7 @@ function startPk() {
             pkAnimateTimer = setInterval(function() {
                 attackStatus(attackStatusElement[i % 3]);
                 i++;
-            }, 2000);
+            }, 1000);
             lastClickTime = (new Date()).getTime();
         } else {
             if (currentTime - lastClickTime < 300) {
