@@ -29,20 +29,21 @@
     <script src="./js/scene.js"></script>
     <script src="./js/girl.js"></script>
     <script>
-        var keyTime = 200;// 打字的速度
+        var keyTime = 200; // 打字的速度
+        var openid = 'x123';
+
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
             if (r != null) return unescape(r[2]);
             return null;
         }
-        var myid = getQueryString('myid');
         window.onload = function() {
             resetTop();
             // music('bgm');
 
             window.socket = io.connect('http://115.159.69.89:3002');
-            window.girl = new Girl('x4441', socket)
+            window.girl = new Girl(openid, socket)
             window.scene = new Scene(sceneList, girl);
             var restart = getQueryString("restart");
             if (restart) {
@@ -52,8 +53,14 @@
             } else {
                 window.scene.next();
             }
-            window.girl.on("boy.disconnect",function(){
+            window.girl.on("boy.disconnect", function() {
                 document.getElementById("socket").classList.remove('none');
+                document.querySelector(".socket__tips-btn").addEventListener("click", function() {
+                    var currentHref = window.location.href;
+                    currentHref = currentHref.replace(/\?[\s\S]*/, "");
+                    currentHref += "?restart=true";
+                    window.location = currentHref;
+                });
             });
         }
     </script>

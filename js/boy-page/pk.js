@@ -12,16 +12,18 @@ function startPk() {
     document.querySelector(".pk-btn").addEventListener("click", function() {
         var currentTime = (new Date()).getTime();
         if (!lastClickTime) {
+            attackStatus(attackStatusElement[i % 3]);
+            i++;
             pkAnimateTimer = setInterval(function() {
                 attackStatus(attackStatusElement[i % 3]);
                 i++;
             }, 2000);
             lastClickTime = (new Date()).getTime();
         } else {
-            if (currentTime - lastClickTime < 500) {
+            if (currentTime - lastClickTime < 300) {
                 return;
             } else {
-                girl.attack();
+                boy.attack();
                 lastClickTime = (new Date()).getTime();
             }
         }

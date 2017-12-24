@@ -1,4 +1,4 @@
-var disConnectTime = 100000;
+var disConnectTime = 10000;
 var attackedLostHealth = 5;
 
 function randomUuid() {
@@ -12,9 +12,8 @@ function randomUuid() {
 function Girl(id, socket) {
     var self = this;
     self.id = id;
-    self.connectid = randomUuid();
+    self.connectid;
     self.boyId;
-    self.boyConnectid;
     self.socket = socket;
     self.health = 100;
     self.boyHealth = 100;
@@ -29,15 +28,18 @@ function Girl(id, socket) {
         if (data.fxzid !== self.id) {
             return;
         }
-
+        // 不存在connectid时，只有type === 'connect'的请求有效
+        if (!self.connectid && data.type !== 'connect') {
+            return;
+        }
         // 不是和我第一次链接的请求 不处理
-        if (self.boyConnectid && self.boyConnectid !== data.connectid) {
+        if (self.connectid && self.connectid !== data.connectid) {
             return;
         }
         // 有boy加入,且没有连接过
         if (data.type === 'connect' && !self.lastConnectedTime) {
             self.boyId = data.fid;
-            self.boyConnectid = data.connectid;
+            self.connectid = data.connectid;
             self.boySize = data.msg;
             self.lastConnectedTime = (new Date()).getTime();
             self.socket.emit('pour', {
@@ -160,7 +162,7 @@ Girl.prototype._checkKO = function() {
     }
 }
 Girl.prototype.finishScene = function(scene) {
-    console.log('fff:',scene)
+    console.log('fff:', scene)
     var self = this;
     self.socket.emit('pour', {
         'fid': this.boyId,

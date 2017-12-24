@@ -1,4 +1,4 @@
-var disConnectTime = 100000;
+var disConnectTime = 10000;
 var attackedLostHealth = 5;
 
 function randomUuid() {
@@ -14,7 +14,6 @@ function Boy(id, girlId, socket) {
     self.id = id;
     self.connectid = randomUuid();
     self.girlId = girlId;
-    self.girlConnectid;
     self.socket = socket;
     self.health = 100;
     self.girlHealth = 100;
@@ -27,11 +26,10 @@ function Boy(id, girlId, socket) {
     // 监听Girl 发来的消息
     self.socket.on("startget2", function(data) {
         // 不是和我第一次链接的请求 不处理
-        if (self.girlConnectid && self.girlConnectid !== data.connectid) {
+        if (self.connectid !== data.connectid) {
             return;
         }
         if (data.type === 'connect' && !self.lastConnectedTime) {
-            self.girlConnectid = data.connectid;
             self.lastConnectedTime = (new Date()).getTime();
             self.girlSize = data.msg;
             self._onconnected();
@@ -97,6 +95,7 @@ Boy.prototype._ondisconnected = function() {
     clearInterval(self.connecttingTimer);
     clearInterval(self.ckeckGirlConnectedTimer);
     clearInterval(self.autoLostHealthTimer);
+    self._emit("girl.disconnect");
 }
 Boy.prototype.attack = function() {
     var self = this;
