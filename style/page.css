@@ -445,7 +445,57 @@
     left: .77rem;
 }
 
+
 /*----------------------------- p5 -------------------------------------*/
+.p5-phone {
+    width: .81rem;
+    height: .625rem;
+    position: absolute;
+    transform-origin: center top;
+    -webkit-transform-origin: center top;
+}
+.p5-phone img {
+    animation-duration: .5s;
+    -webkit-animation-direction: .5s;
+    animation: phone .4s steps(1) infinite;
+    -webkit-animation: phone .4s steps(1) infinite
+}
+@keyframes phone {
+    0% {
+        transform: translateX(0)
+    }
+    50% {
+        transform: translateX(-.05rem)
+    }
+    100% {
+        transform: translateX(-.05rem)
+    }
+}
+
+@-webkit-keyframes phone {
+    0% {
+        -webkit-transform: translateX(0)
+    }
+    50% {
+        transform: translateX(-.05rem)
+    }
+    100% {
+        transform: translateX(-.05rem)
+    }
+}
+
+.p5__left-phone {
+    top: 3.05rem;
+    left: 1.05rem;
+}
+.p5__right-phone {
+    top: 3.05rem;
+    left: 1.29rem;
+    transform: scaleX(-1);
+}
+
+
+/*----------------------------- p6 -------------------------------------*/
 .girl-5 {
     width: .75rem;
     height: 2.2rem;
