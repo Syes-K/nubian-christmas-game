@@ -10,28 +10,32 @@ function startP2() {
         })
     });
 
+
+    // 闪动后，绑定点击事件
+    var clikToolList = [];
     document.querySelector("#p2 .p2__tips-6 .close").addEventListener("click", function() {
         document.querySelector("#p2 .p2__tips").classList.add("none");
         document.querySelector("#p2 .p2__tips-6").classList.add("none");
         document.querySelector("#p2 .p2__prop-1").classList.add("shake");
         document.querySelector("#p2 .p2__prop-2").classList.add("shake");
         document.querySelector("#p2 .p2__prop-3").classList.add("shake");
+
+        document.querySelectorAll("#p2 [tool]").forEach(function(el) {
+            el.addEventListener("click", function() {
+                var tool = el.getAttribute("tool");
+                if (clikToolList.indexOf(tool) < 0) {
+                    clikToolList.push(tool);
+                }
+                showTip('[tool-tip="' + tool + '"]');
+            });
+        });
     });
 
     document.querySelector("#p2 .p2__phone.light").addEventListener("click", function() {
         scene.next();
     });
 
-    var clikToolList = [];
-    document.querySelectorAll("#p2 [tool]").forEach(function(el) {
-        el.addEventListener("click", function() {
-            var tool = el.getAttribute("tool");
-            if (clikToolList.indexOf(tool) < 0) {
-                clikToolList.push(tool);
-            }
-            showTip('[tool-tip="' + tool + '"]');
-        });
-    });
+    
 
     function showTip(selector) {
         document.querySelector("#p2 .p2__tips").classList.remove("none");
