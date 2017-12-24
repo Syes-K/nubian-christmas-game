@@ -43,9 +43,6 @@ function setElement(width) {
     }
 
     document.documentElement.setAttribute("style", "font-size: " + fontSize + "px");
-
-    let wrap = document.querySelector('.warp');
-    if(wrap) wrap.style.width = currWidth + 'px';
 }
 
 
@@ -70,7 +67,6 @@ function resetTop(height) {
             }
         })
     }
-    document.querySelector('.warp').style.height = currHeight + 'px';
 }
 
 /**
@@ -79,6 +75,13 @@ function resetTop(height) {
 function resetSize(width, height){
     setElement(width);
     resetTop(height);
+
+    let wrap = document.querySelector('.warp');
+    let clientWidth = document.documentElement.clientWidth;
+    let clientHeight = document.documentElement.clientHeight;
+
+    wrap.style.width = Math.min(width, clientWidth) + 'px';
+    wrap.style.height = Math.min(height, clientHeight) + 'px';
 }
 
 /**
