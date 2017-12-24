@@ -9,7 +9,7 @@ const config = {
     wxshareUrl: "http://122.114.149.227/nubiya",
 
     //接口地址
-    drawUrl: "", // 抽奖地址
+    drawUrl: " http://case.html5case.cn/Nubia/prize", // 抽奖地址
 }
 
 

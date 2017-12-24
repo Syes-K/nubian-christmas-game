@@ -1,12 +1,13 @@
 function startP11S10(){
     document.querySelector(".p11__btn-1").addEventListener("click", function() {
-        // jQuery.post(config.drawUrl, {
-        //     suggest:txt
-        // },function(result){
-        //     console.log(result);
-        //     // scene.next();
-        // });
-        scene.next();
+        let openid = girl.openId,
+            sign = girl.sign;
+
+        jQUery.get(config.drawUrl + '?openid=' + openid + '&sign=' + sign, function(result){
+            console.log(result);
+            // result: {"code":1,"msg":"openid 无效"}
+            
+        })
     })
 }
 function startP11S20(){
