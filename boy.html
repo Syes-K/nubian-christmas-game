@@ -26,6 +26,7 @@
     <script src="./js/boy.js"></script>
     <script>
         var keyTime = 200;
+        var openid = 'y123';
 
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -36,13 +37,22 @@
         window.onload = function() {
             resetTop();
             // music('bgm');
-
             window.socket = io.connect('http://115.159.69.89:3002');
-            window.myid = getQueryString('myid');
-            window.boy = new Boy('y4441', 'x4441', socket)
+            window.girlid = getQueryString('fxzid');
+            window.boy = new Boy(openid, girlid, socket)
             window.scene = new Scene(sceneList, boy);
             window.boy.connect();
             window.scene.next();
+
+            window.boy.on("girl.disconnect", function() {
+                document.getElementById("socket").classList.remove('none');
+                document.querySelector(".socket__tips-btn").addEventListener("click", function() {
+                    var currentHref = window.location.href.replace("boy", "girl");
+                    currentHref = currentHref.replace(/\?[\s\S]*/, "");
+
+                    window.location = currentHref;
+                });
+            });
         }
     </script>
 
@@ -209,7 +219,7 @@
             <div class="pk-blood pk__right-blood" data-top="60">
                 <div class="num" style="width: 100%" id="pk_health_bar"></div>
             </div>
-            
+
             <div class="boy-8" data-top="320">
                 <img src="images/boy/boy-8.png">
             </div>
