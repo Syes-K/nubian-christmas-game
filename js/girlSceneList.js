@@ -11,7 +11,8 @@ var sceneList = [{
     // }
 }, {
     name: "p1",
-    start: startP1
+    start: startP1,
+    leaveClass: 'anim-opacity'
 }, {
     name: "p2.s10",
     start: startP2,
@@ -210,8 +211,8 @@ var sceneList = [{
     enterTrigger: {
         type: 'event',
         eventName: 'boy.p7.s60.finish'
-    }
-
+    },
+    leaveClass: 'anim-opacity'
 }, {
     name: "pk",
     start: startPk,

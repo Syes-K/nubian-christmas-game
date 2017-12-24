@@ -158,7 +158,8 @@ var sceneList = [{
     enterTrigger: {
         type: 'event',
         eventName: 'girl.p7.s70.finish'
-    }
+    },
+    leaveClass: 'anim-opacity'
 }, {
     name: "pk",
     start: startPk,
@@ -182,10 +183,11 @@ var sceneList = [{
     }
 }, {
     name: "p10",
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 3000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
-    }
+    },
+    leaveClass: 'anim-opacity'
 }, {
     name: "p11",
     autoFinshTime: 1000, // 自动完成改场景
@@ -194,15 +196,9 @@ var sceneList = [{
     }
 }, {
     name: "p11.s10",
-    start: startP11S10,
+    // start: startP11S10,
+    autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
-}, {
-    name: "p11.s20",
-    start: startP11S20
-    // autoFinshTime: 1000, // 自动完成改场景
-    // enterTrigger: {
-    //     type: 'last.finish'
-    // }
 }]

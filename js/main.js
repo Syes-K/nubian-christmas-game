@@ -1,7 +1,8 @@
 setElement();
 
 window.config = {
-    gameGirlUrl: "https://www.nubia.com/active/happynewyear1.html",
+    gameGirlUrl: "http://192.168.0.105:8080/girl.html",
+    gameBoyUrl: "http://192.168.0.105:8080/boy.html",
     mallUrl: "https://www.nubia.com/active/happynewyear1.html",
     wxshareImg: 'http://122.114.149.227/nubiya/images/share-icon.png',
     wxshareTitle: "妙龄少女深夜独闯宅男卧室欲行凶，原因竟是……",
