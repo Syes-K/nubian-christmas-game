@@ -9,16 +9,61 @@ function randomUuid() {
     });
 }
 
-function Girl(id, socket) {
+function Girl(id) {
     var self = this;
     self.id = id;
     self.connectid;
     self.boyId;
-    self.socket = socket;
+
     self.health = 100;
     self.boyHealth = 100;
     self.boySize;
     self.lastConnectedTime;
+}
+Girl.prototype = Object.assign({}, EventPrototype);
+
+Girl.prototype._onconnected = function() {
+    var self = this;
+    // self._ondisconnected();
+    // 不停的发送消息给Boy，告诉他我在呢
+    self.connecttingTimer = setInterval(function() {
+        // 没有Boy链接不处理
+        if (!self.boyId) {
+            return;
+        }
+        self.socket.emit('pour', {
+            'fid': self.boyId,
+            'connectid': self.connectid,
+            'type': 'connectting',
+            'msg': ''
+        });
+    }, 1000);
+    // 验证boy的链接是否超时
+    self.ckeckBoyConnectedTimer = setInterval(function() {
+        // 没有Boy链接不验证
+        if (!self.boyId) {
+            return;
+        }
+        var currentTime = (new Date()).getTime();
+        if (currentTime - self.lastConnectedTime > disConnectTime) {
+            self._ondisconnected();
+        }
+    }, 1000);
+}
+
+// Boy 断开连接
+Girl.prototype._ondisconnected = function() {
+    var self = this;
+    self.lastConnectedTime = undefined;
+    clearInterval(self.connecttingTimer);
+    clearInterval(self.ckeckBoyConnectedTimer);
+    clearInterval(self.autoLostHealthTimer);
+    self._emit("boy.disconnect");
+}
+
+Girl.prototype.connect = function(socket) {
+    var self = this;
+    self.socket = socket;
     self.socket.emit('myid', {
         'myid': self.id
     });
@@ -70,47 +115,6 @@ function Girl(id, socket) {
         }
     });
 
-
-}
-Girl.prototype = Object.assign({}, EventPrototype);
-
-Girl.prototype._onconnected = function() {
-    var self = this;
-    // self._ondisconnected();
-    // 不停的发送消息给Boy，告诉他我在呢
-    self.connecttingTimer = setInterval(function() {
-        // 没有Boy链接不处理
-        if (!self.boyId) {
-            return;
-        }
-        self.socket.emit('pour', {
-            'fid': self.boyId,
-            'connectid': self.connectid,
-            'type': 'connectting',
-            'msg': ''
-        });
-    }, 1000);
-    // 验证boy的链接是否超时
-    self.ckeckBoyConnectedTimer = setInterval(function() {
-        // 没有Boy链接不验证
-        if (!self.boyId) {
-            return;
-        }
-        var currentTime = (new Date()).getTime();
-        if (currentTime - self.lastConnectedTime > disConnectTime) {
-            self._ondisconnected();
-        }
-    }, 1000);
-}
-
-// Boy 断开连接
-Girl.prototype._ondisconnected = function() {
-    var self = this;
-    self.lastConnectedTime = undefined;
-    clearInterval(self.connecttingTimer);
-    clearInterval(self.ckeckBoyConnectedTimer);
-    clearInterval(self.autoLostHealthTimer);
-    self._emit("boy.disconnect");
 }
 
 Girl.prototype.attack = function() {
@@ -163,12 +167,14 @@ Girl.prototype._checkKO = function() {
 }
 Girl.prototype.finishScene = function(scene) {
     var self = this;
-    self.socket.emit('pour', {
-        'fid': this.boyId,
-        'connectid': self.connectid,
-        'type': 'scene.finish',
-        'msg': scene.name
-    });
+    if (self.connectid) {
+        self.socket.emit('pour', {
+            'fid': this.boyId,
+            'connectid': self.connectid,
+            'type': 'scene.finish',
+            'msg': scene.name
+        });
+    }
 }
 Girl.prototype.finishGame = function() {
     var self = this;
