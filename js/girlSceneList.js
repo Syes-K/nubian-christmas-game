@@ -260,3 +260,9 @@ var sceneList = [{
     //     type: 'last.finish'
     // }
 }]
+
+
+var loadingScenes=[
+    "loading",
+    "p0",
+]

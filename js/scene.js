@@ -97,10 +97,23 @@ Scene.prototype = Object.assign({}, EventPrototype);
 Scene.prototype.enter = function(scene) {
     var self = this;
     self.currentScene = scene;
+    var pageId = scene.name.split('.')[0];
+    if (loadingScenes.indexOf(pageId) > -1) {
+        self._processEnter(scene);
+    } else {
+        var templateDir = (window.girl ? 'girl' : 'boy');
+        jQuery.get("./template/" + templateDir + "/" + pageId + '.html').then(function(html) {
+            $(".warp").append(html);
+            self._processEnter(scene);
+            loadingScenes.push(pageId);
+        });
+    }
+}
 
+Scene.prototype._processEnter = function(scene) {
+    var self = this;
     var pageId = scene.name.split('.')[0];
     var stepName = scene.name.split('.')[1];
-
     //将所有场景隐藏
     document.querySelectorAll(".page").forEach(function(el) {
         el.classList.add('none');
@@ -129,7 +142,7 @@ Scene.prototype.enter = function(scene) {
         var t = new Date().getTime();
         setTimeout(function() {
             self.finish(scene);
-        // }, scene.autoFinshTime)
+            // }, scene.autoFinshTime)
         }, 5000) //临时修改
     }
     self._emit("scene." + scene.name + '.enter');

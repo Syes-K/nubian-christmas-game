@@ -9,78 +9,9 @@
     <meta name="MobileOptimized" content="320" />
     <link rel="stylesheet" href="style/common.css" />
     <link rel="stylesheet" href="style/page.css" />
-    <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/qrcode.min.js"></script>
+
     <script type="text/javascript" src="js/main.js"></script>
 
-    <script src="./js/girl-page/loading.js"></script>
-    <script src="./js/girl-page/p0.js"></script>
-    <script src="./js/girl-page/p1.js"></script>
-    <script src="./js/girl-page/p2.js"></script>
-    <script src="./js/girl-page/p3.js"></script>
-    <script src="./js/girl-page/p6.js"></script>
-    <script src="./js/girl-page/p7.js"></script>
-    <script src="./js/girl-page/pk.js"></script>
-    <script src="./js/girl-page/p9.js"></script>
-    <script src="./js/girl-page/p11.js"></script>
-
-    <script src="./js/girlSceneList.js"></script>
-    <script src="./js/scene.js"></script>
-    <script src="./js/girl.js"></script>
-    <script>
-        // obFweuFi0ELj1ekmNWardVd7g53Q    7bf1635d79e8531f1cc80dc551a4b728
-        // obFweuGPPX9M3k3k0u5IEIh5BFg4    57876ed2c4e17dff78cada89ca988cce
-        // obFweuK3MwN0qhmha7CYHoK8dEm0    77510483453e6bcf544da3bb690bdfe6
-        // obFweuN7oDsPGzbUUTl3AseGcXLs    95d70fd46ec24c4e1ecbc3b42af84dfd
-        // obFweuP2ATJ-944bGFbkC5rVL2_k    2ac87b161447f0410be2545700f28e36
-        // obFweuEsWbzTcY36QFie2G86Rh-A    25d40e267a33b4b56f866ec49c8b90b2
-        // obFweuJSET3XDQKc01VI6rB1KSIc    a04cffe09489c6f434d4789824577756
-        function randomUuid() {
-            return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
-                const r = Math.random() * 16 | 0;
-                const v = c === "x" ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
-
-        var keyTime = 200; // 打字的速度
-        // var openid = 'obFweuK3MwN0qhmha7CYHoK8dEm0';
-        var openid = randomUuid();
-        var sign = '77510483453e6bcf544da3bb690bdfe6';
-
-        function getQueryString(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if (r != null) return unescape(r[2]);
-            return null;
-        }
-        window.onload = function() {
-            resetTop();
-            music('bgm');
-
-           
-            window.girl = new Girl(openid)
-            window.scene = new Scene(sceneList, girl);
-            var restart = getQueryString("restart");
-            if (restart) {
-                window.scene.enter(sceneList.find(function(s) {
-                    return s.name === "p2.s70";
-                }));
-            } else {
-                window.scene.next();
-            }
-            window.girl.on("boy.disconnect", function() {
-                document.getElementById("socket").classList.remove('none');
-                document.querySelector(".socket__tips-btn").addEventListener("click", function() {
-                    var currentHref = window.location.href;
-                    currentHref = currentHref.replace(/\?[\s\S]*/, "");
-                    currentHref += "?restart=true";
-                    window.location = currentHref;
-                });
-            });
-        }
-    </script>
 </head>
 
 <body>
@@ -160,461 +91,6 @@
         </div>
         <!-- 封面 end -->
 
-        <!-- P1 start -->
-        <div class="page bg none" id="p1">
-            <div class="bg">
-                <img src="images/p1_bg.jpg">
-            </div>
-            <div class="p1__text auto-x" data-top="250">
-                <h4 id="p1-word1">去年圣诞节和男票分手!</h4>
-                <h4 id="p1-word2">今年心爱的喵子居然</h4>
-                <h3 id="p1-word3">也不见了！</h3>
-                <h4 id="p1-word4">这一定是我的.....</h4>
-                <h2>
-                    <span id="p1-word5">圣</span>
-                    <span id="p1-word6">诞</span>
-                    <span id="p1-word7">劫</span>
-                </h2>
-            </div>
-        </div>
-        <!-- P1 end -->
-
-        <!-- P2-p4 start -->
-        <div class="page none" id="p2">
-            <div class="bg">
-                <img src="images/p2/p2_bg.jpg">
-            </div>
-            <div class="p2__girl-1 none" data-step="s30,s40,s50,s60,s70">
-                <img src="images/girl/girl-1.png">
-            </div>
-            <div class="p2__girl-5 none" data-step="s10,s20,s21" data-top="220">
-                <img src="images/p2/girl-5.png">
-            </div>
-
-            <div class="p2__phone" data-step="s50" data-top="270">
-                <img src="images/p2/p2-phone.png">
-            </div>
-            <div class="p2__phone light" data-step="s50,s60,s70" data-top="270">
-                <img src="images/p2/p2-phone.png">
-            </div>
-
-            <!-- 抖动道具 -->
-            <div class="p2__prop-1" tool="1" data-top="258">
-                <img src="images/p2/p2_prop-1.png">
-            </div>
-            <div class="p2__prop-2 " tool="2">
-                <img src="images/p2/p2_prop-2.png">
-            </div>
-            <div class="p2__prop-3 " tool="3">
-                <img src="images/p2/p2_prop-3.png">
-            </div>
-
-            <!-- 提示气泡 -->
-            <div class="p2__tips-1 none" data-step="s21" data-top="49">
-                <img src="images/p2/p2_tips-1.png">
-            </div>
-            <div class="p2__tips-2 none" data-step="s20" data-top="49">
-                <img src="images/p2/p2_tips-2.png">
-            </div>
-
-            <div class="p2__tips bg_black2 none" data-step="s40,s60,s70,s80">
-                <div class="p2__tips-3 auto-x none p2-next-scene" data-step="s40" data-top="428">
-                    <img src="images/p2/p2_tips-3.png">
-                    <div class="close">
-                        <!-- close -->
-                    </div>
-                </div>
-                <div class="p2__tips-4 auto-y none" tool-tip="2" data-top="26">
-                    <img src="images/p2/p2_tips-4.png">
-                    <div class="close">
-                        <!-- close -->
-                    </div>
-                </div>
-                <div class="p2__tips-5 none" tool-tip="3" data-top="666">
-                    <img src="images/p2/p2_tips-5.png">
-                    <div class="close">
-                        <!-- close -->
-                    </div>
-                </div>
-                <div class="p2__tips-6 none" data-step="s60" data-top="246">
-                    <img src="images/p2/p2_tips-6.png">
-                    <div class="close">
-                        <img src="images/p2/p2-tips-6-btn.png">
-                    </div>
-                </div>
-                <div class="p2__tips-7 auto-x none" data-step="s70" data-top="242">
-                    <img src="images/p2/p2_tips-7.png">
-
-                    <div class="code" id="qr-code">
-                        <!-- <img src="images/p2/2wm.jpg"> -->
-                    </div>
-                </div>
-                <div class="p2__tips-8 none" tool-tip="1" data-top="314">
-                    <img src="images/p2/p2_tips-8.png">
-                    <div class="close">
-                        <!-- close -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- P2-p4 end -->
-
-        <!-- p5 start -->
-        <div class="page bg none" id="p3">
-            <img src="images/p5/p5_left-bg.jpg">
-        </div>
-        <!-- p5 end -->
-
-        <!-- 场景A-B start -->
-        <div class="page bg none" id="p4">
-            <div class="bg">
-                <img src="images/scene/scene_left_bg-1.jpg">
-            </div>
-
-            <div class="girl-3 none" data-step="s100" data-top="637">
-                <img src="images/girl/girl-3.png">
-            </div>
-            <div class="girl-4 none" data-step="s10,s20,s30,s40,s50,s70,s80,s90" data-top="274">
-                <img src="images/girl/girl-4.png">
-            </div>
-            <div class="girl-6 none" data-step="" data-top="274">
-                <img src="images/girl/girl-6.png">
-            </div>
-
-            <!-- 气泡提示 -->
-            <div class="p4__tips">
-                <div class="p4__tips-1 none" data-step="s20">
-                    <img src="images/p4/tips-1.png">
-                </div>
-                <div class="p4__tips-3 none" data-step="s40" data-top="370">
-                    <img src="images/p4/tips-3.png">
-                </div>
-                <div class="p4__tips-5 none" data-step="s70" data-top="-5">
-                    <img src="images/p4/tips-5.png">
-                </div>
-                <div class="p4__tips-7 none" data-step="s90" data-top="518">
-                    <img src="images/p4/tips-7.png">
-                </div>
-            </div>
-        </div>
-        <!-- 场景A-B end -->
-
-        <!-- 叫门 start -->
-        <div class="page bg none" id="p5">
-            <div class="bg">
-                <img src="images/scene/scene_left_bg-2.jpg">
-            </div>
-
-            <div class="girl-6" data-step="s10" data-top="600">
-                <img src="images/girl/girl-6.png">
-            </div>
-        </div>
-        <!-- 叫门 end -->
-
-        <!-- 场景C start -->
-        <div class="page bg none" id="p6">
-            <div class="bg">
-                <img src="images/scene/scene_left_bg-3.jpg">
-            </div>
-
-            <!-- <div class="scene__left_cat next" data-step="s10,s20,s30,s40" data-top="310">
-                <img src="images/scene/scene_left_cat.png">
-            </div> -->
-            <div class="scene__left_cat shake" data-step="s10,s20,s30,s40,s50,s60" data-top="310">
-                <img src="images/scene/scene_left_cat.png">
-            </div>
-
-            <div class="boy-5" data-step="s10" data-top="240">
-                <img src="images/boy/boy-5.png">
-            </div>
-            <div class="boy-6" data-step="s20,s30,s40" data-top="598">
-                <img src="images/boy/boy-6.png">
-            </div>
-            <div class="boy-7" data-step="s50,s60,s70" data-top="470">
-                <img src="images/boy/boy-7.png">
-            </div>
-
-            <div class="scene__left_tips-6" data-step="s40" data-top="109">
-                <img src="images/scene/scene_left_tips-6.png">
-            </div>
-            <div class="scene__left_tips-7" data-step="s30" data-top="283">
-                <img src="images/scene/scene_left_tips-7.png">
-            </div>
-            <div class="scene__left_tips-8" data-step="s60,s70" data-top="165">
-                <img src="images/scene/scene_left_tips-8.png">
-            </div>
-
-            <!--音乐-->
-            <!-- <div class="music-cat">
-                <audio src="bgm/cat.mp3" preload="auto" autoplay="autoplay"></audio>
-            </div> -->
-        </div>
-        <!-- 场景C end -->
-
-        <!-- PK前转场页面 start -->
-        <div class="page bg none" id="p7">
-            <div class="bg">
-                <img src="images/p8/p8_left_bg.jpg">
-            </div>
-            <div class="p8__text p8__left_text" data-top="264">
-                <h3 data-step="s10,s20,s30,s40,s50,s60,s70,s80" id=p7_s10>
-                    <!-- <span>可</span>
-                    <span>算</span>
-                    <span>找</span>
-                    <span>到</span> -->
-                </h3>
-                <h3 id=p7_s30>
-                    <!-- <span>该</span>
-                    <span>死</span>
-                    <span>的</span>
-                    <span>边</span> -->
-                </h3>
-                <h3 id=p7_s50>
-                    <!-- <span>害</span>
-                    <span>我</span>
-                    <span>闹</span>
-                    <span>出</span>
-                    <span>那</span> -->
-                </h3>
-                <h3 id=p7_s70>
-                    <!-- <span>糗</span>
-                    <span>死</span>
-                    <span>了</span>~~ -->
-                </h3>
-            </div>
-        </div>
-        <!-- PK前转场页面 end -->
-
-        <!-- pk start -->
-        <div class="page bg none " id="pk">
-            <div class="bg">
-                <img src="images/pk/pk_left_bg.jpg">
-            </div>
-
-            <!-- 血条 -->
-            <div class="pk-blood pk__left-blood" data-top="60">
-                <div class="num" style="width: 100%" id="pk_health_bar"></div>
-            </div>
-            <div class="girl-9" data-top="160">
-                <img src="images/girl/girl-9.png">
-            </div>
-            <div class="girl-10 none" data-top="255">
-                <img src="images/girl/girl-10.png">
-            </div>
-            <div class="girl-13 none" data-top="141">
-                <img src="images/girl/girl-13.png">
-            </div>
-
-            <div class="pk-btn pk__left-btn" data-top="737">
-                <img src="images/pk/pk_btn.png">
-            </div>
-
-            <div class="pk-ko pk__left-ko none" data-top="301">
-                <img src="images/pk/pk_ko.png">
-            </div>
-
-            <div class="pk-cat pk__left-cat" data-top="330">
-                <img src="images/pk/pk_cat.png">
-            </div>
-
-            <div class="pk-cat-tips pk__left-cat-tips shake none" data-top="144">
-                <img src="images/pk/pk_cat_face2.png">
-                <!-- <img class="none" src="images/pk/pk_cat_face-1.png">
-                <img class="none" src="images/pk/pk_cat_face-2.png">
-                <img src="images/pk/pk_cat_face-3.png"> -->
-            </div>
-        </div>
-        <!-- pk end -->
-
-        <!-- 牵手页面 start -->
-        <div class="page bg none" id="p9">
-            <div class="bg">
-                <img src="images/scene/scene_left_bg-4.jpg">
-            </div>
-
-            <div class="bg p9-phone" data-step="s10">
-                <img src="images/scene/scene_left_phone.png">
-            </div>
-
-            <div class="girl-11" data-step="s20" data-top="239">
-                <img src="images/girl/girl-11.png">
-            </div>
-            <div class="girl-12" data-step="s10" data-top="239">
-                <img src="images/girl/girl-12.png">
-            </div>
-        </div>
-        <!-- 牵手页面 end -->
-
-        <!-- 牵手之后过场页面 start -->
-        <div class="page bg none" id="p10">
-            <div class="bg">
-                <img src="images/scene/scene_bg-5.jpg">
-            </div>
-
-            <div class="p10__left_phone-s" data-top="213">
-                <img src="images/scene/scene_phone-3.png">
-            </div>
-        </div>
-        <!-- 牵手之后过场页面 end -->
-
-        <!-- 抽奖页 start -->
-        <div class="page bg none" id="p11">
-            <div class="bg">
-                <img src="images/scene/scene_bg-5.jpg">
-            </div>
-            <div class="p11-cat shake">
-                <img src="images/scene/scene_last-cat.png">
-            </div>
-            <div class="bg_black3 auto-x auto-y" data-step="s10,s20"></div>
-
-            <!-- 抽奖按钮 -->
-            <div class="p11__btn-1 auto-x " data-step="s10" data-top="146">
-                <img src="images/scene/scene_last-1.png">
-            </div>
-
-            <!-- 无奖提示 -->
-            <div class="p11__tips-1 auto-x none" data-top="146">
-                <div class="p11__btn-1">
-                    <img src="images/scene/scene_last-2.png">
-                </div>
-                <div class="button auto-x p11__btn-2">
-                    <img src="images/scene/scene_btn-2.png">
-                </div>
-            </div>
-
-            <!-- 奖品 -->
-            <div class="p11__tips-2 auto-x none" data-step="s20">
-                <!-- <div class="p11__btn-close" data-top="14">
-                    <img src="images/scene/scene_close-btn.png">
-                </div> -->
-                <div class="p11__share" data-top="8">
-                    <img src="images/scene/scene_share.png">
-                </div>
-
-                <!-- 奖品-优惠券 -->
-                <div data-flag="1" class="p11__prize-1 none">
-                    <div class="tips auto-x" data-top="140">
-                        <img src="images/scene/scene_text-3.png">
-                    </div>
-                    <div class="prize-coupon">
-                        <img src="images/prize/9.png">
-
-                        <div class="prize-coupon_text auto-x">
-                            <h2>400</h2>
-                            <span>【 兑换码：888888888 】</span>
-                            <p>仅限Z17 128G版本</p>
-                            <p>2017/12/20--2018/01/02有效</p>
-                        </div>
-                    </div>
-                    <div class="button auto-x" data-top="757">
-                        <img src="images/scene/scene_btn-1.png">
-                    </div>
-                </div>
-
-                <!-- 奖品-手机 -->
-                <div data-flag="4" class="p11__prize-2 none">
-                    <div class="tips auto-x" data-top="80">
-                        <img src="images/scene/scene_text-2.png">
-                    </div>
-                    <div class="tips2 auto-x" data-top="757">
-                        <img src="images/scene/scene_text-1.png">
-                    </div>
-                    <div class="prize auto-x">
-                        <img src="images/prize/5.png">
-                    </div>
-                    <div class="button auto-x" data-top="846">
-                        <img src="images/scene/scene_btn-3.png">
-                    </div>
-                    <div class="input auto-x" data-top="540">
-                        <input type="text" name="name" placeholder="姓名">
-                        <img src="images/scene/scene_input.png">
-                    </div>
-                    <div class="input auto-x" data-top="646">
-                        <input type="number" name="tel" placeholder="手机号">
-                        <img src="images/scene/scene_input.png">
-                    </div>
-                </div>
-
-                <!-- 奖品-抱枕 -->
-                <div data-flag="2" class="p11__prize-2 p11__prize-3 none">
-                    <div class="tips auto-x" data-top="80">
-                        <img src="images/scene/scene_text-4.png">
-                    </div>
-                    <div class="tips2 auto-x" data-top="757">
-                        <img src="images/scene/scene_text-1.png">
-                    </div>
-                    <div class="prize auto-x">
-                        <img src="images/prize/6.png">
-                    </div>
-                    <div class="button auto-x" data-top="846">
-                        <img src="images/scene/scene_btn-3.png">
-                    </div>
-                    <div class="input auto-x" data-top="540">
-                        <input type="text" name="name" placeholder="姓名">
-                        <img src="images/scene/scene_input.png">
-                    </div>
-                    <div class="input auto-x" data-top="646">
-                        <input type="number" name="tel" placeholder="手机号">
-                        <img src="images/scene/scene_input.png">
-                    </div>
-                </div>
-
-                <!-- 奖品-耳机 -->
-                <div data-flag="3" class="p11__prize-2 p11__prize-4 none">
-                    <div class="tips auto-x" data-top="96">
-                        <img src="images/scene/scene_text-5.png">
-                    </div>
-                    <div class="tips2 auto-x" data-top="757">
-                        <img src="images/scene/scene_text-1.png">
-                    </div>
-                    <div class="prize auto-x">
-                        <img src="images/prize/7.png">
-                    </div>
-                    <div class="button auto-x" data-top="670">
-                        <img src="images/scene/scene_btn-3.png">
-                    </div>
-                    <div class="input auto-x" data-top="540">
-                        <input type="text" name="name" placeholder="姓名">
-                        <img src="images/scene/scene_input.png">
-                    </div>
-                    <div class="input auto-x" data-top="646">
-                        <input type="number" name="tel" placeholder="手机号">
-                        <img src="images/scene/scene_input.png">
-                    </div>
-                </div>
-
-                <!-- 奖品-兑换码 -->
-                <div class="p11__prize-1 p11__prize-5 none">
-                    <div class="tips auto-x" data-top="80">
-                        <img src="images/scene/scene_text-6.png">
-                    </div>
-                    <div class="tips3 auto-x" data-top="558">
-                        <img src="images/scene/scene_text-7.png">
-                    </div>
-                    <div class="prize auto-x">
-                        <img src="images/prize/8.png">
-
-                        <!-- 兑换码 -->
-                        <div class="prize-code auto-x">
-                            1234567890
-                        </div>
-                    </div>
-                    <div class="button auto-x" data-top="757">
-                        <img src="images/scene/scene_btn-1.png">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 信息提交成功 -->
-            <div class="p11__tips-success auto-x auto-y none">
-                <div class="tips-close" data-top="30">
-                    <img src="images/scene/scene_btn-4.png">
-                </div>
-                <img src="images/scene/scene_last-3.png">
-            </div>
-        </div>
-        <!-- 抽奖页 end -->
-
         <!--音乐 start-->
         <div id="music">
             <div class="music play"></div>
@@ -648,6 +124,77 @@
     </div>
 
     <link rel="stylesheet" type="text/css" href="style/print.css">
+    <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/qrcode.min.js"></script>
+
+    <script src="./js/girl-page/loading.js"></script>
+    <script src="./js/girl-page/p0.js"></script>
+    <script src="./js/girl-page/p1.js"></script>
+    <script src="./js/girl-page/p2.js"></script>
+    <script src="./js/girl-page/p3.js"></script>
+    <script src="./js/girl-page/p6.js"></script>
+    <script src="./js/girl-page/p7.js"></script>
+    <script src="./js/girl-page/pk.js"></script>
+    <script src="./js/girl-page/p9.js"></script>
+    <script src="./js/girl-page/p11.js"></script>
+
+    <script src="./js/girlSceneList.js"></script>
+    <script src="./js/scene.js"></script>
+    <script src="./js/girl.js"></script>
+    <script>
+        // obFweuFi0ELj1ekmNWardVd7g53Q    7bf1635d79e8531f1cc80dc551a4b728
+        // obFweuGPPX9M3k3k0u5IEIh5BFg4    57876ed2c4e17dff78cada89ca988cce
+        // obFweuK3MwN0qhmha7CYHoK8dEm0    77510483453e6bcf544da3bb690bdfe6
+        // obFweuN7oDsPGzbUUTl3AseGcXLs    95d70fd46ec24c4e1ecbc3b42af84dfd
+        // obFweuP2ATJ-944bGFbkC5rVL2_k    2ac87b161447f0410be2545700f28e36
+        // obFweuEsWbzTcY36QFie2G86Rh-A    25d40e267a33b4b56f866ec49c8b90b2
+        // obFweuJSET3XDQKc01VI6rB1KSIc    a04cffe09489c6f434d4789824577756
+        function randomUuid() {
+            return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+                const r = Math.random() * 16 | 0;
+                const v = c === "x" ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        var keyTime = 200; // 打字的速度
+        // var openid = 'obFweuK3MwN0qhmha7CYHoK8dEm0';
+        var openid = randomUuid();
+        var sign = '77510483453e6bcf544da3bb690bdfe6';
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        window.onload = function() {
+            resetTop();
+            music('bgm');
+
+            window.girl = new Girl(openid)
+            window.scene = new Scene(sceneList, girl);
+            var restart = getQueryString("restart");
+            if (restart) {
+                window.scene.enter(sceneList.find(function(s) {
+                    return s.name === "p2.s70";
+                }));
+            } else {
+                window.scene.next();
+            }
+            window.girl.on("boy.disconnect", function() {
+                document.getElementById("socket").classList.remove('none');
+                document.querySelector(".socket__tips-btn").addEventListener("click", function() {
+                    var currentHref = window.location.href;
+                    currentHref = currentHref.replace(/\?[\s\S]*/, "");
+                    currentHref += "?restart=true";
+                    window.location = currentHref;
+                });
+            });
+        }
+    </script>
+
     <script type="text/javascript" src="js/other.js"></script>
 </body>
 

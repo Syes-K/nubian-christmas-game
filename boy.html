@@ -9,53 +9,8 @@
     <meta name="MobileOptimized" content="320" />
     <link rel="stylesheet" href="style/common.css" />
     <link rel="stylesheet" href="style/page.css" />
-    <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script src="./js/boy-page/loading.js"></script>
-    <script src="./js/boy-page/p1.js"></script>
-    <script src="./js/boy-page/p6.js"></script>
-    <script src="./js/boy-page/p7.js"></script>
-    <script src="./js/boy-page/p9.js"></script>
-    <script src="./js/boy-page/p11.js"></script>
-    <script src="./js/boy-page/pk.js"></script>
-
-
-    <script src="./js/boySceneList.js"></script>
-    <script src="./js/scene.js"></script>
-    <script src="./js/boy.js"></script>
-    <script>
-        var keyTime = 200;
-        var openid = 'y1231';
-
-        function getQueryString(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if (r != null) return unescape(r[2]);
-            return null;
-        }
-        window.onload = function() {
-            resetTop();
-            music('bgm');
-            window.socket = io.connect('http://115.159.69.89:3002');
-            window.girlid = getQueryString('fxzid');
-            window.boy = new Boy(openid, girlid, socket)
-            window.scene = new Scene(sceneList, boy);
-            window.boy.connect();
-            window.scene.next();
-
-            window.boy.on("girl.disconnect", function() {
-                document.getElementById("socket").classList.remove('none');
-                document.querySelector(".socket__tips-btn").addEventListener("click", function() {
-                    var currentHref = window.location.href.replace("boy", "girl");
-                    currentHref = currentHref.replace(/\?[\s\S]*/, "");
-
-                    window.location = currentHref;
-                });
-            });
-        }
-    </script>
-
+    
 </head>
 
 <body>
@@ -101,211 +56,6 @@
         </div>
         <!-- 加载中 end -->
 
-        <!-- p5 start -->
-        <div class="page bg none" id="p1">
-            <img src="images/p5/p5_right-bg.jpg">
-        </div>
-        <!-- p5 end -->
-
-        <!-- 场景A-B start -->
-        <div class="page bg none" id="p2">
-            <div class="bg">
-                <img src="images/scene/scene_right_bg-1.jpg">
-            </div>
-
-            <div class="boy-2" data-step="s50,s60,s70,s80,s90,s100" data-top="670">
-                <img src="images/boy/boy-2.png">
-            </div>
-            <div class="boy-4" data-step="s10,s30,s40" data-top="440">
-                <img src="images/boy/boy-4.png">
-            </div>
-
-            <!-- 气泡提示 -->
-            <div class="p4__tips">
-                <div class="p4__tips-2 none" data-step="s30" data-top="16">
-                    <img src="images/p4/tips-2.png">
-                </div>
-                <div class="p4__tips-4 none" data-step="s60" data-top="370">
-                    <img src="images/p4/tips-4.png">
-                </div>
-                <div class="p4__tips-6 none" data-step="s80" data-top="-10">
-                    <img src="images/p4/tips-6.png">
-                </div>
-                <div class="p4__tips-9 none" data-step="s100" data-top="238">
-                    <img src="images/p4/tips-9.png">
-                </div>
-            </div>
-        </div>
-        <!-- 场景A-B end -->
-
-        <!-- 叫门 start -->
-        <div class="page bg none" id="p5">
-            <div class="bg">
-                <img src="images/scene/scene_right_bg-2.jpg">
-            </div>
-
-            <div class="girl-5 none" data-step="s20,s30,s40" data-top="540">
-                <img src="images/girl/girl-5.png">
-            </div>
-            <div class="boy-1 none" data-step="s40" data-top="132">
-                <img src="images/boy/boy-1.png">
-            </div>
-
-            <div class="p4__tips none" data-step="s30">
-                <div class="p4__tips-8" data-top="330">
-                    <img src="images/p4/tips-8.png">
-                </div>
-            </div>
-        </div>
-        <!-- 叫门 end -->
-
-        <!-- 场景C start -->
-        <div class="page bg none" id="p6">
-            <div class="bg">
-                <img src="images/scene/scene_right_bg-3.jpg">
-            </div>
-
-            <div class="girl-14 none" data-step="s10,s20" data-top="330">
-                <img src="images/girl/girl-14.png">
-            </div>
-            <div class="girl-7 none" data-step="s30,s40" data-top="330">
-                <img src="images/girl/girl-7.png">
-            </div>
-            <div class="girl-8" data-step="s50,s60" data-top="320">
-                <img src="images/girl/girl-8.png">
-            </div>
-
-            <div class="scene__right_tips-5 none" data-step="s20" data-top="125">
-                <img src="images/scene/scene_right_tips-5.png">
-            </div>
-            <div class="scene__right_tips-6 none" data-step="s40" data-top="154">
-                <img src="images/scene/scene_right_tips-6.png">
-            </div>
-            <div class="scene__right_tips-7" data-step="s60" data-top="48">
-                <img src="images/scene/scene_right_tips-7.png">
-            </div>
-        </div>
-        <!-- 场景C end -->
-
-        <!-- PK前转场页面 start -->
-        <div class="page bg none" id="p7">
-            <div class="bg">
-                <img src="images/p8/p8_right_bg.jpg">
-            </div>
-            <div class="p8__text p8__right_text" data-top="264">
-                <h3 id=p7_s20>
-                    <!-- <span>我</span><span>的</span><span>阿</span><span>吉</span> -->
-                </h3>
-                <h3 id=p7_s40>
-                    <!-- <span class="f-50">(qiang)</span><span>框</span><span class="f-50">(bi)</span> -->
-                </h3>
-                <h3 id=p7_s60>
-                    <!-- <span>么</span><span>大</span><span>的</span><span>误</span><span>会</span> -->
-                </h3>
-                <h3 id=p7_s80>
-                    <!-- o(TヘTo) -->
-                </h3>
-            </div>
-        </div>
-        <!-- PK前转场页面 end -->
-
-        <!-- pk start -->
-        <div class="page bg none" id="pk">
-            <div class="bg">
-                <img src="images/pk/pk_right_bg.jpg">
-            </div>
-
-            <!-- 血条 css: n_0, n_25, n_75-->
-            <div class="pk-blood pk__right-blood" data-top="60">
-                <div class="num" style="width: 100%" id="pk_health_bar"></div>
-            </div>
-
-            <div class="boy-8" data-top="320">
-                <img src="images/boy/boy-8.png">
-            </div>
-            <div class="boy-9 none" data-top="170">
-                <img src="images/boy/boy-9.png">
-                <div class="pk__right-fish" data-top="245">
-                    <img src="images/pk/pk_fish.png">
-                </div>
-            </div>
-            <div class="boy-12 none" data-top="170">
-                <img src="images/boy/boy-12.png">
-            </div>
-            <div class="pk-btn pk__right-btn" data-top="737">
-                <img src="images/pk/pk_btn.png">
-            </div>
-
-            <div class="pk-ko pk__right-ko none" data-top="301">
-                <img src="images/pk/pk_ko.png">
-            </div>
-
-            <div class="pk-cat pk__right-cat" data-top="330">
-                <img src="images/pk/pk_cat.png">
-            </div>
-        </div>
-        <!-- pk end -->
-
-        <!-- 牵手页面 start -->
-        <div class="page bg none" id="p9">
-            <div class="bg">
-                <img src="images/scene/scene_right_bg-4.jpg">
-            </div>
-
-            <div class="bg p9-phone none" data-step="s10">
-                <img src="images/scene/scene_right_phone.png">
-            </div>
-            <!-- <div class="p9__right_phone-m" data-top="208">
-                <img src="images/scene/scene_phone-2.png">
-            </div> -->
-
-            <div class="boy-10 none" data-step="s20" data-top="213">
-                <img src="images/boy/boy-10.png">
-            </div>
-            <div class="boy-11 none" data-step="s10" data-top="213">
-                <img src="images/boy/boy-11.png">
-            </div>
-        </div>
-        <!-- 牵手页面 end -->
-
-        <!-- 牵手之后过场页面 start -->
-        <div class="page bg none" id="p10">
-            <div class="bg">
-                <img src="images/scene/scene_bg-5.jpg">
-            </div>
-
-            <div class="p10__right_phone-m auto-x" data-top="120">
-                <img src="images/scene/scene_phone-4.png">
-            </div>
-        </div>
-        <!-- 牵手之后过场页面 end -->
-
-        <!-- 抽奖页 start -->
-        <div class="page bg none" id="p11">
-            <div class="bg">
-                <img src="images/scene/scene_bg-5.jpg">
-            </div>
-            <div class="p11-cat shake">
-                <img src="images/scene/scene_last-cat.png">
-            </div>
-            <div class="bg_black3 auto-x auto-y" data-step="s10"></div>
-
-            <!-- 抽奖按钮 -->
-            <!-- <div class="p11__btn-1 auto-x" data-top="146" data-step="s10">
-                <img src="images/scene/scene_last-1.png">
-            </div> -->
-
-            <!-- 无奖提示 -->
-            <div class="p11__tips-1 auto-x none" data-step="s10" data-top="146">
-                <div class="p11__btn-1">
-                    <img src="images/scene/scene_last-2.png">
-                </div>
-                <div class="button auto-x p11__btn-2">
-                    <img src="images/scene/scene_btn-2.png">
-                </div>
-            </div>
-        </div>
-        <!-- 抽奖页 end -->
 
         <!--音乐 start-->
         <div id="music">
@@ -341,6 +91,53 @@
 
 
     <link rel="stylesheet" type="text/css" href="style/print.css">
+
+    <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="./js/boy-page/loading.js"></script>
+    <script src="./js/boy-page/p1.js"></script>
+    <script src="./js/boy-page/p6.js"></script>
+    <script src="./js/boy-page/p7.js"></script>
+    <script src="./js/boy-page/p9.js"></script>
+    <script src="./js/boy-page/p11.js"></script>
+    <script src="./js/boy-page/pk.js"></script>
+
+
+    <script src="./js/boySceneList.js"></script>
+    <script src="./js/scene.js"></script>
+    <script src="./js/boy.js"></script>
+    <script>
+        var keyTime = 200;
+        var openid = 'y1231';
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        window.onload = function() {
+            resetTop();
+            music('bgm');
+            window.socket = io.connect('http://115.159.69.89:3002');
+            window.girlid = getQueryString('fxzid');
+            window.boy = new Boy(openid, girlid, socket)
+            window.scene = new Scene(sceneList, boy);
+            window.boy.connect();
+            window.scene.next();
+
+            window.boy.on("girl.disconnect", function() {
+                document.getElementById("socket").classList.remove('none');
+                document.querySelector(".socket__tips-btn").addEventListener("click", function() {
+                    var currentHref = window.location.href.replace("boy", "girl");
+                    currentHref = currentHref.replace(/\?[\s\S]*/, "");
+
+                    window.location = currentHref;
+                });
+            });
+        }
+    </script>
+
     <script type="text/javascript" src="js/other.js"></script>
 </body>
 
