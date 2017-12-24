@@ -37,7 +37,7 @@
         var myid = getQueryString('myid');
         window.onload = function() {
             resetTop();
-            music('bgm');
+            // music('bgm');
 
             window.socket = io.connect('http://115.159.69.89:3002');
             window.girl = new Girl('x444', socket)
@@ -245,13 +245,13 @@
                 <img src="images/scene/scene_left_bg-1.jpg">
             </div>
 
-            <div class="girl-3 none" data-step="s60" data-top="637">
+            <div class="girl-3 none" data-step="s100" data-top="637">
                 <img src="images/girl/girl-3.png">
             </div>
-            <div class="girl-4 none" data-step="s10,s20,s21,s30,s31,s40,s41,s50" data-top="274">
+            <div class="girl-4 none" data-step="s10,s20,s30,s40,s50,s70,s80,s90" data-top="274">
                 <img src="images/girl/girl-4.png">
             </div>
-            <div class="girl-6 none" data-step="s80" data-top="274">
+            <div class="girl-6 none" data-step="" data-top="274">
                 <img src="images/girl/girl-6.png">
             </div>
 
@@ -260,13 +260,13 @@
                 <div class="p4__tips-1 none" data-step="s20">
                     <img src="images/p4/tips-1.png">
                 </div>
-                <div class="p4__tips-3 none" data-step="s30" data-top="140">
+                <div class="p4__tips-3 none" data-step="s40" data-top="140">
                     <img src="images/p4/tips-3.png">
                 </div>
-                <div class="p4__tips-5 none" data-step="s40" data-top="-5">
+                <div class="p4__tips-5 none" data-step="s70" data-top="-5">
                     <img src="images/p4/tips-5.png">
                 </div>
-                <div class="p4__tips-7 none" data-step="s50" data-top="518">
+                <div class="p4__tips-7 none" data-step="s90" data-top="518">
                     <img src="images/p4/tips-7.png">
                 </div>
             </div>
@@ -279,7 +279,7 @@
                 <img src="images/scene/scene_left_bg-2.jpg">
             </div>
 
-            <div class="girl-6" data-top="600">
+            <div class="girl-6" data-step="s10" data-top="600">
                 <img src="images/girl/girl-6.png">
             </div>
         </div>

@@ -49,7 +49,7 @@ function setElement(width) {
  */
 function resetTop(height) {
      var clientHeight = document.documentElement.clientHeight,
-        currHeight = height ? Math.min(width, clientHeight) : clientHeight;
+        currHeight = height ? Math.min(height, clientHeight) : clientHeight;
 
     scale = currHeight / 1040,
         resetTopDoms = document.querySelectorAll('[data-top]'),
