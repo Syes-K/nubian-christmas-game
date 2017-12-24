@@ -14,6 +14,8 @@ function startP0() {
         if (prize.code) {
             document.querySelector("#p0-prize-code").innerHTML = prize.code;
         }
+    } else {
+        document.querySelector(".cover__btn-prize").classList.add("none");
     }
     document.querySelector(".cover__btn").addEventListener("click", function() {
         scene.next();
