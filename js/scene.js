@@ -98,15 +98,29 @@ Scene.prototype.enter = function(scene) {
     var self = this;
     self.currentScene = scene;
     var pageId = scene.name.split('.')[0];
+    var templateDir = (window.girl ? 'girl' : 'boy');
     if (loadingScenes.indexOf(pageId) > -1) {
-        self._processEnter(scene);
-    } else {
-        var templateDir = (window.girl ? 'girl' : 'boy');
-        jQuery.get("./template/" + templateDir + "/" + pageId + '.html').then(function(html) {
-            $(".warp").append(html);
-            resetTop();
+        setTimeout(function(){
             self._processEnter(scene);
-            loadingScenes.push(pageId);
+        });
+    } else {
+        jQuery.get("./template/" + templateDir + "/" + pageId + '.html').then(function(html) {
+            if (loadingScenes.indexOf(pageId) < 0) {
+                $(".warp").append(html);
+                resetTop();
+                loadingScenes.push(pageId);
+            }
+            self._processEnter(scene);
+        });
+    }
+    var nextPageid = self._findNextPageId(scene);
+    if (nextPageid && loadingScenes.indexOf(nextPageid) < 0) {
+        jQuery.get("./template/" + templateDir + "/" + nextPageid + '.html').then(function(html) {
+            if (loadingScenes.indexOf(nextPageid) < 0) {
+                $(".warp").append(html);
+                resetTop();
+                loadingScenes.push(nextPageid);
+            }
         });
     }
 }
@@ -146,6 +160,20 @@ Scene.prototype._processEnter = function(scene) {
         }, scene.autoFinshTime) //临时修改
     }
     self._emit("scene." + scene.name + '.enter');
+}
+
+Scene.prototype._findNextPageId = function(scene) {
+    var self = this;
+    var idx = self.scenes.indexOf(scene);
+    var len = self.scenes.length;
+    var nextPageId;
+    for (var i = idx + 1; i < len; i++) {
+        if (scene.name.split(".")[0] != self.scenes[i].name.split(".")[0]) {
+            nextPageId = self.scenes[i].name.split(".")[0];
+            break;
+        }
+    }
+    return nextPageId;
 }
 
 Scene.prototype.finish = function(scene, callback) {
