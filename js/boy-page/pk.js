@@ -41,6 +41,7 @@ function startPk() {
         attackStatus(attackStatusElement[0]);
         // todo
         setTimeout(function() {
+            console.log('pk 男 跳转', new Date())
             scene.next();
         }, 2000)
     });

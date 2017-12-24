@@ -18,18 +18,21 @@ var sceneList = [{
     start: startP2,
     autoFinshTime: 600, // 自动完成改场景
 }, {
+    // 文字气泡
     name: "p2.s20",
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 5000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
+    // 图形气泡
     name: "p2.s21",
     autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
+    //女孩（蹲）
     name: "p2.s30",
     autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
@@ -76,8 +79,9 @@ var sceneList = [{
         eventName: 'boy.p1.finish'
     }
 }, {
+    // 文字气泡
     name: "p4.s20",
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 5000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
@@ -87,8 +91,9 @@ var sceneList = [{
         type: 'last.finish'
     }
 }, {
+    // 文字气泡
     name: "p4.s40",
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 5000, // 自动完成改场景
     enterTrigger: {
         type: 'event',
         eventName: 'boy.p2.s30.finish'
@@ -100,8 +105,9 @@ var sceneList = [{
         type: 'last.finish'
     }
 }, {
+    // 文字气泡
     name: "p4.s70",
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 5000, // 自动完成改场景
     enterTrigger: {
         type: 'event',
         eventName: 'boy.p2.s60.finish'
@@ -112,8 +118,9 @@ var sceneList = [{
         type: 'last.finish'
     }
 }, {
+    // 文字气泡
     name: "p4.s90",
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 5000, // 自动完成改场景
     enterTrigger: {
         type: 'event',
         eventName: 'boy.p2.s80.finish'
@@ -125,6 +132,7 @@ var sceneList = [{
         type: 'last.finish'
     }
 }, {
+    // 女孩
     name: "p5.s10",
     autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
@@ -150,14 +158,16 @@ var sceneList = [{
         eventName: 'boy.p6.s20.finish'
     }
 }, {
+    // 文字气泡
     name: "p6.s30",
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 5000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
+    // 文字气泡
     name: "p6.s40",
-    autoFinshTime: 2000, // 自动完成改场景
+    autoFinshTime: 5000, // 自动完成改场景
     enterTrigger: {
         type: 'event',
         eventName: 'boy.p6.s40.finish'
@@ -171,14 +181,16 @@ var sceneList = [{
         eventName: 'boy.p6.s50.finish'
     }
 }, {
+    // 文字气泡
     name: "p6.s60",
-    autoFinshTime: 2000,
+    autoFinshTime: 6000,
     enterTrigger: {
         type: 'last.finish'
     }
 }, {
+    // 文字气泡
     name: "p6.s70",
-    autoFinshTime: 2000,
+    autoFinshTime: 5000,
     enterTrigger: {
         type: 'last.finish'
     }
@@ -224,10 +236,7 @@ var sceneList = [{
 }, {
     name: "p9.s10",
     start: startP9S1O,
-    autoFinshTime: 2000, // 自动完成改场景
-    enterTrigger: {
-        type: 'last.finish'
-    }
+    autoFinshTime: 2000 // 自动完成改场景
 }, {
     name: "p9.s20",
     start: startP9S2O,
