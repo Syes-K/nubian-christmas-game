@@ -35,7 +35,7 @@ function startP2() {
         scene.next();
     });
 
-    
+
 
     function showTip(selector) {
         document.querySelector("#p2 .p2__tips").classList.remove("none");
@@ -57,6 +57,8 @@ function startP2() {
 }
 
 function startP2S70() {
+    window.socket = io.connect('http://115.159.69.89:3002');
+    girl.connect(window.socket);
     var qrcode = new QRCode(document.getElementById("qr-code"), {
         width: 100,
         height: 100

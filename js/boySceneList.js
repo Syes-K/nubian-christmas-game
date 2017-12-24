@@ -196,7 +196,7 @@ var sceneList = [{
     }
 }, {
     name: "p11.s10",
-    // start: startP11S10,
+    start: startP11S10,
     autoFinshTime: 2000, // 自动完成改场景
     enterTrigger: {
         type: 'last.finish'
