@@ -1,4 +1,5 @@
 function startP11S10(){
+    girl.finishGame();
     document.querySelector(".p11__btn-1").addEventListener("click", function() {
         $.get(config.drawUrl, {
             openid: openid,

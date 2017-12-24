@@ -170,3 +170,10 @@ Girl.prototype.finishScene = function(scene) {
         'msg': scene.name
     });
 }
+Girl.prototype.finishGame = function() {
+    var self = this;
+    clearInterval(self.connecttingTimer);
+    clearInterval(self.ckeckBoyConnectedTimer);
+    clearInterval(self.autoLostHealthTimer);
+    socket.close();
+}
