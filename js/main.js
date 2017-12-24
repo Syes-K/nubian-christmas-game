@@ -139,6 +139,18 @@ function music(musicName) {
 }
 
 
+/**
+ * 动态添加音频
+ */
+function addMusic(muscic) {
+    var sound = new Audio();  
+    //选择文件  
+    sound.src = "bgm/" + type + ".mp3";
+    //播放  
+    sound.play();
+}
+
+
 //识别系统及客户端
 function is_weixn() {
     var ua = navigator.userAgent.toLowerCase();

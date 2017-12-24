@@ -36,7 +36,7 @@
             music('bgm');
 
             window.socket = io.connect('http://115.159.69.89:3002');
-            window.girl = new Girl('x1', socket)
+            window.girl = new Girl('x2', socket)
             window.scene = new Scene(sceneList, girl);
             var restart = getQueryString("restart");
             if (restart) {
