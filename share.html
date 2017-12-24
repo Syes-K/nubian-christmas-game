@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>h6app_jssdk.min.js使用示例</title>
+    <script type="text/javascript">
+        //支持的统计工具平台 
+        window.platform = [
+            { "name": "_czc", "id": "1261272165" }, //name,统计平台名称;id:统计平台id
+            { "name": "_hmt", "id": "ee8ef5fbc89d7ddf4b05aea86fe78bc0" }
+        ];
+        window.h6app_shareConfig = {
+            'shareData': {
+                title: '我是分享标题',
+                desc: '我是分享描述',
+                imgUrl: '',
+                link: window.location.href
+            },
+            'timeLineTitle': '我才是朋友圈标题', //选填，朋友圈标题，未填写将会取值shareData.title 
+            'timeLineImgUrl': '', //选填，朋友圈图片信息，未填写将会取值shareData.imgUrl
+            success: function() { //分享成功回调 alert('分享成功');
+            },
+            cancel: function() {
+                alert('取消分享');
+            },
+            fromGroup: "group",
+            fromSingle: "",
+            fromTimline: "",
+            toFriend: "",
+            toTimeLine: "",
+            //分享取消回调
+            //选填，统计来源群组名称，默认为 来自微信群 //选填，统计来源好友名称，默认为 来自好友
+            //选填，统计来源空间名称，默认为 来自朋友圈 //选填，统计分享到好友和群组名称，默认为 好友和群组
+            //选填，统计分享到QQ空间名称，默认为 朋友圈
+        };
+    </script>
+
+    <span style="display:none;"><script src="https://s19.cnzz.com/z_stat.php?id=1271449814&web_id=1271449814" language="JavaScript"></script></span>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js">
+    </script>
+    <script type="text/javascript" src="http://cdn.h5case.com.cn/h6app_jssdk.1.0.min.js">
+    </script>
+</head>
+
+<body>
+    <span style="display: none">
+        <script id="cnzz" src="https://s11.cnzz.com/z_stat.php? id=1261272165&web_id=1261272165" language="JavaScript"></script>
+    </span></body>
+
+</html>
