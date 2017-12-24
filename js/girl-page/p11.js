@@ -9,37 +9,39 @@ function startP11S10(){
             // {"code":1,"msg":"","data":{"code":"N1Q2Y3","flag":"1"}}
             document.querySelector('.p11__btn-1').classList.add('none');
 
-            let s = [{
-                code: 1,
-                data: {
-                    flag: 1,
-                    code: '11'
-                }
-            },{
-                code: 1,
-                data: {
-                    flag: 2,
-                    code: '12'
-                }
-            },{
-                code: 1,
-                data: {
-                    flag: 3,
-                    code: '13'
-                }
-            },{
-                code: 1,
-                data: {
-                    flag: 4,
-                    code: '14'
-                }
-            }]
-            rs = s[1];
+            // let s = [{
+            //     code: 1,
+            //     data: {
+            //         flag: 1,
+            //         code: '11'
+            //     }
+            // },{
+            //     code: 2,
+            //     data: {
+            //         flag: 2,
+            //         code: '12'
+            //     }
+            // },{
+            //     code: 1,
+            //     data: {
+            //         flag: 3,
+            //         code: '13'
+            //     }
+            // },{
+            //     code: 1,
+            //     data: {
+            //         flag: 4,
+            //         code: '14'
+            //     }
+            // }]
+            // rs = s[1];
             
             if(rs.code == 0){
                 // 未中奖
                 document.querySelector('.p11__tips-1').classList.remove('none');
             } else if(rs.code == 1){
+                if(!rs.data || !rs.data.flag) return;
+
                 // 中奖
                 document.querySelector('.p11__tips-2').classList.remove('none');
 
@@ -80,7 +82,18 @@ function startP11S10(){
                 })
 
             } else {rs.code == 2}{
+                if(!rs.data || !rs.data.flag) return;
                 
+                let dom = $('[data-flag="1"]'); 
+                if(rs.data.flag == 1){
+                    dom.find('.prize-coupon_text span').text('【 兑换码：' + rs.data.code + ' 】');
+                } else {
+                    dom = $('.p11__prize-5');
+                    dom.find('.prize-code').text(rs.data.code);
+                    $('.p11__tips-2').removeClass('none');
+                }   
+
+                dom.removeClass('none'); 
             }
         });
     })
