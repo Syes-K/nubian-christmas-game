@@ -136,8 +136,15 @@ Scene.prototype.enter = function(scene) {
 
 Scene.prototype.finish = function(scene) {
     var self = this;
-    self._emit("scene." + scene.name + '.finish');
-    self.character.finishScene(scene)
+    if (scene.leaveClass) {
+        setTimeout(function() {
+            self._emit("scene." + scene.name + '.finish');
+            self.character.finishScene(scene)
+        }, 500);
+    } else {
+        self._emit("scene." + scene.name + '.finish');
+        self.character.finishScene(scene)
+    }
 }
 Scene.prototype.next = function() {
     var self = this;
