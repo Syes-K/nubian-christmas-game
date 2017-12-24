@@ -104,6 +104,7 @@ Scene.prototype.enter = function(scene) {
         var templateDir = (window.girl ? 'girl' : 'boy');
         jQuery.get("./template/" + templateDir + "/" + pageId + '.html').then(function(html) {
             $(".warp").append(html);
+            resetTop();
             self._processEnter(scene);
             loadingScenes.push(pageId);
         });
