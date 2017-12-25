@@ -1,3 +1,5 @@
+let currentWidth, currentHeight;
+
 setElement();
 
 window.config = {
@@ -29,9 +31,9 @@ document.addEventListener("touchmove", function(event) {
 /**
  * 宽度计算基准字体大小
  */
-function setElement(width) {
+function setElement() {
     var clientWidth = document.documentElement.clientWidth,
-        currWidth = width ? Math.min(width, clientWidth) : clientWidth;
+        currWidth = currentWidth || clientWidth;
 
     scale = currWidth / 320,
         fontSize = Math.ceil(scale * 100);
@@ -49,9 +51,9 @@ function setElement(width) {
 /**
  * 重置元素Top
  */
-function resetTop(height) {
+function resetTop() {
      var clientHeight = document.documentElement.clientHeight,
-        currHeight = height ? Math.min(height, clientHeight) : clientHeight;
+        currHeight = currentHeight || clientHeight;
 
 
     scale = currHeight / 1040,
@@ -63,7 +65,6 @@ function resetTop(height) {
             let top = dom.dataset.top;
             if (top) {
                 dom.style.top = parseFloat(top) * scale + 'px';
-                // console.log(dom);
             }
         })
     }
@@ -73,15 +74,18 @@ function resetTop(height) {
  * 大屏适配小屏
  */
 function resetSize(width, height){
-    setElement(width);
-    resetTop(height);
-
     let wrap = document.querySelector('.warp');
     let clientWidth = document.documentElement.clientWidth;
     let clientHeight = document.documentElement.clientHeight;
 
-    wrap.style.width = Math.min(width, clientWidth) + 'px';
-    wrap.style.height = Math.min(height, clientHeight) + 'px';
+    currentWidth = Math.min(width, clientWidth);
+    currentHeight = Math.min(height, clientHeight);
+
+    wrap.style.width = currentWidth + 'px';
+    wrap.style.height = currentHeight + 'px';
+    
+    setElement();
+    resetTop();
 }
 
 /**

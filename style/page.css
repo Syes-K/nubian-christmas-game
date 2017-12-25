@@ -490,7 +490,7 @@
 }
 .p5__right-phone {
     top: 3.05rem;
-    left: 1.29rem;
+    right: 1.05rem;
     transform: scaleX(-1);
 }
 
