@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="style/common.css" />
     <link rel="stylesheet" href="style/page.css" />
     <script type="text/javascript" src="js/main.js"></script>
-    
+    <script>
+        function randomUuid() {
+            return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+                const r = Math.random() * 16 | 0;
+                const v = c === "x" ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -92,6 +100,11 @@
 
     <link rel="stylesheet" type="text/css" href="style/print.css">
 
+    <!-- 微信userinfo -start-  -->
+    <script type="text/javascript" src="js/weixin.js"></script>
+    <script src="//cdn.h5case.com.cn/h6app_userInfo.1.1.0.min.js"></script>
+    <!-- 微信userinfo -end-  -->
+
     <script type="text/javascript" src="http://115.159.69.89:3002/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="./js/boy-page/loading.js"></script>
@@ -108,7 +121,8 @@
     <script src="./js/boy.js"></script>
     <script>
         var keyTime = 200;
-        var openid = 'y1231';
+        var openid = getOpenid();
+        var sign = getSign();
 
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
