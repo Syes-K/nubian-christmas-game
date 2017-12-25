@@ -111,6 +111,9 @@ function startP11S10(){
 }
 function startP11S20(){
     document.querySelector(".p11__btn-2").addEventListener("click", function() {
-        location.href = config.gameGirlUrl;
+        // location.href = config.gameGirlUrl;
+        var currentHref = window.location.href.replace("boy", "girl");
+        currentHref = currentHref.replace(/\?[\s\S]*/, "");
+        window.location = currentHref;
     })
 }
