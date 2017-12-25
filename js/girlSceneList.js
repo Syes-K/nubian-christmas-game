@@ -46,6 +46,7 @@ var sceneList = [{
     }
 }, {
     name: "p2.s50",
+    start: startP2S50
     // autoFinshTime: 2000, // 自动完成改场景
     // enterTrigger: {
     //     type: 'last.finish'

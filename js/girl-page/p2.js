@@ -37,7 +37,6 @@ function startP2() {
     });
 
 
-
     function showTip(selector) {
         document.querySelector("#p2 .p2__tips").classList.remove("none");
         document.querySelectorAll("#p2 .p2__tips>*").forEach(function(el) {
@@ -70,14 +69,27 @@ function startP2S70() {
     boyHref += "?fxzid=" + girl.id;
     qrcode.makeCode(boyHref);
 }
+var lightTimer;
 
 function startP2S50() {
+    var lightPhone = document.querySelector("#p2 .p2__phone.light");
+    lightTimer = setInterval(function() {
+        if (lightPhone.classList.contains("light")) {
+            lightPhone.classList.remove("light");
+        } else {
+            lightPhone.classList.add("light");
+        }
+    }, 700)
     setTimeout(function() {
         gotoP2S60();
-    },5000)
+    }, 5000)
 
 }
+
 function gotoP2S60() {
+    if(lightTimer){
+        window.clearInterval(lightTimer);
+    }
     if (scene.currentScene.name === 'p2.s50') {
         scene.next();
     }
